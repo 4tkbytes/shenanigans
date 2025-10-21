@@ -1,0 +1,45 @@
+(
+    path: "/home/tirbofish/project2/src",
+    nodes: [
+        Folder((
+            name: "commonMain",
+            path: "/home/tirbofish/project2/src/commonMain",
+            nodes: [
+                Folder((
+                    name: "kotlin",
+                    path: "/home/tirbofish/project2/src/commonMain/kotlin",
+                    nodes: [
+                        Folder((
+                            name: "com",
+                            path: "/home/tirbofish/project2/src/commonMain/kotlin/com",
+                            nodes: [
+                                Folder((
+                                    name: "example",
+                                    path: "/home/tirbofish/project2/src/commonMain/kotlin/com/example",
+                                    nodes: [
+                                        Folder((
+                                            name: "mygame",
+                                            path: "/home/tirbofish/project2/src/commonMain/kotlin/com/example/mygame",
+                                            nodes: [
+                                                File(ResourceFile(
+                                                    name: "Player.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
+                                                    resource_type: Script,
+                                                )),
+                                            ],
+                                        )),
+                                    ],
+                                )),
+                            ],
+                        )),
+                    ],
+                )),
+            ],
+        )),
+        File(ResourceFile(
+            name: "source.eucc",
+            path: "src/source.eucc",
+            resource_type: Config,
+        )),
+    ],
+)

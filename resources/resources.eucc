@@ -1,0 +1,25 @@
+(
+    path: "/home/tirbofish/project2/resources",
+    nodes: [
+        Folder((
+            name: "models",
+            path: "/home/tirbofish/project2/resources/models",
+            nodes: [],
+        )),
+        Folder((
+            name: "shaders",
+            path: "/home/tirbofish/project2/resources/shaders",
+            nodes: [],
+        )),
+        Folder((
+            name: "textures",
+            path: "/home/tirbofish/project2/resources/textures",
+            nodes: [],
+        )),
+        File(ResourceFile(
+            name: "resources.eucc",
+            path: "resources/resources.eucc",
+            resource_type: Config,
+        )),
+    ],
+)
