@@ -1,8 +1,8 @@
 (
     project_name: "MyGame",
-    project_path: "/home/tirbofish/project2",
+    project_path: "C:\\Users\\thrib\\project2",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-10-21 12:49:47",
+    date_last_accessed: "2025-10-22 03:10:23",
     dock_layout: Some((
         surfaces: [
             Main((

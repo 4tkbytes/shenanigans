@@ -4,7 +4,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinxSerialization)
-    id("magna-carta") version "1.0-SNAPSHOT"
+//    id("magna-carta") version "1.0-SNAPSHOT"
 }
 
 group = "com.example.mygame"

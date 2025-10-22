@@ -13,9 +13,9 @@
             ),
             properties: (
                 custom_properties: {
-                    "tiles_z": Int(200),
-                    "width": Float(500.0),
                     "tiles_x": Int(500),
+                    "width": Float(500.0),
+                    "tiles_z": Int(200),
                     "height": Float(200.0),
                 },
             ),
@@ -2947,9 +2947,9 @@
             ),
             properties: (
                 custom_properties: {
-                    "distance": Float(5.0),
                     "speed": Float(0.5),
                     "heightOffset": Float(1.5),
+                    "distance": Float(5.0),
                 },
             ),
             script: Some((
