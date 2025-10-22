@@ -5,7 +5,11 @@ import com.dropbear.Runnable
 import com.dropbear.System
 import com.dropbear.input.KeyCode
 import com.dropbear.logging.Logger
+import com.dropbear.math.Quaternion
+import com.dropbear.math.Vector2D
 import com.dropbear.math.Vector3D
+import com.dropbear.math.degreesToRadians
+import com.dropbear.math.normalizeAngle
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -15,9 +19,8 @@ class Player: System() {
     private var lastModelPosition = Vector3D.zero()
     private var isMoving = false
     private val rotationDefault = Vector3D.zero()
-
-    private val thirdPersonDistance = 5.0
-    private val cameraOffset = Vector3D(0.0, 2.0, 0.0)
+    private var firstFrame = false
+    private var lastMousePosition = Vector2D.zero()
 
     override fun load(engine: DropbearEngine) {
         Logger.info("Initialised Player")
@@ -29,6 +32,11 @@ class Player: System() {
         val speed = entity.getProperty<Float>("speed") ?: return
         val transform = entity.getTransform() ?: return
         val camera = entity.getAttachedCamera() ?: return
+
+        if (firstFrame) {
+            input.setCursorLocked(true)
+            firstFrame = false
+        }
 
         val prevPos = transform.position.copy()
         isMoving = false
@@ -65,7 +73,11 @@ class Player: System() {
 
         entity.setTransform(transform)
 
-        val delta = input.getMouseDelta()
+        val mousePosition = input.getMousePosition()
+
+        val delta = mousePosition - this.lastMousePosition
+        this.lastMousePosition = mousePosition
+
         val xOffset = delta.x * camera.sensitivity
         val yOffset = delta.y * camera.sensitivity
 
@@ -80,52 +92,30 @@ class Player: System() {
             sin(degreesToRadians(camera.yaw)) * cos(degreesToRadians(camera.pitch))
         ).normalize()
 
+        val thirdPersonDistance = entity.getProperty<Double>("distance") ?: 0.0
+        val cameraOffset = Vector3D(0.0, entity.getProperty("heightOffset") ?: 2.0, 0.0)
+
         camera.eye = transform.position - (front * thirdPersonDistance) + cameraOffset
         camera.target = transform.position + cameraOffset
 
-//        if (transform.position != lastModelPosition && isMoving) {
-//            val normalizedYaw = normalizeAngle(camera.yaw)
-//            val targetYRotation = -degreesToRadians(normalizedYaw)
-//
-//            transform.rotation = Vector3D(
-//                rotationDefault.x,
-//                targetYRotation,
-//                rotationDefault.z
-//            )
-//            entity.setTransform(transform)
-//
-//            lastModelPosition = transform.position.copy()
-//        }
+        if (transform.position != lastModelPosition && isMoving) {
+            val normalizedYaw = normalizeAngle(camera.yaw)
+            val targetYRotation = -degreesToRadians(normalizedYaw)
+
+            transform.rotation = Quaternion.fromEulerAngles(
+                rotationDefault.x,
+                targetYRotation,
+                rotationDefault.z
+            )
+            entity.setTransform(transform)
+
+            lastModelPosition = transform.position.copy()
+        }
 
         if (prevPos != transform.position) {
             Logger.info("[Player] Player's position changed: $prevPos -> ${transform.position}")
         }
 
-
-        camera.setCamera() // Push camera
+        camera.setCamera()
     }
 }
-
-fun degreesToRadians(degrees: Double): Double = degrees * PI / 180
-
-fun normalizeAngle(angle: Double): Double {
-    var normalized = angle % 360.0
-    if (normalized > 180.0) {
-        normalized -= 360.0
-    } else if (normalized < -180.0) {
-        normalized += 360.0
-    }
-    return normalized
-}
-
-fun normalizeRadians(radians: Double): Double {
-    var normalized = radians % (2 * PI)
-    if (normalized > PI) {
-        normalized -= 2 * PI
-    } else if (normalized < -PI) {
-        normalized += 2 * PI
-    }
-    return normalized
-}
-
-fun Vector3D.copy(): Vector3D = Vector3D(this.x, this.y, this.z)
