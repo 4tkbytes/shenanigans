@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "/home/tirbofish/project2",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-10-25 10:18:36",
+    date_last_accessed: "2025-10-25 10:50:21",
     dock_layout: Some((
         surfaces: [
             Main((

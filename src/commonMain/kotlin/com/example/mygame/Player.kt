@@ -82,10 +82,7 @@ class Player: System() {
 
         entity.setTransform(transform)
 
-        val mousePosition = input.getMousePosition()
-
-        val delta = mousePosition - this.lastMousePosition
-        this.lastMousePosition = mousePosition
+        val delta = input.getMouseDelta()
 
         val xOffset = delta.x * camera.sensitivity
         val yOffset = delta.y * camera.sensitivity
