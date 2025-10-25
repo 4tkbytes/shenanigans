@@ -4,7 +4,13 @@
         Folder((
             name: "models",
             path: "/home/tirbofish/project2/resources/models",
-            nodes: [],
+            nodes: [
+                File(ResourceFile(
+                    name: "fish.glb",
+                    path: "resources/models/fish.glb",
+                    resource_type: Model,
+                )),
+            ],
         )),
         Folder((
             name: "shaders",
