@@ -6,7 +6,6 @@ import com.dropbear.System
 import com.dropbear.input.KeyCode
 import com.dropbear.logging.Logger
 import com.dropbear.math.Quaternion
-import com.dropbear.math.Vector2D
 import com.dropbear.math.Vector3D
 import com.dropbear.math.degreesToRadians
 import com.dropbear.math.normalizeAngle
@@ -18,7 +17,6 @@ class Player: System() {
     private var lastModelPosition = Vector3D.zero()
     private var isMoving = false
     private val rotationDefault = Vector3D.zero()
-    private var lastMousePosition = Vector2D.zero()
     private var isLocked = false
 
     override fun load(engine: DropbearEngine) {
@@ -74,7 +72,7 @@ class Player: System() {
         if (movement.length() > 0.0) {
             movement.normalize()
             val displacement = movement * speed.toDouble()
-            transform.position = transform.position + displacement
+            transform.position += displacement
             isMoving = true
         } else {
             isMoving = false

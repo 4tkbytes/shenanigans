@@ -26,6 +26,11 @@
                                                     path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
                                                     resource_type: Script,
                                                 )),
+                                                File(ResourceFile(
+                                                    name: "Spin.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Spin.kt",
+                                                    resource_type: Script,
+                                                )),
                                             ],
                                         )),
                                     ],

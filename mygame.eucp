@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "/home/tirbofish/project2",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-10-25 10:50:21",
+    date_last_accessed: "2025-10-25 12:10:30",
     dock_layout: Some((
         surfaces: [
             Main((
@@ -171,7 +171,7 @@
                         collapsed: false,
                     )),
                 ],
-                focused_node: Some((11)),
+                focused_node: Some((12)),
                 collapsed: false,
                 collapsed_leaf_count: 0,
             )),
@@ -197,6 +197,6 @@
         ),
     )),
     editor_settings: (
-        is_debug_menu_shown: false,
+        is_debug_menu_shown: true,
     ),
 )
