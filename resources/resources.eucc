@@ -1,30 +1,35 @@
 (
-    path: "/home/tirbofish/project2/resources",
+    path: "C:\\Users\\thrib\\project2\\resources",
     nodes: [
         Folder((
             name: "models",
-            path: "/home/tirbofish/project2/resources/models",
+            path: "C:\\Users\\thrib\\project2\\resources\\models",
             nodes: [
                 File(ResourceFile(
                     name: "fish.glb",
-                    path: "resources/models/fish.glb",
+                    path: "resources\\models\\fish.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "horse.glb",
+                    path: "resources\\models\\horse.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "low_poly_penguin.glb",
+                    path: "resources\\models\\low_poly_penguin.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "maxwell_the_cat.glb",
+                    path: "resources\\models\\maxwell_the_cat.glb",
                     resource_type: Model,
                 )),
             ],
         )),
-        Folder((
-            name: "shaders",
-            path: "/home/tirbofish/project2/resources/shaders",
-            nodes: [],
-        )),
-        Folder((
-            name: "textures",
-            path: "/home/tirbofish/project2/resources/textures",
-            nodes: [],
-        )),
         File(ResourceFile(
             name: "resources.eucc",
-            path: "resources/resources.eucc",
+            path: "resources\\resources.eucc",
             resource_type: Config,
         )),
     ],

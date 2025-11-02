@@ -1,100 +1,6 @@
 (
-    scene_name: "Default",
+    scene_name: "something_else",
     entities: [
-        (
-            model_path: (
-                ref_type: File("models/fish.glb"),
-            ),
-            label: "fish",
-            transform: (
-                position: (0.0, 1.0, 2.0),
-                rotation: (-0.0007956920697244209, -0.0007969603417827465, -0.0007956920697244209, 0.9999990493007851),
-                scale: (1.0, 1.0, 1.0),
-            ),
-            properties: (
-                custom_properties: [
-                    (
-                        id: 0,
-                        key: "rotSpeed",
-                        value: Float(10.0),
-                    ),
-                    (
-                        id: 1,
-                        key: "speed",
-                        value: Float(1.0),
-                    ),
-                    (
-                        id: 2,
-                        key: "distance",
-                        value: Float(396.2),
-                    ),
-                    (
-                        id: 3,
-                        key: "heightOffset",
-                        value: Float(130.6),
-                    ),
-                ],
-                next_id: 4,
-            ),
-            script: Some((
-                tags: [
-                    "spin",
-                    "player",
-                ],
-            )),
-            camera: Some((
-                label: "fish camera",
-                camera_type: Player,
-                position: (-507.57382955034814, 159.86814866319096, 2.440398560898802),
-                target: (-506.5870566908252, 159.70606322368775, 2.4431615321260587),
-                up: (0.0, 1.0, 0.0),
-                aspect: 2.527147087857848,
-                fov: 60.0,
-                near: 0.1,
-                far: 100.0,
-                speed: 1.0,
-                sensitivity: 0.1,
-                starting_camera: false,
-            )),
-        ),
-        (
-            model_path: (
-                ref_type: Plane,
-            ),
-            label: "DefaultPlane",
-            transform: (
-                position: (0.0, 0.0, 0.0),
-                rotation: (-0.0007956920697244209, -0.0007969603417827465, -0.0007956920697244209, 0.9999990493007851),
-                scale: (1.0, 1.0, 1.0),
-            ),
-            properties: (
-                custom_properties: [
-                    (
-                        id: 0,
-                        key: "width",
-                        value: Float(500.0),
-                    ),
-                    (
-                        id: 1,
-                        key: "height",
-                        value: Float(200.0),
-                    ),
-                    (
-                        id: 2,
-                        key: "tiles_x",
-                        value: Int(500),
-                    ),
-                    (
-                        id: 3,
-                        key: "tiles_z",
-                        value: Int(200),
-                    ),
-                ],
-                next_id: 4,
-            ),
-            script: None,
-            camera: None,
-        ),
         (
             model_path: (
                 ref_type: Bytes([
@@ -3015,18 +2921,14 @@
             label: "Default Cube",
             transform: (
                 position: (0.0, 0.0, 0.0),
-                rotation: (-0.0007956920697244209, -0.0007969603417827465, -0.0007956920697244209, 0.9999990493007851),
+                rotation: (0.0, 0.0, 0.0, 1.0),
                 scale: (1.0, 1.0, 1.0),
             ),
             properties: (
                 custom_properties: [],
                 next_id: 0,
             ),
-            script: Some((
-                tags: [
-                    "spin",
-                ],
-            )),
+            script: None,
             camera: None,
         ),
     ],
@@ -3034,10 +2936,10 @@
         (
             label: "Viewport Camera",
             camera_type: Debug,
-            position: (46.33456276593997, 162.00489572017779, 311.4342227806536),
-            target: (46.09875198472648, 161.54241038183991, 310.57952950977455),
+            position: (0.0, 1.0, 2.0),
+            target: (0.0, 0.0, 0.0),
             up: (0.0, 1.0, 0.0),
-            aspect: 2.527147087857848,
+            aspect: 2.537165510406343,
             fov: 60.0,
             near: 0.1,
             far: 100.0,
@@ -3045,32 +2947,18 @@
             sensitivity: 0.1,
             starting_camera: false,
         ),
-        (
-            label: "Camera",
-            camera_type: Normal,
-            position: (-12.443051874739702, 2.3296153361506784, 1.0991487297705027),
-            target: (-11.46351923491499, 2.179389866238994, 0.9651781520011832),
-            up: (0.0, 1.0, 0.0),
-            aspect: 2.527147087857848,
-            fov: 70.0,
-            near: 0.1,
-            far: 100.0,
-            speed: 1.0,
-            sensitivity: 0.1,
-            starting_camera: true,
-        ),
     ],
     lights: [
         (
             label: "Default Light",
             transform: (
                 position: (2.0, 4.0, 2.0),
-                rotation: (-0.0007956920697244209, -0.0007969603417827465, -0.0007956920697244209, 0.9999990493007851),
+                rotation: (-0.5857789035052755, 0.20502261622684642, 0.0, 0.7841101982780586),
                 scale: (1.0, 1.0, 1.0),
             ),
             light_component: (
                 position: (0.0, 0.0, 0.0),
-                direction: (0.0, 0.0, 0.0),
+                direction: (-0.3215206485222377, -0.9186304243492507, -0.22965760608731267),
                 colour: (1.0, 1.0, 1.0),
                 light_type: Directional,
                 intensity: 1.0,

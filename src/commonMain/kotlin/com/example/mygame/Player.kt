@@ -24,7 +24,7 @@ class Player: System() {
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Float) {
-        val entity = engine.getEntity("fish") ?: return
+        val entity = engine.getEntity("horse.glb") ?: return
         val input = engine.getInputState()
         val speed = entity.getProperty<Float>("speed") ?: return
         val transform = entity.getTransform() ?: return
@@ -81,6 +81,7 @@ class Player: System() {
         entity.setTransform(transform)
 
         val delta = input.getMouseDelta()
+        println("Delta: $delta")
 
         val xOffset = delta.x * camera.sensitivity
         val yOffset = delta.y * camera.sensitivity
