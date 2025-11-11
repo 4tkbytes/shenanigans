@@ -10,6 +10,31 @@
                     path: "resources/models/fish.glb",
                     resource_type: Model,
                 )),
+                File(ResourceFile(
+                    name: "ToyCar.glb",
+                    path: "resources/models/ToyCar.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "Fox.glb",
+                    path: "resources/models/Fox.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "Avocado.glb",
+                    path: "resources/models/Avocado.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "horse.glb",
+                    path: "resources/models/horse.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "maxwell_the_cat.glb",
+                    path: "resources/models/maxwell_the_cat.glb",
+                    resource_type: Model,
+                )),
             ],
         )),
         Folder((
