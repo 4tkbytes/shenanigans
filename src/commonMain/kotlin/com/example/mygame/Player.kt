@@ -24,11 +24,13 @@ class Player: System() {
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Float) {
-        val entity = engine.getEntity("horse.glb") ?: return
+        val entity = currentEntity ?: return
         val input = engine.getInputState()
         val speed = entity.getProperty<Float>("speed") ?: return
         val transform = entity.getTransform() ?: return
         val camera = entity.getAttachedCamera() ?: return
+
+        transform.rotation.rotateX(degreesToRadians(1.0))
 
         if (input.isKeyPressed(KeyCode.KeyF)) {
             isLocked = !isLocked

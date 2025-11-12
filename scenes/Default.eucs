@@ -1,0 +1,202 @@
+(
+    scene_name: "Default",
+    entities: [
+        (
+            model_path: (
+                ref_type: File("euca://models/ToyCar.glb"),
+            ),
+            label: ("ToyCar.glb"),
+            transform: (
+                position: (-265.5275282232477, 23.676934490234977, 807.8635096301948),
+                rotation: (0.7071067811865475, 0.0, 0.0, 0.7071067811865476),
+                scale: (1.0, 1.0, 1.0),
+            ),
+            properties: (
+                custom_properties: [],
+                next_id: 0,
+            ),
+            script: None,
+            camera: None,
+            children: None,
+            material_overrides: [],
+        ),
+        (
+            model_path: (
+                ref_type: File("euca://models/fish.glb"),
+            ),
+            label: ("fish.glb"),
+            transform: (
+                position: (-943.7748176306233, 122.40084583170054, 536.4436261189024),
+                rotation: (0.0, 0.0, 0.0, 1.0),
+                scale: (1.0, 1.0, 1.0),
+            ),
+            properties: (
+                custom_properties: [],
+                next_id: 0,
+            ),
+            script: None,
+            camera: None,
+            children: None,
+            material_overrides: [],
+        ),
+        (
+            model_path: (
+                ref_type: File("euca://models/Avocado.glb"),
+            ),
+            label: ("Avocado.glb"),
+            transform: (
+                position: (0.0, 0.7243112605185122, 0.0),
+                rotation: (0.0, 0.0, 0.0, 1.0),
+                scale: (1000.0, 1000.0, 1000.0),
+            ),
+            properties: (
+                custom_properties: [
+                    (
+                        id: 0,
+                        key: "texture",
+                        value: Bool(false),
+                    ),
+                    (
+                        id: 1,
+                        key: "toggle_model",
+                        value: Bool(false),
+                    ),
+                ],
+                next_id: 2,
+            ),
+            script: Some((
+                tags: [
+                    "avocado",
+                ],
+            )),
+            camera: None,
+            children: None,
+            material_overrides: [],
+        ),
+        (
+            model_path: (
+                ref_type: Plane,
+            ),
+            label: ("DefaultPlane"),
+            transform: (
+                position: (0.0, 0.0, 0.0),
+                rotation: (0.0, 0.0, 0.0, 1.0),
+                scale: (1.0, 1.0, 1.0),
+            ),
+            properties: (
+                custom_properties: [
+                    (
+                        id: 0,
+                        key: "width",
+                        value: Float(500.0),
+                    ),
+                    (
+                        id: 1,
+                        key: "height",
+                        value: Float(200.0),
+                    ),
+                    (
+                        id: 2,
+                        key: "tiles_x",
+                        value: Int(500),
+                    ),
+                    (
+                        id: 3,
+                        key: "tiles_z",
+                        value: Int(200),
+                    ),
+                ],
+                next_id: 5,
+            ),
+            script: Some((
+                tags: [
+                    "scan",
+                ],
+            )),
+            camera: None,
+            children: None,
+            material_overrides: [],
+        ),
+        (
+            model_path: (
+                ref_type: File("euca://models/maxwell_the_cat.glb"),
+            ),
+            label: ("maxwell_the_cat.glb"),
+            transform: (
+                position: (51.117950103472005, 224.8170868969304, 580.2400614288404),
+                rotation: (-0.7071067811865475, 0.0, 0.0, 0.7071067811865476),
+                scale: (1.0, 1.0, 1.0),
+            ),
+            properties: (
+                custom_properties: [],
+                next_id: 0,
+            ),
+            script: Some((
+                tags: [
+                    "spin",
+                ],
+            )),
+            camera: None,
+            children: None,
+            material_overrides: [],
+        ),
+    ],
+    cameras: [
+        (
+            label: "Viewport Camera",
+            camera_type: Debug,
+            position: (-41.95496592854566, 197.6961305692832, -520.999303330475),
+            target: (-42.05056633212039, 197.52694821522286, -520.0183660776851),
+            up: (0.0, 1.0, 0.0),
+            aspect: 2.527147087857848,
+            fov: 60.0,
+            near: 0.1,
+            far: 100.0,
+            speed: 0.25,
+            sensitivity: 0.1,
+            starting_camera: false,
+        ),
+        (
+            label: "Camera",
+            camera_type: Normal,
+            position: (11.90444112801203, 66.03627696876853, -328.4279908723829),
+            target: (11.920030547669882, 65.95636227479936, -327.4313110784257),
+            up: (0.0, 1.0, 0.0),
+            aspect: 2.527147087857848,
+            fov: 60.0,
+            near: 0.1,
+            far: 100.0,
+            speed: 1.0,
+            sensitivity: 0.1,
+            starting_camera: true,
+        ),
+    ],
+    lights: [
+        (
+            label: "Default Light",
+            transform: (
+                position: (0.0, 3.3, 0.0),
+                rotation: (0.08200020779177139, 0.5687656435041809, 0.5687656435041809, 0.5884617672038315),
+                scale: (1.0, 1.0, 1.0),
+            ),
+            light_component: (
+                position: (0.0, 0.0, 0.0),
+                direction: (0.0, 0.0, -1.0),
+                colour: (1.0, 1.0, 1.0),
+                light_type: Directional,
+                intensity: 1.0,
+                attenuation: (
+                    range: 50.0,
+                    constant: 1.0,
+                    linear: 0.09,
+                    quadratic: 0.032,
+                ),
+                enabled: true,
+                visible: true,
+                cutoff_angle: 12.5,
+                outer_cutoff_angle: 17.5,
+            ),
+            enabled: true,
+        ),
+    ],
+)

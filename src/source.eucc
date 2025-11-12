@@ -1,34 +1,29 @@
 (
-    path: "C:\\Users\\thrib\\project2\\src",
+    path: "/home/tirbofish/project2/src",
     nodes: [
         Folder((
             name: "commonMain",
-            path: "C:\\Users\\thrib\\project2\\src\\commonMain",
+            path: "/home/tirbofish/project2/src/commonMain",
             nodes: [
                 Folder((
                     name: "kotlin",
-                    path: "C:\\Users\\thrib\\project2\\src\\commonMain\\kotlin",
+                    path: "/home/tirbofish/project2/src/commonMain/kotlin",
                     nodes: [
                         Folder((
                             name: "com",
-                            path: "C:\\Users\\thrib\\project2\\src\\commonMain\\kotlin\\com",
+                            path: "/home/tirbofish/project2/src/commonMain/kotlin/com",
                             nodes: [
                                 Folder((
                                     name: "example",
-                                    path: "C:\\Users\\thrib\\project2\\src\\commonMain\\kotlin\\com\\example",
+                                    path: "/home/tirbofish/project2/src/commonMain/kotlin/com/example",
                                     nodes: [
                                         Folder((
                                             name: "mygame",
-                                            path: "C:\\Users\\thrib\\project2\\src\\commonMain\\kotlin\\com\\example\\mygame",
+                                            path: "/home/tirbofish/project2/src/commonMain/kotlin/com/example/mygame",
                                             nodes: [
                                                 File(ResourceFile(
-                                                    name: "Player.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\Player.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
                                                     name: "Spin.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\Spin.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Spin.kt",
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
@@ -39,6 +34,11 @@
                                                 File(ResourceFile(
                                                     name: "Avocado.kt",
                                                     path: "src/commonMain/kotlin/com/example/mygame/Avocado.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "Player.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
                                                     resource_type: Script,
                                                 )),
                                             ],
@@ -53,7 +53,7 @@
         )),
         File(ResourceFile(
             name: "source.eucc",
-            path: "src\\source.eucc",
+            path: "src/source.eucc",
             resource_type: Config,
         )),
     ],

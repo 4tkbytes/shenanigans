@@ -33,7 +33,7 @@ kotlin {
 
     val libName = when {
         hostOs == "Mac OS X" -> "libeucalyptus_core.dylib"
-        hostOs == "Linux" -> "libeucalyptus_core.so"
+        hostOs == "Linux" -> "libeucalyptus_core.a"
         isMingwX64 -> "eucalyptus_core.dll.lib"
         else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
     }

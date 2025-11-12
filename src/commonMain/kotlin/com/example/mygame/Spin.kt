@@ -10,7 +10,6 @@ import com.dropbear.math.degreesToRadians
 class Spin: System() {
     override fun update(engine: DropbearEngine, deltaTime: Float) {
         val entity = this.currentEntity ?: return
-        val prop = entity.getProperty<Boolean>("exists") ?: return
         val transform = entity.getTransform() ?: return
         val delta = Quaternion.rotateY(degreesToRadians(3.0))
         transform.rotation = delta * transform.rotation

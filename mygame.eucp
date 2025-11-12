@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "/home/tirbofish/project2",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-11-11 06:22:36",
+    date_last_accessed: "2025-11-12 13:12:39",
     dock_layout: Some((
         surfaces: [
             Main((
@@ -11,7 +11,7 @@
                         rect: (
                             min: (
                                 x: 8.0,
-                                y: 30.0,
+                                y: 44.0,
                             ),
                             max: (
                                 x: 2552.0,
@@ -26,7 +26,7 @@
                         rect: (
                             min: (
                                 x: 8.0,
-                                y: 30.0,
+                                y: 44.0,
                             ),
                             max: (
                                 x: 438.0,
@@ -36,7 +36,7 @@
                         viewport: (
                             min: (
                                 x: 8.0,
-                                y: 54.0,
+                                y: 68.0,
                             ),
                             max: (
                                 x: 438.0,
@@ -54,7 +54,7 @@
                         rect: (
                             min: (
                                 x: 439.0,
-                                y: 30.0,
+                                y: 44.0,
                             ),
                             max: (
                                 x: 2552.0,
@@ -71,7 +71,7 @@
                         rect: (
                             min: (
                                 x: 439.0,
-                                y: 30.0,
+                                y: 44.0,
                             ),
                             max: (
                                 x: 2169.0,
@@ -86,7 +86,7 @@
                         rect: (
                             min: (
                                 x: 2170.0,
-                                y: 30.0,
+                                y: 44.0,
                             ),
                             max: (
                                 x: 2552.0,
@@ -96,7 +96,7 @@
                         viewport: (
                             min: (
                                 x: 2170.0,
-                                y: 54.0,
+                                y: 68.0,
                             ),
                             max: (
                                 x: 2552.0,
@@ -118,21 +118,21 @@
                         rect: (
                             min: (
                                 x: 439.0,
-                                y: 30.0,
+                                y: 44.0,
                             ),
                             max: (
                                 x: 2169.0,
-                                y: 727.0,
+                                y: 731.0,
                             ),
                         ),
                         viewport: (
                             min: (
                                 x: 439.0,
-                                y: 54.0,
+                                y: 68.0,
                             ),
                             max: (
                                 x: 2169.0,
-                                y: 727.0,
+                                y: 731.0,
                             ),
                         ),
                         tabs: [
@@ -146,7 +146,7 @@
                         rect: (
                             min: (
                                 x: 439.0,
-                                y: 728.0,
+                                y: 732.0,
                             ),
                             max: (
                                 x: 2169.0,
@@ -156,7 +156,7 @@
                         viewport: (
                             min: (
                                 x: 439.0,
-                                y: 752.0,
+                                y: 756.0,
                             ),
                             max: (
                                 x: 2169.0,
@@ -171,7 +171,7 @@
                         collapsed: false,
                     )),
                 ],
-                focused_node: Some((1)),
+                focused_node: Some((6)),
                 collapsed: false,
                 collapsed_leaf_count: 0,
             )),
@@ -199,5 +199,5 @@
     editor_settings: (
         is_debug_menu_shown: true,
     ),
-    last_opened_scene: Some("Default"),
+    last_opened_scene: Some("map"),
 )
