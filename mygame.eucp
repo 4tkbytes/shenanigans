@@ -1,8 +1,19 @@
 (
     project_name: "MyGame",
-    project_path: "/home/tirbofish/project2",
+    project_path: "C:\\Users\\thrib\\shenanigans",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-11-12 13:12:39",
+    date_last_accessed: "2025-12-13 03:38:53",
+    project_version: None,
+    authors: (
+        developer: "Unknown",
+    ),
+    editor_settings: (
+        is_debug_menu_shown: true,
+    ),
+    runtime_settings: (
+        initial_scene: Some("map"),
+    ),
+    last_opened_scene: Some("map"),
     dock_layout: Some((
         surfaces: [
             Main((
@@ -15,92 +26,62 @@
                             ),
                             max: (
                                 x: 2552.0,
-                                y: 1005.0,
+                                y: 1001.0,
                             ),
                         ),
-                        fraction: 0.16910243,
+                        fraction: 0.18702357,
                         fully_collapsed: false,
                         collapsed_leaf_count: 0,
                     )),
-                    Leaf((
+                    Vertical((
                         rect: (
                             min: (
                                 x: 8.0,
                                 y: 44.0,
                             ),
                             max: (
-                                x: 438.0,
-                                y: 1005.0,
+                                x: 483.0,
+                                y: 1001.0,
                             ),
                         ),
-                        viewport: (
-                            min: (
-                                x: 8.0,
-                                y: 68.0,
-                            ),
-                            max: (
-                                x: 438.0,
-                                y: 1005.0,
-                            ),
-                        ),
-                        tabs: [
-                            ResourceInspector,
-                        ],
-                        active: (0),
-                        scroll: 0.0,
-                        collapsed: false,
+                        fraction: 0.5,
+                        fully_collapsed: false,
+                        collapsed_leaf_count: 0,
                     )),
                     Horizontal((
                         rect: (
                             min: (
-                                x: 439.0,
+                                x: 484.0,
                                 y: 44.0,
                             ),
                             max: (
                                 x: 2552.0,
-                                y: 1005.0,
+                                y: 1001.0,
                             ),
                         ),
-                        fraction: 0.8191204,
-                        fully_collapsed: false,
-                        collapsed_leaf_count: 0,
-                    )),
-                    Empty,
-                    Empty,
-                    Vertical((
-                        rect: (
-                            min: (
-                                x: 439.0,
-                                y: 44.0,
-                            ),
-                            max: (
-                                x: 2169.0,
-                                y: 1005.0,
-                            ),
-                        ),
-                        fraction: 0.7158573,
+                        fraction: 0.75458455,
                         fully_collapsed: false,
                         collapsed_leaf_count: 0,
                     )),
                     Leaf((
                         rect: (
                             min: (
-                                x: 2170.0,
+                                x: 8.0,
                                 y: 44.0,
                             ),
                             max: (
-                                x: 2552.0,
-                                y: 1005.0,
+                                x: 483.0,
+                                y: 522.0,
                             ),
                         ),
                         viewport: (
                             min: (
-                                x: 2170.0,
+                                x: 8.0,
                                 y: 68.0,
                             ),
                             max: (
-                                x: 2552.0,
-                                y: 1005.0,
+                                x: 483.0,
+                                y: 522.0,
                             ),
                         ),
                         tabs: [
@@ -110,29 +91,53 @@
                         scroll: 0.0,
                         collapsed: false,
                     )),
-                    Empty,
-                    Empty,
-                    Empty,
-                    Empty,
                     Leaf((
                         rect: (
                             min: (
-                                x: 439.0,
-                                y: 44.0,
+                                x: 8.0,
+                                y: 523.0,
                             ),
                             max: (
-                                x: 2169.0,
-                                y: 731.0,
+                                x: 483.0,
+                                y: 1001.0,
                             ),
                         ),
                         viewport: (
                             min: (
-                                x: 439.0,
+                                x: 8.0,
+                                y: 547.0,
+                            ),
+                            max: (
+                                x: 483.0,
+                                y: 1001.0,
+                            ),
+                        ),
+                        tabs: [
+                            AssetViewer,
+                        ],
+                        active: (0),
+                        scroll: 0.0,
+                        collapsed: false,
+                    )),
+                    Leaf((
+                        rect: (
+                            min: (
+                                x: 484.0,
+                                y: 44.0,
+                            ),
+                            max: (
+                                x: 2044.0,
+                                y: 1001.0,
+                            ),
+                        ),
+                        viewport: (
+                            min: (
+                                x: 484.0,
                                 y: 68.0,
                             ),
                             max: (
-                                x: 2169.0,
-                                y: 731.0,
+                                x: 2044.0,
+                                y: 1001.0,
                             ),
                         ),
                         tabs: [
@@ -145,26 +150,26 @@
                     Leaf((
                         rect: (
                             min: (
-                                x: 439.0,
-                                y: 732.0,
+                                x: 2045.0,
+                                y: 44.0,
                             ),
                             max: (
-                                x: 2169.0,
-                                y: 1005.0,
+                                x: 2552.0,
+                                y: 1001.0,
                             ),
                         ),
                         viewport: (
                             min: (
-                                x: 439.0,
-                                y: 756.0,
+                                x: 2045.0,
+                                y: 68.0,
                             ),
                             max: (
-                                x: 2169.0,
-                                y: 1005.0,
+                                x: 2552.0,
+                                y: 1001.0,
                             ),
                         ),
                         tabs: [
-                            AssetViewer,
+                            ResourceInspector,
                         ],
                         active: (0),
                         scroll: 0.0,
@@ -196,8 +201,4 @@
             ),
         ),
     )),
-    editor_settings: (
-        is_debug_menu_shown: true,
-    ),
-    last_opened_scene: Some("map"),
 )

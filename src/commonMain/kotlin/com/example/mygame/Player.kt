@@ -24,16 +24,22 @@ class Player: System() {
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Float) {
-        val entity = currentEntity ?: return
+        engine.callExceptionOnError(true)
+
+        val entity = this.currentEntity ?: throw Exception("Player entity not found")
         val input = engine.getInputState()
-        val speed = entity.getProperty<Float>("speed") ?: return
+
+        val speed = entity.getProperty<Double>("speed") ?: throw Exception("Player speed not set")
+        val thirdPersonDistance = entity.getProperty<Double>("distance") ?: throw Exception("Failed to get third person distance")
+        val heightOffset = entity.getProperty<Double>("heightOffset") ?: throw Exception("Failed to get heightOffset")
+        val cameraOffset = Vector3D(0.0, heightOffset, 0.0)
+
         val transform = entity.getTransform() ?: return
         val camera = entity.getAttachedCamera() ?: return
 
-        transform.rotation.rotateX(degreesToRadians(1.0))
-
         if (input.isKeyPressed(KeyCode.KeyF)) {
             isLocked = !isLocked
+            println("Toggled lock: ${!isLocked} -> $isLocked")
         }
 
         if (isLocked) {
@@ -54,27 +60,33 @@ class Player: System() {
 
         if (input.isKeyPressed(KeyCode.KeyW)) {
             movement += forward
+            println("W")
         }
         if (input.isKeyPressed(KeyCode.KeyS)) {
             movement -= forward
+            println("S")
         }
         if (input.isKeyPressed(KeyCode.KeyA)) {
             movement += right
+            println("A")
         }
         if (input.isKeyPressed(KeyCode.KeyD)) {
             movement -= right
+            println("D")
         }
         if (input.isKeyPressed(KeyCode.Space)) {
             movement += up
+            println("Space")
         }
         if (input.isKeyPressed(KeyCode.ShiftLeft)) {
             movement -= up
+            println("Shift")
         }
 
         if (movement.length() > 0.0) {
             movement.normalize()
             val displacement = movement * speed.toDouble()
-            transform.position += displacement
+            transform.world.position += displacement
             isMoving = true
         } else {
             isMoving = false
@@ -83,10 +95,9 @@ class Player: System() {
         entity.setTransform(transform)
 
         val delta = input.getMouseDelta()
-        println("Delta: $delta")
 
-        val xOffset = delta.x * camera.sensitivity
-        val yOffset = delta.y * camera.sensitivity
+        val xOffset = delta.x
+        val yOffset = delta.y
 
         camera.yaw += xOffset
         camera.pitch += yOffset
@@ -94,31 +105,36 @@ class Player: System() {
         camera.pitch = camera.pitch.coerceIn(-89.0, 89.0)
 
         if (isLocked) {
-            val front = Vector3D(
-                cos(degreesToRadians(camera.yaw)) * cos(degreesToRadians(camera.pitch)),
-                sin(degreesToRadians(camera.pitch)),
-                sin(degreesToRadians(camera.yaw)) * cos(degreesToRadians(camera.pitch))
-            ).normalize()
+            val delta = input.getMouseDelta()
+            val xOffset = delta.x * camera.sensitivity
+            val yOffset = delta.y * camera.sensitivity
 
-            val thirdPersonDistance = entity.getProperty<Double>("distance") ?: 0.0
-            val cameraOffset = Vector3D(0.0, entity.getProperty("heightOffset") ?: 2.0, 0.0)
-
-            camera.eye = transform.position - (front * thirdPersonDistance) + cameraOffset
-            camera.target = transform.position + cameraOffset
+            camera.yaw += xOffset
+            camera.pitch += yOffset
+            camera.pitch = camera.pitch.coerceIn(-89.0, 89.0)
         }
 
-        if (transform.position != lastModelPosition && isMoving) {
+        val front = Vector3D(
+            cos(degreesToRadians(camera.yaw)) * cos(degreesToRadians(camera.pitch)),
+            sin(degreesToRadians(camera.pitch)),
+            sin(degreesToRadians(camera.yaw)) * cos(degreesToRadians(camera.pitch))
+        ).normalize()
+
+        camera.eye = transform.world.position - (front * thirdPersonDistance) + cameraOffset
+        camera.target = transform.world.position + cameraOffset
+
+        if (transform.world.position != lastModelPosition && isMoving) {
             val normalizedYaw = normalizeAngle(camera.yaw)
             val targetYRotation = -degreesToRadians(normalizedYaw)
 
-            transform.rotation = Quaternion.fromEulerAngles(
+            transform.world.rotation = Quaternion.fromEulerAngles(
                 rotationDefault.x,
                 targetYRotation,
                 rotationDefault.z
             )
-            entity.setTransform(transform)
 
-            lastModelPosition = transform.position.copy()
+            entity.setTransform(transform)
+            lastModelPosition = transform.world.position.copy()
         }
 
         camera.setCamera()

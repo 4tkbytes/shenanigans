@@ -12,7 +12,7 @@ class Spin: System() {
         val entity = this.currentEntity ?: return
         val transform = entity.getTransform() ?: return
         val delta = Quaternion.rotateY(degreesToRadians(3.0))
-        transform.rotation = delta * transform.rotation
+        transform.world.rotation = delta * transform.world.rotation
         entity.setTransform(transform)
     }
 }
