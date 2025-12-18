@@ -2,29 +2,123 @@
     scene_name: "Default",
     entities: [
         (
-            label: ("ToyCar.glb"),
-            components: [],
+            label: ("Viewport Camera"),
+            components: [
+                {
+                    "type": "Camera3D",
+                    "label": "Viewport Camera",
+                    "transform": (
+                        position: (0.0, 1.0, 2.0),
+                        rotation: (-0.0, -0.9732489894677302, 0.22975292054736118, -0.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Debug,
+                    "aspect": 2.537165510406343,
+                    "fov": 60.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.1,
+                    "starting_camera": false,
+                },
+            ],
         ),
         (
-            label: ("fish.glb"),
-            components: [],
+            label: ("Stage Camera"),
+            components: [
+                {
+                    "type": "Camera3D",
+                    "label": "New Camera",
+                    "transform": (
+                        position: (6.788704289934078, 9.509771541989675, 13.768486834209973),
+                        rotation: (0.061682172292540964, -0.9367714229629802, 0.26977655070866574, 0.21418502148591392),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Normal,
+                    "aspect": 2.537165510406343,
+                    "fov": 92.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.1,
+                    "starting_camera": true,
+                },
+            ],
         ),
         (
-            label: ("Avocado.glb"),
-            components: [],
+            label: ("Default Light"),
+            components: [
+                {
+                    "type": "Light",
+                    "label": "Default Light",
+                    "transform": (
+                        position: (2.0, 4.0, 2.0),
+                        rotation: (-0.5857789035052755, 0.20502261622684642, 0.0, 0.7841101982780586),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "light_component": (
+                        position: (0.0, 0.0, 0.0),
+                        direction: (-0.3215206485222377, -0.9186304243492507, -0.22965760608731267),
+                        colour: (1.0, 1.0, 1.0),
+                        light_type: Directional,
+                        intensity: 1.0,
+                        attenuation: (
+                            range: 50.0,
+                            constant: 1.0,
+                            linear: 0.09,
+                            quadratic: 0.032,
+                        ),
+                        enabled: true,
+                        visible: true,
+                        cutoff_angle: 12.5,
+                        outer_cutoff_angle: 17.5,
+                    ),
+                    "enabled": true,
+                },
+            ],
         ),
         (
-            label: ("DefaultPlane"),
-            components: [],
+            label: ("cube"),
+            components: [
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
+                },
+            ],
         ),
         (
-            label: ("maxwell_the_cat.glb"),
-            components: [],
+            label: ("Global Scripts"),
+            components: [
+                {
+                    "type": "Script",
+                    "tags": [
+                        "scene",
+                    ],
+                },
+            ],
         ),
     ],
     hierarchy_map: (
         parent_map: {},
         children_map: {},
     ),
-    settings: (),
+    settings: (
+        preloaded: false,
+    ),
 )

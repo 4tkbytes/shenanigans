@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "C:\\Users\\thrib\\shenanigans",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-12-13 03:38:53",
+    date_last_accessed: "2025-12-18 12:11:23",
     project_version: None,
     authors: (
         developer: "Unknown",
@@ -119,7 +119,7 @@
                         scroll: 0.0,
                         collapsed: false,
                     )),
-                    Leaf((
+                    Vertical((
                         rect: (
                             min: (
                                 x: 484.0,
@@ -130,22 +130,9 @@
                                 y: 1001.0,
                             ),
                         ),
-                        viewport: (
-                            min: (
-                                x: 484.0,
-                                y: 68.0,
-                            ),
-                            max: (
-                                x: 2044.0,
-                                y: 1001.0,
-                            ),
-                        ),
-                        tabs: [
-                            Viewport,
-                        ],
-                        active: (0),
-                        scroll: 0.0,
-                        collapsed: false,
+                        fraction: 0.8171369,
+                        fully_collapsed: false,
+                        collapsed_leaf_count: 0,
                     )),
                     Leaf((
                         rect: (
@@ -175,8 +162,70 @@
                         scroll: 0.0,
                         collapsed: false,
                     )),
+                    Empty,
+                    Empty,
+                    Empty,
+                    Empty,
+                    Leaf((
+                        rect: (
+                            min: (
+                                x: 484.0,
+                                y: 44.0,
+                            ),
+                            max: (
+                                x: 2044.0,
+                                y: 826.0,
+                            ),
+                        ),
+                        viewport: (
+                            min: (
+                                x: 484.0,
+                                y: 68.0,
+                            ),
+                            max: (
+                                x: 2044.0,
+                                y: 826.0,
+                            ),
+                        ),
+                        tabs: [
+                            Viewport,
+                        ],
+                        active: (0),
+                        scroll: 0.0,
+                        collapsed: false,
+                    )),
+                    Leaf((
+                        rect: (
+                            min: (
+                                x: 484.0,
+                                y: 827.0,
+                            ),
+                            max: (
+                                x: 2044.0,
+                                y: 1001.0,
+                            ),
+                        ),
+                        viewport: (
+                            min: (
+                                x: 484.0,
+                                y: 851.0,
+                            ),
+                            max: (
+                                x: 2044.0,
+                                y: 1001.0,
+                            ),
+                        ),
+                        tabs: [
+                            ErrorConsole,
+                        ],
+                        active: (0),
+                        scroll: 0.0,
+                        collapsed: false,
+                    )),
+                    Empty,
+                    Empty,
                 ],
-                focused_node: Some((6)),
+                focused_node: Some((11)),
                 collapsed: false,
                 collapsed_leaf_count: 0,
             )),
