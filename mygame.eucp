@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "C:\\Users\\thrib\\shenanigans",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-12-18 12:11:23",
+    date_last_accessed: "2025-12-21 10:48:15",
     project_version: None,
     authors: (
         developer: "Unknown",
@@ -130,7 +130,7 @@
                                 y: 1001.0,
                             ),
                         ),
-                        fraction: 0.8171369,
+                        fraction: 0.8011364,
                         fully_collapsed: false,
                         collapsed_leaf_count: 0,
                     )),
@@ -174,7 +174,7 @@
                             ),
                             max: (
                                 x: 2044.0,
-                                y: 826.0,
+                                y: 810.0,
                             ),
                         ),
                         viewport: (
@@ -184,7 +184,7 @@
                             ),
                             max: (
                                 x: 2044.0,
-                                y: 826.0,
+                                y: 810.0,
                             ),
                         ),
                         tabs: [
@@ -198,7 +198,7 @@
                         rect: (
                             min: (
                                 x: 484.0,
-                                y: 827.0,
+                                y: 811.0,
                             ),
                             max: (
                                 x: 2044.0,
@@ -208,7 +208,7 @@
                         viewport: (
                             min: (
                                 x: 484.0,
-                                y: 851.0,
+                                y: 835.0,
                             ),
                             max: (
                                 x: 2044.0,
@@ -225,7 +225,7 @@
                     Empty,
                     Empty,
                 ],
-                focused_node: Some((11)),
+                focused_node: Some((12)),
                 collapsed: false,
                 collapsed_leaf_count: 0,
             )),

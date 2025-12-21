@@ -9,6 +9,7 @@ import com.dropbear.math.Quaternion
 import com.dropbear.math.Vector3D
 import com.dropbear.math.degreesToRadians
 import com.dropbear.math.normalizeAngle
+import com.dropbear.scene.SceneLoadHandle
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -18,6 +19,7 @@ class Player: System() {
     private var isMoving = false
     private val rotationDefault = Vector3D.zero()
     private var locked = true
+    private var sceneLoadingHandle: SceneLoadHandle? = null
 
     override fun load(engine: DropbearEngine) {
         Logger.info("Initialised Player")
@@ -80,8 +82,21 @@ class Player: System() {
         }
 
         if (input.isKeyPressed(KeyCode.F2)) {
-            println("F2 pressed")
-            scene.switchToSceneImmediate("Default")
+            Logger.info("F2 pressed")
+//            scene.switchToSceneImmediate("Default")
+            sceneLoadingHandle = scene.loadSceneAsync("Default")
+        }
+
+        sceneLoadingHandle?.let { load ->
+            val progress = load.progress()
+            if (load.isComplete()) {
+                load.switchTo()
+            } else if (load.hasFailed()) {
+                Logger.info("Error while loading \"Default\": ${progress.message}")
+                sceneLoadingHandle = null
+            } else {
+                Logger.info("\"Default\" scene loading progress: ${progress.percentage()}%, current message: ${progress.message}")
+            }
         }
 
         if (movement.length() > 0.0) {

@@ -1,28 +1,33 @@
 (
-    scene_name: "map",
+    scene_name: "level1",
     entities: [
         (
             label: ("Default Light"),
             components: [
                 {
+                    "type": "CustomProperties",
+                    "custom_properties": [],
+                    "next_id": 0,
+                },
+                {
                     "type": "Light",
                     "label": "Default Light",
                     "transform": (
-                        position: (2.0, 49.30991596801378, 2.0),
-                        rotation: (-0.5853695893131838, 0.17557192472272018, -0.021894467318418768, 0.7912253632545642),
+                        position: (2.0, 4.0, 2.0),
+                        rotation: (-0.5857789035052755, 0.20502261622684642, 0.0, 0.7841101982780586),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "light_component": (
                         position: (0.0, 0.0, 0.0),
                         direction: (-0.3215206485222377, -0.9186304243492507, -0.22965760608731267),
                         colour: (1.0, 1.0, 1.0),
-                        light_type: Point,
+                        light_type: Directional,
                         intensity: 1.0,
                         attenuation: (
-                            range: 325.0,
+                            range: 50.0,
                             constant: 1.0,
-                            linear: 0.014,
-                            quadratic: 0.0007,
+                            linear: 0.09,
+                            quadratic: 0.032,
                         ),
                         enabled: true,
                         visible: true,
@@ -30,11 +35,6 @@
                         outer_cutoff_angle: 17.5,
                     ),
                     "enabled": true,
-                },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [],
-                    "next_id": 0,
                 },
             ],
         ),
@@ -45,17 +45,95 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-199.57370036798864, 97.54501356548295, 4.348337200759758),
-                        rotation: (-0.06776048075969947, -0.7459294650418904, 0.07680343774187003, -0.6581025622048318),
+                        position: (1.75788318361487, 5.216902025105389, 14.955681945799302),
+                        rotation: (0.007820703823720045, -0.9907211523879583, 0.11906035783886719, 0.06507738465902259),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
-                    "aspect": 2.537165510406343,
+                    "aspect": 1.8011363636363635,
                     "fov": 60.0,
                     "near": 0.1,
                     "far": 100.0,
                     "speed": 1.0,
                     "sensitivity": 0.002,
+                    "starting_camera": false,
+                },
+            ],
+        ),
+        (
+            label: ("test"),
+            components: [
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
+                },
+                {
+                    "type": "Script",
+                    "tags": [],
+                },
+                {
+                    "type": "CustomProperties",
+                    "custom_properties": [],
+                    "next_id": 0,
+                },
+                {
+                    "type": "Light",
+                    "label": "New Light",
+                    "transform": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "light_component": (
+                        position: (0.0, 0.0, 0.0),
+                        direction: (0.0, 0.0, -1.0),
+                        colour: (1.0, 1.0, 1.0),
+                        light_type: Point,
+                        intensity: 1.0,
+                        attenuation: (
+                            range: 50.0,
+                            constant: 1.0,
+                            linear: 0.09,
+                            quadratic: 0.032,
+                        ),
+                        enabled: true,
+                        visible: true,
+                        cutoff_angle: 12.5,
+                        outer_cutoff_angle: 17.5,
+                    ),
+                    "enabled": true,
+                },
+                {
+                    "type": "Camera3D",
+                    "label": "test",
+                    "transform": (
+                        position: (0.0, 1.0, 2.0),
+                        rotation: (-0.0, -0.9732489894677303, 0.2297529205473612, -0.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Normal,
+                    "aspect": 2.537165403366089,
+                    "fov": 60.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.1,
                     "starting_camera": false,
                 },
             ],
@@ -68,7 +146,7 @@
                     "local": (
                         position: (0.0, 0.0, 0.0),
                         rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (704.4214445322128, 1.0, 330.7016244030004),
+                        scale: (1.0, 1.0, 1.0),
                     ),
                     "world": (
                         position: (0.0, 0.0, 0.0),
@@ -86,83 +164,19 @@
             ],
         ),
         (
-            label: ("elgato"),
-            components: [
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, -0.5078091647653111, -0.0, 0.8614695886567076),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
-                    "type": "Camera3D",
-                    "label": "elgato",
-                    "transform": (
-                        position: (-78.9196233034677, 67.98862749207741, -31.961454742268458),
-                        rotation: (0.13973990903630246, 0.6810469580504507, -0.13479522105222022, 0.7060297777956939),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "camera_type": Normal,
-                    "aspect": 2.537165510406343,
-                    "fov": 60.0,
-                    "near": 0.1,
-                    "far": 100.0,
-                    "speed": 1.0,
-                    "sensitivity": 0.01,
-                    "starting_camera": true,
-                },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [
-                        (
-                            id: 0,
-                            key: "distance",
-                            value: Float(86.0),
-                        ),
-                        (
-                            id: 1,
-                            key: "heightOffset",
-                            value: Float(39.5),
-                        ),
-                        (
-                            id: 2,
-                            key: "speed",
-                            value: Float(200.0),
-                        ),
-                        (
-                            id: 3,
-                            key: "locked",
-                            value: Bool(false),
-                        ),
-                    ],
-                    "next_id": 4,
-                },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://models/maxwell_the_cat.glb"),
-                    ),
-                    "material_override": [],
-                },
-                {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
-                },
-            ],
+            label: ("actual_map"),
+            components: [],
         ),
     ],
     hierarchy_map: (
-        parent_map: {},
-        children_map: {},
+        parent_map: {
+            ("floor"): ("actual_map"),
+        },
+        children_map: {
+            ("actual_map"): [
+                ("floor"),
+            ],
+        },
     ),
     settings: (
         preloaded: false,
