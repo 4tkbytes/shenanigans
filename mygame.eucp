@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "C:\\Users\\thrib\\shenanigans",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-12-21 10:48:15",
+    date_last_accessed: "2025-12-25 12:19:26",
     project_version: None,
     authors: (
         developer: "Unknown",
@@ -225,7 +225,7 @@
                     Empty,
                     Empty,
                 ],
-                focused_node: Some((12)),
+                focused_node: Some((3)),
                 collapsed: false,
                 collapsed_leaf_count: 0,
             )),

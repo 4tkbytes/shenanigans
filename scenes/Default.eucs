@@ -8,8 +8,8 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (0.0, 1.0, 2.0),
-                        rotation: (-0.0, -0.9732489894677303, 0.2297529205473612, -0.0),
+                        position: (-41.37039856712001, 29.46202405859786, -78.89679360904596),
+                        rotation: (0.15288722222988504, 0.24771681173860782, -0.03962112018499053, 0.9558724001121569),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
@@ -18,7 +18,7 @@
                     "near": 0.1,
                     "far": 100.0,
                     "speed": 1.0,
-                    "sensitivity": 0.1,
+                    "sensitivity": 0.002,
                     "starting_camera": false,
                 },
             ],
@@ -78,8 +78,15 @@
             ],
         ),
         (
-            label: ("cube"),
+            label: ("cube3"),
             components: [
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
+                },
                 {
                     "type": "EntityTransform",
                     "local": (
@@ -93,12 +100,55 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                 },
+            ],
+        ),
+        (
+            label: ("cube4"),
+            components: [
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
                         ref_type: File("euca://internal/dropbear/models/cube"),
                     ),
                     "material_override": [],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (1.5, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+            ],
+        ),
+        (
+            label: ("car"),
+            components: [
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://asdadasdadsa.glb"),
+                    ),
+                    "material_override": [],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (10.0, 10.0, 10.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
             ],
         ),

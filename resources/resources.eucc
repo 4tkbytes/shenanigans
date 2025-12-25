@@ -1,6 +1,11 @@
 (
     path: "C:\\Users\\thrib\\shenanigans\\resources",
     nodes: [
+        File(ResourceFile(
+            name: "asdadasdadsa.glb",
+            path: "resources\\asdadasdadsa.glb",
+            resource_type: Unknown,
+        )),
         Folder((
             name: "models",
             path: "C:\\Users\\thrib\\shenanigans\\resources\\models",

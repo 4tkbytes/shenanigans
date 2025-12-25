@@ -45,8 +45,8 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-199.57370036798864, 97.54501356548295, 4.348337200759758),
-                        rotation: (-0.06776048075969947, -0.7459294650418904, 0.07680343774187003, -0.6581025622048318),
+                        position: (-543.3522482154185, 236.9087463661515, 297.1545801018524),
+                        rotation: (-0.0873512932063576, -0.858261073691395, 0.15582435851076598, -0.48111999569336017),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
@@ -89,19 +89,6 @@
             label: ("elgato"),
             components: [
                 {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, -0.5078091647653111, -0.0, 0.8614695886567076),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "Camera3D",
                     "label": "elgato",
                     "transform": (
@@ -117,6 +104,32 @@
                     "speed": 1.0,
                     "sensitivity": 0.01,
                     "starting_camera": true,
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, -0.5078091647653111, -0.0, 0.8614695886567076),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://models/maxwell_the_cat.glb"),
+                    ),
+                    "material_override": [],
                 },
                 {
                     "type": "CustomProperties",
@@ -143,19 +156,6 @@
                         ),
                     ],
                     "next_id": 4,
-                },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://models/maxwell_the_cat.glb"),
-                    ),
-                    "material_override": [],
-                },
-                {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
                 },
             ],
         ),
