@@ -81,13 +81,6 @@
             label: ("cube3"),
             components: [
                 {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://internal/dropbear/models/cube"),
-                    ),
-                    "material_override": [],
-                },
-                {
                     "type": "EntityTransform",
                     "local": (
                         position: (0.0, 0.0, 0.0),
@@ -100,11 +93,6 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("cube4"),
-            components: [
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
@@ -112,6 +100,11 @@
                     ),
                     "material_override": [],
                 },
+            ],
+        ),
+        (
+            label: ("cube4"),
+            components: [
                 {
                     "type": "EntityTransform",
                     "local": (
@@ -125,18 +118,18 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                 },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
+                },
             ],
         ),
         (
             label: ("car"),
             components: [
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://asdadasdadsa.glb"),
-                    ),
-                    "material_override": [],
-                },
                 {
                     "type": "EntityTransform",
                     "local": (
@@ -149,6 +142,13 @@
                         rotation: (0.0, 0.0, 0.0, 1.0),
                         scale: (1.0, 1.0, 1.0),
                     ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://asdadasdadsa.glb"),
+                    ),
+                    "material_override": [],
                 },
             ],
         ),
@@ -167,6 +167,175 @@
     hierarchy_map: (
         parent_map: {},
         children_map: {},
+    ),
+    physics_state: (
+        islands: (
+            active_set: [],
+            active_islands: [],
+            active_islands_additional_solver_iterations: [],
+            active_set_timestamp: 0,
+        ),
+        broad_phase: (
+            tree: (
+                nodes: ([]),
+                parents: [],
+                leaf_node_indices: (
+                    n: 0,
+                    v: [],
+                ),
+            ),
+            pairs: [],
+            frame_index: 0,
+            optimization_strategy: SubtreeOptimizer,
+        ),
+        narrow_phase: (
+            contact_graph: (
+                graph: (
+                    nodes: [],
+                    edges: [],
+                ),
+            ),
+            intersection_graph: (
+                graph: (
+                    nodes: [],
+                    edges: [],
+                ),
+            ),
+            graph_indices: (
+                data: [],
+            ),
+        ),
+        bodies: (
+            bodies: (
+                items: [
+                    Free(
+                        next_free: Some(1),
+                    ),
+                    Free(
+                        next_free: Some(2),
+                    ),
+                    Free(
+                        next_free: Some(3),
+                    ),
+                    Free(
+                        next_free: None,
+                    ),
+                ],
+                generation: 0,
+                free_list_head: Some(0),
+                len: 0,
+            ),
+            modified_bodies: ([], ()),
+        ),
+        colliders: (
+            colliders: (
+                items: [
+                    Free(
+                        next_free: Some(1),
+                    ),
+                    Free(
+                        next_free: Some(2),
+                    ),
+                    Free(
+                        next_free: Some(3),
+                    ),
+                    Free(
+                        next_free: None,
+                    ),
+                ],
+                generation: 0,
+                free_list_head: Some(0),
+                len: 0,
+            ),
+            modified_colliders: ([], ()),
+            removed_colliders: [],
+        ),
+        impulse_joints: (
+            rb_graph_ids: (
+                data: [],
+            ),
+            joint_ids: (
+                items: [
+                    Free(
+                        next_free: Some(1),
+                    ),
+                    Free(
+                        next_free: Some(2),
+                    ),
+                    Free(
+                        next_free: Some(3),
+                    ),
+                    Free(
+                        next_free: None,
+                    ),
+                ],
+                generation: 0,
+                free_list_head: Some(0),
+                len: 0,
+            ),
+            joint_graph: (
+                graph: (
+                    nodes: [],
+                    edges: [],
+                ),
+            ),
+            to_wake_up: [],
+        ),
+        multibody_joints: (
+            multibodies: (
+                items: [
+                    Free(
+                        next_free: Some(1),
+                    ),
+                    Free(
+                        next_free: Some(2),
+                    ),
+                    Free(
+                        next_free: Some(3),
+                    ),
+                    Free(
+                        next_free: None,
+                    ),
+                ],
+                generation: 0,
+                free_list_head: Some(0),
+                len: 0,
+            ),
+            rb2mb: (
+                data: [],
+            ),
+            connectivity_graph: (
+                graph: (
+                    nodes: [],
+                    edges: [],
+                ),
+            ),
+            to_wake_up: [],
+        ),
+        ccd_solver: (),
+        integration_parameters: (
+            dt: 0.016666668,
+            min_ccd_dt: 0.00016666668,
+            contact_softness: (
+                natural_frequency: 30.0,
+                damping_ratio: 5.0,
+            ),
+            warmstart_coefficient: 1.0,
+            length_unit: 1.0,
+            normalized_allowed_linear_error: 0.001,
+            normalized_max_corrective_velocity: 10.0,
+            normalized_prediction_distance: 0.002,
+            num_solver_iterations: 4,
+            num_internal_pgs_iterations: 1,
+            num_internal_stabilization_iterations: 1,
+            min_island_size: 128,
+            max_ccd_substeps: 1,
+            friction_model: Simplified,
+        ),
+        gravity: (0.0, -9.81, 0.0),
+        bodies_entity_map: {},
+        colliders_entity_map: {},
+        entity_label_map: {},
     ),
     settings: (
         preloaded: false,

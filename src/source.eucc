@@ -22,23 +22,8 @@
                                             path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin\\com\\example\\mygame",
                                             nodes: [
                                                 File(ResourceFile(
-                                                    name: "Avocado.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\Avocado.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
                                                     name: "Player.kt",
                                                     path: "src\\commonMain\\kotlin\\com\\example\\mygame\\Player.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
-                                                    name: "SceneSwitcherScript.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\SceneSwitcherScript.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
-                                                    name: "Spin.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\Spin.kt",
                                                     resource_type: Script,
                                                 )),
                                             ],

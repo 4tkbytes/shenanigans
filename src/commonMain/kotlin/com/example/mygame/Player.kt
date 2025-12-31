@@ -2,46 +2,59 @@ package com.example.mygame
 
 import com.dropbear.DropbearEngine
 import com.dropbear.Runnable
-import com.dropbear.System
+import com.dropbear.components.Camera
+import com.dropbear.components.CustomProperties
+import com.dropbear.components.EntityTransform
+import com.dropbear.ecs.System
 import com.dropbear.input.Gamepad
 import com.dropbear.input.GamepadButton
 import com.dropbear.input.KeyCode
 import com.dropbear.logging.Logger
 import com.dropbear.math.Quaternion
-import com.dropbear.math.Vector3D
+import com.dropbear.math.Quaterniond
+import com.dropbear.math.Vector3d
+import com.dropbear.physics.AxisLock
+import com.dropbear.physics.Collider
+import com.dropbear.physics.ColliderGroup
+import com.dropbear.physics.ColliderShape
+import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
+import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
 
 @Runnable(["player"])
 class Player: System() {
-    private var lastModelPosition = Vector3D.zero()
+    private var lastModelPosition = Vector3d.zero()
     private var isMoving = false
-    private val rotationDefault = Vector3D.zero()
+    private val rotationDefault = Vector3d.zero()
     private var locked = true
     private var sceneLoadingHandle: SceneLoadHandle? = null
     private var oldGamepads: List<Gamepad> = emptyList()
 
     private var player1: Gamepad? = null
 
-    private var some_incrementing_variable: Int = 0
+    private var someIncrementingVariable: Int = 0
+    private var jumpForce: Double = 150.0
 
     override fun load(engine: DropbearEngine) {
         Logger.info("Initialised Player")
-        Logger.info("variable at mod init: $some_incrementing_variable")
+        Logger.info("variable at mod init: $someIncrementingVariable")
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Float) {
-        engine.callExceptionOnError(true)
+        someIncrementingVariable+=1
 
         val entity = this.currentEntity ?: throw Exception("Player entity not found")
-        val input = engine.getInputState()
-        val scene = engine.getSceneManager()
+        val input = engine.inputState
+        val scene = engine.sceneManager
 
-        val speed = (entity.getProperty<Double>("speed") ?: throw Exception("Player speed not set")) * deltaTime
-        val thirdPersonDistance = entity.getProperty<Double>("distance") ?: throw Exception("Failed to get third person distance")
-        val heightOffset = entity.getProperty<Double>("heightOffset") ?: throw Exception("Failed to get heightOffset")
-        val cameraOffset = Vector3D(0.0, heightOffset, 0.0)
+        val props = entity.getComponent(CustomProperties) ?: throw Exception("Player is required to have a CustomProperties type")
+
+        val speed = (props.getProperty<Double>("speed") ?: throw Exception("Player speed not set"))
+        val thirdPersonDistance = props.getProperty<Double>("distance") ?: throw Exception("Failed to get third person distance")
+        val heightOffset = props.getProperty<Double>("heightOffset") ?: throw Exception("Failed to get heightOffset")
+        val cameraOffset = Vector3d(0.0, heightOffset, 0.0)
 
         val gamepads = input.getConnectedGamepads()
 
@@ -70,8 +83,9 @@ class Player: System() {
             gamepads.find { it.id == player1?.id }?.let { player1 = it } // update state (for positioning)
         }
 
-        val transform = entity.getTransform() ?: return
-        val camera = entity.getAttachedCamera() ?: return
+        val transform = entity.getComponent(EntityTransform) ?: return
+        val camera = entity.getComponent(Camera) ?: return
+        val rigidbody = entity.getComponent(RigidBody) ?: return
 
         if (locked) {
             input.setCursorLocked(true)
@@ -83,10 +97,9 @@ class Player: System() {
 
         isMoving = false
 
-        val forward = Vector3D(cos(camera.yaw), 0.0, sin(camera.yaw))
-        val right = Vector3D(-sin(camera.yaw), 0.0, cos(camera.yaw))
-        val up = Vector3D(0.0, 1.0, 0.0)
-        var movement = Vector3D.zero()
+        val forward = Vector3d(cos(camera.yaw), 0.0, sin(camera.yaw))
+        val right = Vector3d(-sin(camera.yaw), 0.0, cos(camera.yaw))
+        var movement = Vector3d.zero()
 
         // Keyboard movement
         if (input.isKeyPressed(KeyCode.KeyW)) {
@@ -102,21 +115,18 @@ class Player: System() {
             movement -= right
         }
         if (input.isKeyPressed(KeyCode.Space) || player1?.isButtonPressed(GamepadButton.South) == true) {
-            movement += up
-        }
-        if (input.isKeyPressed(KeyCode.ShiftLeft) || player1?.isButtonPressed(GamepadButton.LeftTrigger2) == true) {
-            movement -= up
+            rigidbody.applyImpulse(Vector3d(0.0, jumpForce, 0.0))
         }
 
         // gamepad movement
         player1?.let { gamepad ->
             val deadzone = 0.15
 
-            if (kotlin.math.abs(gamepad.leftStickPosition.x) > deadzone) {
+            if (abs(gamepad.leftStickPosition.x) > deadzone) {
                 movement -= right * gamepad.leftStickPosition.x
             }
 
-            if (kotlin.math.abs(gamepad.leftStickPosition.y) > deadzone) {
+            if (abs(gamepad.leftStickPosition.y) > deadzone) {
                 movement += forward * gamepad.leftStickPosition.y
             }
         }
@@ -144,16 +154,37 @@ class Player: System() {
             }
         }
 
-        if (movement.length() > 0.0) {
+        val targetVelocity = if (movement.length() > 0.0) {
             movement.normalize()
-            val displacement = movement * speed
-            transform.world.position += displacement
-            isMoving = true
+            movement * speed
         } else {
-            isMoving = false
+            Vector3d.zero()
         }
 
-        entity.setTransform(transform)
+        val currentVel = rigidbody.linearVelocity
+
+        rigidbody.linearVelocity = Vector3d(
+            targetVelocity.x,
+            currentVel.y,
+            targetVelocity.z
+        )
+
+        isMoving = movement.length() > 0.0
+
+        val floor = engine.getEntity("floor")
+
+        floor?.let { floor ->
+            val group = floor.getComponent(ColliderGroup)
+            group?.getColliders()?.forEach { col ->
+                when (val shape = col.colliderShape) {
+                    is ColliderShape.Box -> Logger.info("Hitbox of box floor: ${shape.halfExtents}")
+                    is ColliderShape.Capsule -> Logger.info("Hitbox of capsule of floor: ${shape.halfHeight}, r=${shape.radius}")
+                    is ColliderShape.Cone -> Logger.info("Hitbox of cone of floor: ${shape.halfHeight}, r=${shape.radius}")
+                    is ColliderShape.Cylinder -> Logger.info("Hitbox of cylinder of floor: ${shape.halfHeight}, r=${shape.radius}")
+                    is ColliderShape.Sphere -> Logger.info("Hitbox of sphere: r=${shape.radius}")
+                }
+            }
+        }
 
         val delta = input.getMouseDelta()
         var xOffset = if (locked) delta.x * camera.sensitivity else 0.0
@@ -178,7 +209,7 @@ class Player: System() {
 
         camera.pitch = camera.pitch.coerceIn(-1.5533, 1.5533)
 
-        val front = Vector3D(
+        val front = Vector3d(
             cos(camera.yaw) * cos(camera.pitch),
             sin(camera.pitch),
             sin(camera.yaw) * cos(camera.pitch)
@@ -188,28 +219,21 @@ class Player: System() {
         camera.target = transform.world.position + cameraOffset
 
         if (transform.world.position != lastModelPosition && isMoving) {
-            transform.world.rotation = Quaternion.fromEulerAngles(
+            transform.world.rotation = Quaterniond.fromEulerAngles(
                 rotationDefault.x,
                 -camera.yaw,
                 rotationDefault.z
             )
 
-            entity.setTransform(transform)
-            lastModelPosition = transform.world.position.copy()
+            lastModelPosition = transform.world.position
         }
 
-        camera.setCamera()
-
-        entity.setProperty("locked", locked)
-    }
-
-    override fun physicsUpdate(engine: DropbearEngine, deltaTime: Float) {
-        some_incrementing_variable+=1
+        props.setProperty("locked", locked)
     }
 
     override fun destroy(engine: DropbearEngine) {
         Logger.info("This class is being destroyed :(    Goodbye!")
-        Logger.info("variable at mod destroy: $some_incrementing_variable")
+        Logger.info("variable at mod destroy: $someIncrementingVariable")
 
         sceneLoadingHandle = null
     }
