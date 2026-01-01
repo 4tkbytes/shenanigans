@@ -5,6 +5,11 @@
             label: ("Default Light"),
             components: [
                 {
+                    "type": "CustomProperties",
+                    "custom_properties": [],
+                    "next_id": 0,
+                },
+                {
                     "type": "Light",
                     "label": "Default Light",
                     "transform": (
@@ -16,7 +21,7 @@
                         position: (0.0, 0.0, 0.0),
                         direction: (-0.3215206485222377, -0.9186304243492507, -0.22965760608731267),
                         colour: (1.0, 1.0, 1.0),
-                        light_type: Point,
+                        light_type: Directional,
                         intensity: 1.0,
                         attenuation: (
                             range: 325.0,
@@ -31,11 +36,6 @@
                     ),
                     "enabled": true,
                 },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [],
-                    "next_id": 0,
-                },
             ],
         ),
         (
@@ -45,8 +45,8 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-14.138728515937931, 267.6751462301479, 385.4146595697492),
-                        rotation: (-0.008237834571029235, -0.9783368194287257, 0.20301026303778635, -0.03969935683350478),
+                        position: (35.832191989606514, 119.53762031052696, 360.16159278668135),
+                        rotation: (-0.006376274435442605, -0.9914569261914136, 0.11894386067071107, -0.05314945569001113),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
@@ -101,7 +101,208 @@
                             id: 0,
                             entity: ("floor"),
                             shape: Box(
-                                half_extents: (700.0, 4.05, 300.0),
+                                half_extents: (348.78, 3.08, 151.41),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, -2.83, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (700.0, 1.0, 300.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+            ],
+        ),
+        (
+            label: ("wall"),
+            components: [
+                {
+                    "type": "RigidBody",
+                    "entity": ("wall"),
+                    "disable_physics": false,
+                    "mode": Fixed,
+                    "gravity_scale": 1.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("wall"),
+                            shape: Box(
+                                half_extents: (346.67, 83.42, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 48.17, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 27.05324197475162, -150.13727065090555),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (691.9717678710734, 263.9405408381171, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+            ],
+        ),
+        (
+            label: ("stepper"),
+            components: [
+                {
+                    "type": "RigidBody",
+                    "entity": ("stepper"),
+                    "disable_physics": false,
+                    "mode": Fixed,
+                    "gravity_scale": 1.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("stepper"),
+                            shape: Box(
+                                half_extents: (237.43, 3.05, 165.02),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, -0.33, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (-368.8711480050953, 71.6926818064455, 22.80637702129439),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (477.8796234655299, 1.0, 333.09432010505526),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+            ],
+        ),
+        (
+            label: ("floor2"),
+            components: [
+                {
+                    "type": "RigidBody",
+                    "entity": ("floor2"),
+                    "disable_physics": false,
+                    "mode": Fixed,
+                    "gravity_scale": 1.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: true,
+                        y: true,
+                        z: true,
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("floor2"),
+                            shape: Box(
+                                half_extents: (51.23, 1.2, 68.57),
                             ),
                             density: 1.0,
                             friction: 0.5,
@@ -115,9 +316,9 @@
                 {
                     "type": "EntityTransform",
                     "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (700.0, 1.0, 300.0),
+                        position: (-86.25828691497274, 41.099307234979825, -29.223585808943866),
+                        rotation: (0.0, 0.0, -0.22049572612761692, 0.975387940646928),
+                        scale: (102.57613627003833, 1.0, 137.8263814455334),
                     ),
                     "world": (
                         position: (0.0, 0.0, 0.0),
@@ -155,21 +356,48 @@
                     ),
                 },
                 {
-                    "type": "Camera3D",
-                    "label": "elgato",
-                    "transform": (
-                        position: (-78.9196233034677, 67.98862749207741, -31.961454742268458),
-                        rotation: (0.13973990903630246, 0.6810469580504507, -0.13479522105222022, 0.7060297777956939),
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://models/maxwell_the_cat.glb"),
+                    ),
+                    "material_override": [],
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("elgato"),
+                            shape: Box(
+                                half_extents: (7.0, 7.0, 6.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 6.73),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
                         scale: (1.0, 1.0, 1.0),
                     ),
-                    "camera_type": Normal,
-                    "aspect": 2.537165510406343,
-                    "fov": 60.0,
-                    "near": 0.1,
-                    "far": 100.0,
-                    "speed": 1.0,
-                    "sensitivity": 0.01,
-                    "starting_camera": true,
+                    "world": (
+                        position: (0.0, 18.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "CustomProperties",
@@ -198,26 +426,65 @@
                     "next_id": 4,
                 },
                 {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://models/maxwell_the_cat.glb"),
+                    "type": "Camera3D",
+                    "label": "elgato",
+                    "transform": (
+                        position: (-78.9196233034677, 67.98862749207741, -31.961454742268458),
+                        rotation: (0.13973990903630246, 0.6810469580504507, -0.13479522105222022, 0.7060297777956939),
+                        scale: (1.0, 1.0, 1.0),
                     ),
-                    "material_override": [],
+                    "camera_type": Normal,
+                    "aspect": 2.537165510406343,
+                    "fov": 60.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.01,
+                    "starting_camera": true,
+                },
+            ],
+        ),
+        (
+            label: ("trigger"),
+            components: [
+                {
+                    "type": "RigidBody",
+                    "entity": ("trigger"),
+                    "disable_physics": false,
+                    "mode": Fixed,
+                    "gravity_scale": 1.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
                 },
                 {
                     "type": "ColliderGroup",
                     "colliders": [
                         (
-                            id: 0,
-                            entity: ("elgato"),
+                            id: 1,
+                            entity: ("trigger"),
                             shape: Box(
-                                half_extents: (7.0, 7.0, 6.0),
+                                half_extents: (150.0, 51.57, 150.0),
                             ),
                             density: 1.0,
                             friction: 0.5,
                             restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 6.73),
+                            is_sensor: true,
+                            translation: (302.55, 15.36, 0.0),
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
@@ -226,20 +493,14 @@
                     "type": "EntityTransform",
                     "local": (
                         position: (0.0, 0.0, 0.0),
-                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 18.0, 0.0),
                         rotation: (0.0, 0.0, 0.0, 1.0),
                         scale: (1.0, 1.0, 1.0),
                     ),
-                },
-                {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
             ],
         ),

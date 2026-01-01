@@ -1,6 +1,7 @@
 package com.example.mygame
 
 import com.dropbear.DropbearEngine
+import com.dropbear.EntityRef
 import com.dropbear.Runnable
 import com.dropbear.components.Camera
 import com.dropbear.components.CustomProperties
@@ -10,13 +11,12 @@ import com.dropbear.input.Gamepad
 import com.dropbear.input.GamepadButton
 import com.dropbear.input.KeyCode
 import com.dropbear.logging.Logger
-import com.dropbear.math.Quaternion
 import com.dropbear.math.Quaterniond
 import com.dropbear.math.Vector3d
 import com.dropbear.physics.AxisLock
 import com.dropbear.physics.Collider
 import com.dropbear.physics.ColliderGroup
-import com.dropbear.physics.ColliderShape
+import com.dropbear.physics.Physics
 import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
 import kotlin.math.abs
@@ -35,11 +35,48 @@ class Player: System() {
     private var player1: Gamepad? = null
 
     private var someIncrementingVariable: Int = 0
-    private var jumpForce: Double = 150.0
+    private var jumpForce: Double = 50.0
+    private var fallMultiplier: Double = 2.5
 
     override fun load(engine: DropbearEngine) {
         Logger.info("Initialised Player")
         Logger.info("variable at mod init: $someIncrementingVariable")
+
+        val entity = engine.getEntity("elgato").let {
+            Logger.info("Current entity is $it")
+            it
+        }
+
+        val rb = entity?.getComponent(RigidBody)
+        rb?.gravityScale.let { gs ->
+            Logger.info("Gravity scale (for entity) is $gs")
+        }
+
+        Logger.info("Current global gravity is ${Physics.gravity}")
+    }
+
+    override fun physicsUpdate(engine: DropbearEngine, deltaTime: Float) {
+        val entity = this.currentEntity ?: throw Exception("Player entity not found")
+
+        val player = getColliders(entity)
+        val triggerEntity = engine.getEntity("trigger") ?: throw Exception("trigger entity should exist")
+        val triggers = getColliders(triggerEntity)
+
+        if (Physics.triggering(player[0], triggers[0])) {
+            Logger.info("Triggering!")
+        }
+
+        if (Physics.overlapping(player[0], triggers[0])) {
+            Logger.info("Overlapping!")
+        }
+
+        if (Physics.touching(entity, triggerEntity)) {
+            Logger.info("Touching!")
+        }
+    }
+
+    fun getColliders(entity: EntityRef): List<Collider> {
+        return (entity.getComponent(ColliderGroup) ?: throw Exception("huh?")).getColliders()
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Float) {
@@ -80,7 +117,7 @@ class Player: System() {
         if (player1 == null) {
             player1 = gamepads.getOrNull(0) // set player1 to first controller
         } else {
-            gamepads.find { it.id == player1?.id }?.let { player1 = it } // update state (for positioning)
+            gamepads.find { it.id == player1?.id }?.let { player1 = it }
         }
 
         val transform = entity.getComponent(EntityTransform) ?: return
@@ -97,11 +134,11 @@ class Player: System() {
 
         isMoving = false
 
+        // player movement
         val forward = Vector3d(cos(camera.yaw), 0.0, sin(camera.yaw))
         val right = Vector3d(-sin(camera.yaw), 0.0, cos(camera.yaw))
         var movement = Vector3d.zero()
 
-        // Keyboard movement
         if (input.isKeyPressed(KeyCode.KeyW)) {
             movement += forward
         }
@@ -114,11 +151,15 @@ class Player: System() {
         if (input.isKeyPressed(KeyCode.KeyD)) {
             movement -= right
         }
-        if (input.isKeyPressed(KeyCode.Space) || player1?.isButtonPressed(GamepadButton.South) == true) {
-            rigidbody.applyImpulse(Vector3d(0.0, jumpForce, 0.0))
-        }
 
-        // gamepad movement
+        val rotLock = AxisLock(
+            x = true,
+            y = true,
+            z = true,
+        )
+
+        rigidbody.lockRotation = rotLock
+
         player1?.let { gamepad ->
             val deadzone = 0.15
 
@@ -131,13 +172,99 @@ class Player: System() {
             }
         }
 
-        if (input.isKeyPressed(KeyCode.Escape)) {
-            engine.quit()
-        }
-        if (input.isKeyPressed(KeyCode.F1)) {
-            locked = !locked
+        val targetVelocity = if (movement.length() > 0.0) {
+            movement.normalize()
+            movement * speed
+        } else {
+            Vector3d.zero()
         }
 
+        val currentVel = rigidbody.linearVelocity
+        var newY = currentVel.y
+
+        val groundHit = Physics.raycast(
+            origin = transform.sync().position,
+            direction = Vector3d(0.0, -1.0, 0.0),
+            maxDistance = 10.0,
+            solid = false
+        )
+
+        val isGrounded = groundHit != null || abs(currentVel.y) < 0.1
+
+        val isJumpReq = input.isKeyPressed(KeyCode.Space) || player1?.isButtonPressed(GamepadButton.South) ?: false
+
+        if (isJumpReq && isGrounded) {
+            newY = jumpForce
+        }
+
+        if (newY < 0) {
+            val extraGravity = Physics.gravity.y * (fallMultiplier - 1.0) * deltaTime
+            newY += extraGravity
+        }
+        else if (newY > 0 && !isJumpReq) {
+            val cutJumpGravity = Physics.gravity.y * (2.0 - 1.0) * deltaTime
+            newY += cutJumpGravity
+        }
+
+        rigidbody.linearVelocity = Vector3d(
+            targetVelocity.x,
+            newY,
+            targetVelocity.z
+        )
+
+        isMoving = movement.length() > 0.0
+
+        // camera->rotation
+        val delta = input.getMouseDelta()
+        var xOffset = if (locked) delta.x * camera.sensitivity else 0.0
+        var yOffset = if (locked) delta.y * camera.sensitivity else 0.0
+
+        player1?.let { gamepad ->
+            val deadzone = 0.15
+            val gamepadSensitivity = 3.0
+
+            if (kotlin.math.abs(gamepad.rightStickPosition.x) > deadzone) {
+                xOffset += gamepad.rightStickPosition.x * gamepadSensitivity * deltaTime
+            }
+
+            if (kotlin.math.abs(gamepad.rightStickPosition.y) > deadzone) {
+                yOffset -= gamepad.rightStickPosition.y * gamepadSensitivity * deltaTime
+            }
+        }
+
+        camera.yaw -= xOffset
+        camera.pitch += yOffset
+
+        camera.pitch = camera.pitch.coerceIn(-1.5533, 1.5533)
+
+        val front = Vector3d(
+            cos(camera.yaw) * cos(camera.pitch),
+            sin(camera.pitch),
+            sin(camera.yaw) * cos(camera.pitch)
+        ).normalize()
+
+        camera.eye = transform.world.position - (front * thirdPersonDistance) + cameraOffset
+        camera.target = transform.world.position + cameraOffset
+
+        if (isMoving && movement.lengthSquared() > 0.001) {
+
+            val targetYaw = kotlin.math.atan2(movement.x, movement.z)
+
+            val targetRotation = Quaterniond.fromEulerAngles(
+                rotationDefault.x,
+                targetYaw,
+                rotationDefault.z
+            )
+
+            val rotationSpeed = 10.0
+            val t = (rotationSpeed * deltaTime).coerceIn(0.0, 1.0)
+
+            transform.world.rotation = transform.world.rotation.slerp(targetRotation, t)
+        }
+
+        lastModelPosition = transform.world.position
+
+        // scene loading
         if (input.isKeyPressed(KeyCode.F2) || player1?.isButtonPressed(GamepadButton.Start) == true) {
             Logger.info("Scene switch requested")
             sceneLoadingHandle = scene.loadSceneAsync("Default")
@@ -154,78 +281,12 @@ class Player: System() {
             }
         }
 
-        val targetVelocity = if (movement.length() > 0.0) {
-            movement.normalize()
-            movement * speed
-        } else {
-            Vector3d.zero()
+        // misc
+        if (input.isKeyPressed(KeyCode.Escape)) {
+            engine.quit()
         }
-
-        val currentVel = rigidbody.linearVelocity
-
-        rigidbody.linearVelocity = Vector3d(
-            targetVelocity.x,
-            currentVel.y,
-            targetVelocity.z
-        )
-
-        isMoving = movement.length() > 0.0
-
-        val floor = engine.getEntity("floor")
-
-        floor?.let { floor ->
-            val group = floor.getComponent(ColliderGroup)
-            group?.getColliders()?.forEach { col ->
-                when (val shape = col.colliderShape) {
-                    is ColliderShape.Box -> Logger.info("Hitbox of box floor: ${shape.halfExtents}")
-                    is ColliderShape.Capsule -> Logger.info("Hitbox of capsule of floor: ${shape.halfHeight}, r=${shape.radius}")
-                    is ColliderShape.Cone -> Logger.info("Hitbox of cone of floor: ${shape.halfHeight}, r=${shape.radius}")
-                    is ColliderShape.Cylinder -> Logger.info("Hitbox of cylinder of floor: ${shape.halfHeight}, r=${shape.radius}")
-                    is ColliderShape.Sphere -> Logger.info("Hitbox of sphere: r=${shape.radius}")
-                }
-            }
-        }
-
-        val delta = input.getMouseDelta()
-        var xOffset = if (locked) delta.x * camera.sensitivity else 0.0
-        var yOffset = if (locked) delta.y * camera.sensitivity else 0.0
-
-        // gamepad camera movement
-        player1?.let { gamepad ->
-            val deadzone = 0.15
-            val gamepadSensitivity = 3.0
-
-            if (kotlin.math.abs(gamepad.rightStickPosition.x) > deadzone) {
-                xOffset += gamepad.rightStickPosition.x * gamepadSensitivity * deltaTime
-            }
-
-            if (kotlin.math.abs(gamepad.rightStickPosition.y) > deadzone) {
-                yOffset -= gamepad.rightStickPosition.y * gamepadSensitivity * deltaTime
-            }
-        }
-
-        camera.yaw += xOffset
-        camera.pitch += yOffset
-
-        camera.pitch = camera.pitch.coerceIn(-1.5533, 1.5533)
-
-        val front = Vector3d(
-            cos(camera.yaw) * cos(camera.pitch),
-            sin(camera.pitch),
-            sin(camera.yaw) * cos(camera.pitch)
-        ).normalize()
-
-        camera.eye = transform.world.position - (front * thirdPersonDistance) + cameraOffset
-        camera.target = transform.world.position + cameraOffset
-
-        if (transform.world.position != lastModelPosition && isMoving) {
-            transform.world.rotation = Quaterniond.fromEulerAngles(
-                rotationDefault.x,
-                -camera.yaw,
-                rotationDefault.z
-            )
-
-            lastModelPosition = transform.world.position
+        if (input.isKeyPressed(KeyCode.F1)) {
+            locked = !locked
         }
 
         props.setProperty("locked", locked)
@@ -237,4 +298,12 @@ class Player: System() {
 
         sceneLoadingHandle = null
     }
+
+//    fun foobar(engine: DropbearEngine) {
+//        val entity = currentEntity ?: return
+//        val floor = engine.getEntity("floor") ?: return
+//        if (Physics.isColliding(entity, floor)) {
+//            Logger.info("The entity is colliding with the floor")
+//        }
+//    }
 }

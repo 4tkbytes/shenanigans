@@ -1,6 +1,10 @@
 /// dropbear-engine template for gradle. its recommended to not touch it unless you
 /// know what you're doing
 
+import org.gradle.api.GradleException
+import org.gradle.internal.os.OperatingSystem
+import kotlin.concurrent.thread
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinxSerialization)
@@ -141,4 +145,52 @@ tasks.register<Jar>("fatJar") {
     }
 
     manifest {}
+}
+
+tasks.register<Exec>("play") {
+    group = "run"
+    description = "Builds fatJar, then launches the editor in play mode with JDWP enabled for IntelliJ attach."
+    dependsOn("fatJar")
+
+    doFirst {
+        val editorPath = System.getenv("EUCALYPTUS_EDITOR")?.trim().orEmpty()
+        if (editorPath.isEmpty()) {
+            throw GradleException(
+                "The EUCALYPTUS_EDITOR variable is not set. Please ensure it is set."
+            )
+        }
+
+        val projectRoot = project.rootDir.absolutePath
+
+        thread(start = true) {
+            Thread.sleep(3000)
+            try {
+                val attachScript = if (OperatingSystem.current().isWindows) {
+                    listOf("cmd", "/c", "jdb", "-attach", "localhost:6751")
+                } else {
+                    listOf("jdb", "-attach", "localhost:6751")
+                }
+
+                ProcessBuilder()
+                    .command(attachScript)
+                    .inheritIO()
+                    .start()
+
+                println("Debugger attachment initiated on port 6751")
+            } catch (e: Exception) {
+                println("Note: Auto-attach failed. Manually attach debugger to localhost:6751")
+            }
+        }
+
+        val isWindows = OperatingSystem.current().isWindows
+        val lower = editorPath.lowercase()
+        val isCmdScript = lower.endsWith(".cmd") || lower.endsWith(".bat")
+
+        commandLine(
+            if (isWindows && isCmdScript) listOf("cmd", "/c", editorPath, "play", projectRoot, "--await-jdb", "true")
+            else listOf(editorPath, "play", projectRoot, "--await-jdb", "true")
+        )
+
+        workingDir = project.rootDir
+    }
 }

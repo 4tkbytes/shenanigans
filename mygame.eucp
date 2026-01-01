@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "C:\\Users\\thrib\\shenanigans",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2025-12-31 12:26:02",
+    date_last_accessed: "2026-01-01 15:22:05",
     project_version: None,
     authors: (
         developer: "Unknown",
@@ -59,7 +59,7 @@
                                 y: 1001.0,
                             ),
                         ),
-                        fraction: 0.75458455,
+                        fraction: 0.69945765,
                         fully_collapsed: false,
                         collapsed_leaf_count: 0,
                     )),
@@ -126,7 +126,7 @@
                                 y: 44.0,
                             ),
                             max: (
-                                x: 2044.0,
+                                x: 1930.0,
                                 y: 1001.0,
                             ),
                         ),
@@ -137,7 +137,7 @@
                     Leaf((
                         rect: (
                             min: (
-                                x: 2045.0,
+                                x: 1931.0,
                                 y: 44.0,
                             ),
                             max: (
@@ -147,7 +147,7 @@
                         ),
                         viewport: (
                             min: (
-                                x: 2045.0,
+                                x: 1931.0,
                                 y: 68.0,
                             ),
                             max: (
@@ -173,7 +173,7 @@
                                 y: 44.0,
                             ),
                             max: (
-                                x: 2044.0,
+                                x: 1930.0,
                                 y: 810.0,
                             ),
                         ),
@@ -183,7 +183,7 @@
                                 y: 68.0,
                             ),
                             max: (
-                                x: 2044.0,
+                                x: 1930.0,
                                 y: 810.0,
                             ),
                         ),
@@ -201,7 +201,7 @@
                                 y: 811.0,
                             ),
                             max: (
-                                x: 2044.0,
+                                x: 1930.0,
                                 y: 1001.0,
                             ),
                         ),
@@ -211,7 +211,7 @@
                                 y: 835.0,
                             ),
                             max: (
-                                x: 2044.0,
+                                x: 1930.0,
                                 y: 1001.0,
                             ),
                         ),
@@ -225,7 +225,7 @@
                     Empty,
                     Empty,
                 ],
-                focused_node: Some((6)),
+                focused_node: Some((11)),
                 collapsed: false,
                 collapsed_leaf_count: 0,
             )),
