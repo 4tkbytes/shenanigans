@@ -52,5 +52,10 @@
             path: "resources\\resources.eucc",
             resource_type: Config,
         )),
+        File(ResourceFile(
+            name: "sphere2.glb",
+            path: "resources\\sphere2.glb",
+            resource_type: Unknown,
+        )),
     ],
 )

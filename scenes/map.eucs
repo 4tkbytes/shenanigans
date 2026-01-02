@@ -45,8 +45,8 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (35.832191989606514, 119.53762031052696, 360.16159278668135),
-                        rotation: (-0.006376274435442605, -0.9914569261914136, 0.11894386067071107, -0.05314945569001113),
+                        position: (39.651865942373995, 64.1204502753737, 81.36152667338756),
+                        rotation: (-0.02211223516713284, -0.9777572265996775, 0.13918185948163508, -0.1553391929915152),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
@@ -63,6 +63,24 @@
         (
             label: ("floor"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("floor"),
+                            shape: Box(
+                                half_extents: (348.78, 3.08, 151.41),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, -2.83, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
                 {
                     "type": "RigidBody",
                     "entity": ("floor"),
@@ -95,24 +113,6 @@
                     "material_override": [],
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("floor"),
-                            shape: Box(
-                                half_extents: (348.78, 3.08, 151.41),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, -2.83, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "EntityTransform",
                     "local": (
                         position: (0.0, 0.0, 0.0),
@@ -130,6 +130,24 @@
         (
             label: ("wall"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("wall"),
+                            shape: Box(
+                                half_extents: (346.67, 83.42, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 48.17, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
                 {
                     "type": "RigidBody",
                     "entity": ("wall"),
@@ -162,24 +180,6 @@
                     "material_override": [],
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("wall"),
-                            shape: Box(
-                                half_extents: (346.67, 83.42, 0.5),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 48.17, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "EntityTransform",
                     "local": (
                         position: (0.0, 27.05324197475162, -150.13727065090555),
@@ -197,6 +197,24 @@
         (
             label: ("stepper"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("stepper"),
+                            shape: Box(
+                                half_extents: (237.43, 3.05, 165.02),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, -0.33, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
                 {
                     "type": "RigidBody",
                     "entity": ("stepper"),
@@ -229,24 +247,6 @@
                     "material_override": [],
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("stepper"),
-                            shape: Box(
-                                half_extents: (237.43, 3.05, 165.02),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, -0.33, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "EntityTransform",
                     "local": (
                         position: (-368.8711480050953, 71.6926818064455, 22.80637702129439),
@@ -264,6 +264,24 @@
         (
             label: ("floor2"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("floor2"),
+                            shape: Box(
+                                half_extents: (51.23, 1.2, 68.57),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
                 {
                     "type": "RigidBody",
                     "entity": ("floor2"),
@@ -296,24 +314,6 @@
                     "material_override": [],
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("floor2"),
-                            shape: Box(
-                                half_extents: (51.23, 1.2, 68.57),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "EntityTransform",
                     "local": (
                         position: (-86.25828691497274, 41.099307234979825, -29.223585808943866),
@@ -329,17 +329,35 @@
             ],
         ),
         (
-            label: ("elgato"),
+            label: ("ball"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("ball"),
+                            shape: Sphere(
+                                radius: 11.22,
+                            ),
+                            density: 21.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
                     "type": "RigidBody",
-                    "entity": ("elgato"),
+                    "entity": ("ball"),
                     "disable_physics": false,
                     "mode": Dynamic,
-                    "gravity_scale": 5.2,
+                    "gravity_scale": 1.0,
                     "sleeping": false,
-                    "can_sleep": false,
-                    "ccd_enabled": true,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
                     "linvel": (0.0, 0.0, 0.0),
                     "angvel": (0.0, 0.0, 0.0),
                     "linear_damping": 0.0,
@@ -358,9 +376,33 @@
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
-                        ref_type: File("euca://models/maxwell_the_cat.glb"),
+                        ref_type: File("euca://sphere2.glb"),
                     ),
                     "material_override": [],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (11.95, 11.949999999999998, 11.949999999999998),
+                    ),
+                    "world": (
+                        position: (62.7, 31.8, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+            ],
+        ),
+        (
+            label: ("elgato"),
+            components: [
+                {
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
                 },
                 {
                     "type": "ColliderGroup",
@@ -371,8 +413,8 @@
                             shape: Box(
                                 half_extents: (7.0, 7.0, 6.0),
                             ),
-                            density: 1.0,
-                            friction: 0.5,
+                            density: 20.0,
+                            friction: 2.0,
                             restitution: 0.0,
                             is_sensor: false,
                             translation: (0.0, 0.0, 6.73),
@@ -381,22 +423,27 @@
                     ],
                 },
                 {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
-                        scale: (1.0, 1.0, 1.0),
+                    "type": "RigidBody",
+                    "entity": ("elgato"),
+                    "disable_physics": false,
+                    "mode": Dynamic,
+                    "gravity_scale": 10.0,
+                    "sleeping": false,
+                    "can_sleep": false,
+                    "ccd_enabled": true,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
                     ),
-                    "world": (
-                        position: (0.0, 18.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
+                    "lock_rotation": (
+                        x: false,
+                        y: false,
+                        z: false,
                     ),
                 },
                 {
@@ -426,6 +473,13 @@
                     "next_id": 4,
                 },
                 {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://models/maxwell_the_cat.glb"),
+                    ),
+                    "material_override": [],
+                },
+                {
                     "type": "Camera3D",
                     "label": "elgato",
                     "transform": (
@@ -442,11 +496,42 @@
                     "sensitivity": 0.01,
                     "starting_camera": true,
                 },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 18.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
             ],
         ),
         (
             label: ("trigger"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("trigger"),
+                            shape: Box(
+                                half_extents: (150.0, 51.57, 150.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: true,
+                            translation: (302.55, 15.36, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
                 {
                     "type": "RigidBody",
                     "entity": ("trigger"),
@@ -470,24 +555,6 @@
                         y: false,
                         z: false,
                     ),
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("trigger"),
-                            shape: Box(
-                                half_extents: (150.0, 51.57, 150.0),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: true,
-                            translation: (302.55, 15.36, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
                 },
                 {
                     "type": "EntityTransform",
