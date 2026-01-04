@@ -1,5 +1,5 @@
 (
-    path: "C:\\Users\\thrib\\shenanigans\\resources",
+    path: "C:/Users/thrib/shenanigans\\resources",
     nodes: [
         File(ResourceFile(
             name: "asdadasdadsa.glb",
@@ -8,7 +8,7 @@
         )),
         Folder((
             name: "models",
-            path: "C:\\Users\\thrib\\shenanigans\\resources\\models",
+            path: "C:/Users/thrib/shenanigans\\resources\\models",
             nodes: [
                 File(ResourceFile(
                     name: "Avocado.glb",
@@ -52,10 +52,21 @@
             path: "resources\\resources.eucc",
             resource_type: Config,
         )),
-        File(ResourceFile(
-            name: "sphere2.glb",
-            path: "resources\\sphere2.glb",
-            resource_type: Unknown,
+        Folder((
+            name: "textures",
+            path: "C:/Users/thrib/shenanigans\\resources\\textures",
+            nodes: [
+                File(ResourceFile(
+                    name: "loperlog_logo.png",
+                    path: "resources\\textures\\loperlog_logo.png",
+                    resource_type: Texture,
+                )),
+                File(ResourceFile(
+                    name: "proto.png",
+                    path: "resources\\textures\\proto.png",
+                    resource_type: Texture,
+                )),
+            ],
         )),
     ],
 )

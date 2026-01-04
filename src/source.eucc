@@ -1,25 +1,25 @@
 (
-    path: "C:\\Users\\thrib\\shenanigans\\src",
+    path: "C:/Users/thrib/shenanigans\\src",
     nodes: [
         Folder((
             name: "commonMain",
-            path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain",
+            path: "C:/Users/thrib/shenanigans\\src\\commonMain",
             nodes: [
                 Folder((
                     name: "kotlin",
-                    path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin",
+                    path: "C:/Users/thrib/shenanigans\\src\\commonMain\\kotlin",
                     nodes: [
                         Folder((
                             name: "com",
-                            path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin\\com",
+                            path: "C:/Users/thrib/shenanigans\\src\\commonMain\\kotlin\\com",
                             nodes: [
                                 Folder((
                                     name: "example",
-                                    path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin\\com\\example",
+                                    path: "C:/Users/thrib/shenanigans\\src\\commonMain\\kotlin\\com\\example",
                                     nodes: [
                                         Folder((
                                             name: "mygame",
-                                            path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin\\com\\example\\mygame",
+                                            path: "C:/Users/thrib/shenanigans\\src\\commonMain\\kotlin\\com\\example\\mygame",
                                             nodes: [
                                                 File(ResourceFile(
                                                     name: "Player.kt",

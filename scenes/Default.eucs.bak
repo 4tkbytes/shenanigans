@@ -1,6 +1,50 @@
 (
-    scene_name: "physics_test",
+    scene_name: "Default",
     entities: [
+        (
+            label: ("Viewport Camera"),
+            components: [
+                {
+                    "type": "Camera3D",
+                    "label": "Viewport Camera",
+                    "transform": (
+                        position: (-41.37039856712001, 29.46202405859786, -78.89679360904596),
+                        rotation: (0.15288722222988504, 0.24771681173860782, -0.03962112018499053, 0.9558724001121569),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Debug,
+                    "aspect": 2.537165510406343,
+                    "fov": 60.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.002,
+                    "starting_camera": false,
+                },
+            ],
+        ),
+        (
+            label: ("Stage Camera"),
+            components: [
+                {
+                    "type": "Camera3D",
+                    "label": "Stage Camera",
+                    "transform": (
+                        position: (6.788704289934078, 9.509771541989675, 13.768486834209973),
+                        rotation: (0.061682172292540964, -0.9367714229629802, 0.26977655070866574, 0.21418502148591392),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Normal,
+                    "aspect": 2.537165510406343,
+                    "fov": 92.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.1,
+                    "starting_camera": true,
+                },
+            ],
+        ),
         (
             label: ("Default Light"),
             components: [
@@ -28,62 +72,18 @@
                         visible: true,
                         cutoff_angle: 12.5,
                         outer_cutoff_angle: 17.5,
+                        cast_shadows: false,
+                        depth: (
+                            start: 0.0,
+                            end: 0.0,
+                        ),
                     ),
                     "enabled": true,
                 },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [],
-                    "next_id": 0,
-                },
             ],
         ),
         (
-            label: ("Viewport Camera"),
-            components: [
-                {
-                    "type": "Camera3D",
-                    "label": "Viewport Camera",
-                    "transform": (
-                        position: (24.291193218375607, 29.97355965065453, 39.61297698411987),
-                        rotation: (0.027484482110270478, -0.9677399498199651, 0.12142829573147784, 0.21904146128377172),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "camera_type": Debug,
-                    "aspect": 2.537165510406343,
-                    "fov": 75.0,
-                    "near": 0.1,
-                    "far": 100.0,
-                    "speed": 0.5,
-                    "sensitivity": 0.002,
-                    "starting_camera": false,
-                },
-            ],
-        ),
-        (
-            label: ("camera"),
-            components: [
-                {
-                    "type": "Camera3D",
-                    "label": "camera",
-                    "transform": (
-                        position: (26.871469959169687, 17.05882956554294, 31.28657263924623),
-                        rotation: (0.07378109248314474, -0.9070379911844025, 0.1789828530632089, 0.37390315758162723),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "camera_type": Normal,
-                    "aspect": 2.537165510406343,
-                    "fov": 75.0,
-                    "near": 0.1,
-                    "far": 100.0,
-                    "speed": 1.0,
-                    "sensitivity": 0.002,
-                    "starting_camera": true,
-                },
-            ],
-        ),
-        (
-            label: ("object"),
+            label: ("cube3"),
             components: [
                 {
                     "type": "EntityTransform",
@@ -93,33 +93,9 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "world": (
-                        position: (0.0, 14.0, 0.0),
+                        position: (0.0, 0.0, 0.0),
                         rotation: (0.0, 0.0, 0.0, 1.0),
                         scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
-                    "type": "RigidBody",
-                    "entity": ("object"),
-                    "disable_physics": false,
-                    "mode": Dynamic,
-                    "gravity_scale": 1.0,
-                    "sleeping": false,
-                    "can_sleep": true,
-                    "ccd_enabled": false,
-                    "linvel": (0.0, 0.0, 0.0),
-                    "angvel": (0.0, 0.0, 0.0),
-                    "linear_damping": 0.0,
-                    "angular_damping": 0.0,
-                    "lock_translation": (
-                        x: false,
-                        y: false,
-                        z: false,
-                    ),
-                    "lock_rotation": (
-                        x: false,
-                        y: false,
-                        z: false,
                     ),
                 },
                 {
@@ -129,35 +105,17 @@
                     ),
                     "material_override": [],
                 },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("object"),
-                            shape: Box(
-                                half_extents: (0.5, 0.5, 0.5),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
             ],
         ),
         (
-            label: ("floor"),
+            label: ("cube4"),
             components: [
                 {
                     "type": "EntityTransform",
                     "local": (
-                        position: (0.0, 0.0, 0.0),
+                        position: (1.5, 0.0, 0.0),
                         rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (25.0, 1.0, 25.0),
+                        scale: (1.0, 1.0, 1.0),
                     ),
                     "world": (
                         position: (0.0, 0.0, 0.0),
@@ -166,52 +124,46 @@
                     ),
                 },
                 {
-                    "type": "RigidBody",
-                    "entity": ("floor"),
-                    "disable_physics": false,
-                    "mode": Fixed,
-                    "gravity_scale": 1.0,
-                    "sleeping": false,
-                    "can_sleep": true,
-                    "ccd_enabled": false,
-                    "linvel": (0.0, 0.0, 0.0),
-                    "angvel": (0.0, 0.0, 0.0),
-                    "linear_damping": 0.0,
-                    "angular_damping": 0.0,
-                    "lock_translation": (
-                        x: false,
-                        y: false,
-                        z: false,
-                    ),
-                    "lock_rotation": (
-                        x: false,
-                        y: false,
-                        z: false,
-                    ),
-                },
-                {
                     "type": "SerializedMeshRenderer",
                     "handle": (
                         ref_type: File("euca://internal/dropbear/models/cube"),
                     ),
                     "material_override": [],
                 },
+            ],
+        ),
+        (
+            label: ("car"),
+            components: [
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("floor"),
-                            shape: Box(
-                                half_extents: (1.0, 1.0, 1.0),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (10.0, 10.0, 10.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://asdadasdadsa.glb"),
+                    ),
+                    "material_override": [],
+                },
+            ],
+        ),
+        (
+            label: ("Global Scripts"),
+            components: [
+                {
+                    "type": "Script",
+                    "tags": [
+                        "scene",
                     ],
                 },
             ],
@@ -392,5 +344,6 @@
     ),
     settings: (
         preloaded: false,
+        show_hitboxes: false,
     ),
 )

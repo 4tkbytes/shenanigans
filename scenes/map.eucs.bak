@@ -13,8 +13,8 @@
                     "type": "Light",
                     "label": "Default Light",
                     "transform": (
-                        position: (2.0, 49.30991596801378, 2.0),
-                        rotation: (-0.5853695893131838, 0.17557192472272018, -0.021894467318418768, 0.7912253632545642),
+                        position: (0.0, 43.0, 0.0),
+                        rotation: (-0.3007057995042731, 0.0, 0.0, 0.9537169507482269),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "light_component": (
@@ -24,15 +24,20 @@
                         light_type: Directional,
                         intensity: 1.0,
                         attenuation: (
-                            range: 325.0,
+                            range: 3250.0,
                             constant: 1.0,
-                            linear: 0.014,
-                            quadratic: 0.0007,
+                            linear: 0.0014,
+                            quadratic: 0.000007,
                         ),
                         enabled: true,
                         visible: true,
                         cutoff_angle: 12.5,
                         outer_cutoff_angle: 17.5,
+                        cast_shadows: false,
+                        depth: (
+                            start: 0.0,
+                            end: 0.0,
+                        ),
                     ),
                     "enabled": true,
                 },
@@ -45,8 +50,8 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (39.651865942373995, 64.1204502753737, 81.36152667338756),
-                        rotation: (-0.02211223516713284, -0.9777572265996775, 0.13918185948163508, -0.1553391929915152),
+                        position: (-1.5462835333082825, 110.07665410323895, 161.08252188311147),
+                        rotation: (0.0007288625163351998, -0.9819216835281728, 0.1892484470732673, 0.003781726720448928),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
@@ -64,6 +69,19 @@
             label: ("floor"),
             components: [
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (700.0, 1.0, 300.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "ColliderGroup",
                     "colliders": [
                         (
@@ -80,6 +98,13 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
                 },
                 {
                     "type": "RigidBody",
@@ -105,19 +130,17 @@
                         z: false,
                     ),
                 },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://internal/dropbear/models/cube"),
-                    ),
-                    "material_override": [],
-                },
+            ],
+        ),
+        (
+            label: ("wall"),
+            components: [
                 {
                     "type": "EntityTransform",
                     "local": (
-                        position: (0.0, 0.0, 0.0),
+                        position: (0.0, 27.05324197475162, -150.13727065090555),
                         rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (700.0, 1.0, 300.0),
+                        scale: (691.9717678710734, 263.9405408381171, 1.0),
                     ),
                     "world": (
                         position: (0.0, 0.0, 0.0),
@@ -125,11 +148,6 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("wall"),
-            components: [
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -147,6 +165,13 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
                 },
                 {
                     "type": "RigidBody",
@@ -172,19 +197,17 @@
                         z: false,
                     ),
                 },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://internal/dropbear/models/cube"),
-                    ),
-                    "material_override": [],
-                },
+            ],
+        ),
+        (
+            label: ("stepper"),
+            components: [
                 {
                     "type": "EntityTransform",
                     "local": (
-                        position: (0.0, 27.05324197475162, -150.13727065090555),
+                        position: (-368.8711480050953, 71.6926818064455, 22.80637702129439),
                         rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (691.9717678710734, 263.9405408381171, 1.0),
+                        scale: (477.8796234655299, 1.0, 333.09432010505526),
                     ),
                     "world": (
                         position: (0.0, 0.0, 0.0),
@@ -192,11 +215,6 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("stepper"),
-            components: [
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -214,6 +232,13 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
                 },
                 {
                     "type": "RigidBody",
@@ -239,19 +264,17 @@
                         z: false,
                     ),
                 },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://internal/dropbear/models/cube"),
-                    ),
-                    "material_override": [],
-                },
+            ],
+        ),
+        (
+            label: ("floor2"),
+            components: [
                 {
                     "type": "EntityTransform",
                     "local": (
-                        position: (-368.8711480050953, 71.6926818064455, 22.80637702129439),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (477.8796234655299, 1.0, 333.09432010505526),
+                        position: (-86.25828691497274, 41.099307234979825, -29.223585808943866),
+                        rotation: (0.0, 0.0, -0.22049572612761692, 0.975387940646928),
+                        scale: (102.57613627003833, 1.0, 137.8263814455334),
                     ),
                     "world": (
                         position: (0.0, 0.0, 0.0),
@@ -259,11 +282,6 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("floor2"),
-            components: [
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -281,6 +299,13 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://internal/dropbear/models/cube"),
+                    ),
+                    "material_override": [],
                 },
                 {
                     "type": "RigidBody",
@@ -306,31 +331,24 @@
                         z: true,
                     ),
                 },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://internal/dropbear/models/cube"),
-                    ),
-                    "material_override": [],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (-86.25828691497274, 41.099307234979825, -29.223585808943866),
-                        rotation: (0.0, 0.0, -0.22049572612761692, 0.975387940646928),
-                        scale: (102.57613627003833, 1.0, 137.8263814455334),
-                    ),
-                    "world": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
             ],
         ),
         (
             label: ("ball"),
             components: [
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (11.95, 11.949999999999998, 11.949999999999998),
+                    ),
+                    "world": (
+                        position: (62.7, 31.8, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -348,6 +366,13 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://sphere2.glb"),
+                    ),
+                    "material_override": [],
                 },
                 {
                     "type": "RigidBody",
@@ -373,36 +398,23 @@
                         z: false,
                     ),
                 },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://sphere2.glb"),
-                    ),
-                    "material_override": [],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (11.95, 11.949999999999998, 11.949999999999998),
-                    ),
-                    "world": (
-                        position: (62.7, 31.8, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
             ],
         ),
         (
             label: ("elgato"),
             components: [
                 {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 18.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "ColliderGroup",
@@ -421,30 +433,6 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
-                },
-                {
-                    "type": "RigidBody",
-                    "entity": ("elgato"),
-                    "disable_physics": false,
-                    "mode": Dynamic,
-                    "gravity_scale": 10.0,
-                    "sleeping": false,
-                    "can_sleep": false,
-                    "ccd_enabled": true,
-                    "linvel": (0.0, 0.0, 0.0),
-                    "angvel": (0.0, 0.0, 0.0),
-                    "linear_damping": 0.0,
-                    "angular_damping": 0.0,
-                    "lock_translation": (
-                        x: false,
-                        y: false,
-                        z: false,
-                    ),
-                    "lock_rotation": (
-                        x: false,
-                        y: false,
-                        z: false,
-                    ),
                 },
                 {
                     "type": "CustomProperties",
@@ -480,6 +468,12 @@
                     "material_override": [],
                 },
                 {
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
+                },
+                {
                     "type": "Camera3D",
                     "label": "elgato",
                     "transform": (
@@ -497,16 +491,27 @@
                     "starting_camera": true,
                 },
                 {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (-0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
-                        scale: (1.0, 1.0, 1.0),
+                    "type": "RigidBody",
+                    "entity": ("elgato"),
+                    "disable_physics": false,
+                    "mode": Dynamic,
+                    "gravity_scale": 10.0,
+                    "sleeping": false,
+                    "can_sleep": false,
+                    "ccd_enabled": true,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
                     ),
-                    "world": (
-                        position: (0.0, 18.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
+                    "lock_rotation": (
+                        x: false,
+                        y: false,
+                        z: false,
                     ),
                 },
             ],
@@ -514,6 +519,19 @@
         (
             label: ("trigger"),
             components: [
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -554,19 +572,6 @@
                         x: false,
                         y: false,
                         z: false,
-                    ),
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
                     ),
                 },
             ],
@@ -747,5 +752,6 @@
     ),
     settings: (
         preloaded: false,
+        show_hitboxes: false,
     ),
 )

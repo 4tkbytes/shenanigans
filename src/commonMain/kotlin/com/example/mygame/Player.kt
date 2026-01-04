@@ -16,6 +16,8 @@ import com.dropbear.math.Vector3d
 import com.dropbear.physics.AxisLock
 import com.dropbear.physics.Collider
 import com.dropbear.physics.ColliderGroup
+import com.dropbear.physics.CollisionEvent
+import com.dropbear.physics.ContactForceEvent
 import com.dropbear.physics.Physics
 import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
@@ -42,7 +44,7 @@ class Player: System() {
         Logger.info("Initialised Player")
         Logger.info("variable at mod init: $someIncrementingVariable")
 
-        val entity = engine.getEntity("elgato").let {
+        val entity = currentEntity.let {
             Logger.info("Current entity is $it")
             it
         }
@@ -56,23 +58,23 @@ class Player: System() {
     }
 
     override fun physicsUpdate(engine: DropbearEngine, deltaTime: Float) {
-        val entity = this.currentEntity ?: throw Exception("Player entity not found")
-
-        val player = getColliders(entity)
-        val triggerEntity = engine.getEntity("trigger") ?: throw Exception("trigger entity should exist")
-        val triggers = getColliders(triggerEntity)
-
-        if (Physics.triggering(player[0], triggers[0])) {
-            Logger.info("Triggering!")
-        }
-
-        if (Physics.overlapping(player[0], triggers[0])) {
-            Logger.info("Overlapping!")
-        }
-
-        if (Physics.touching(entity, triggerEntity)) {
-            Logger.info("Touching!")
-        }
+//        val entity = this.currentEntity ?: throw Exception("Player entity not found")
+//
+//        val player = getColliders(entity)
+//        val triggerEntity = engine.getEntity("trigger") ?: throw Exception("trigger entity should exist")
+//        val triggers = getColliders(triggerEntity)
+//
+//        if (Physics.triggering(player[0], triggers[0])) {
+//            Logger.info("Triggering!")
+//        }
+//
+//        if (Physics.overlapping(player[0], triggers[0])) {
+//            Logger.info("Overlapping!")
+//        }
+//
+//        if (Physics.touching(entity, triggerEntity)) {
+//            Logger.info("Touching!")
+//        }
     }
 
     fun getColliders(entity: EntityRef): List<Collider> {
@@ -299,11 +301,11 @@ class Player: System() {
         sceneLoadingHandle = null
     }
 
-//    fun foobar(engine: DropbearEngine) {
-//        val entity = currentEntity ?: return
-//        val floor = engine.getEntity("floor") ?: return
-//        if (Physics.isColliding(entity, floor)) {
-//            Logger.info("The entity is colliding with the floor")
-//        }
-//    }
+    override fun collisionEvent(engine: DropbearEngine, collisionEvent: CollisionEvent) {
+        Logger.info("Collision event triggered: $collisionEvent")
+    }
+
+    override fun collisionForceEvent(engine: DropbearEngine, collisionForceEvent: ContactForceEvent) {
+        Logger.info("Collision force event triggered: $collisionForceEvent")
+    }
 }
