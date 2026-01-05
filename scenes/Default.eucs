@@ -5,16 +5,11 @@
             label: ("Default Light"),
             components: [
                 {
-                    "type": "CustomProperties",
-                    "custom_properties": [],
-                    "next_id": 0,
-                },
-                {
                     "type": "Light",
                     "label": "Default Light",
                     "transform": (
-                        position: (0.0, 79.3, 0.0),
-                        rotation: (-0.5224985647159488, 0.0, 0.0, 0.8526401643540923),
+                        position: (0.0, 100.0, 0.0),
+                        rotation: (-0.5807029557109398, 0.0, 0.0, 0.8141155183563192),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "light_component": (
@@ -31,15 +26,20 @@
                         ),
                         enabled: true,
                         visible: true,
-                        cutoff_angle: 12.5,
-                        outer_cutoff_angle: 17.5,
-                        cast_shadows: true,
+                        cutoff_angle: 37.0,
+                        outer_cutoff_angle: 90.0,
+                        cast_shadows: false,
                         depth: (
                             start: 0.1,
                             end: 100.0,
                         ),
                     ),
                     "enabled": true,
+                },
+                {
+                    "type": "CustomProperties",
+                    "custom_properties": [],
+                    "next_id": 0,
                 },
             ],
         ),
@@ -50,8 +50,8 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-105.3281555356249, 113.59647400333527, -56.56285335484077),
-                        rotation: (0.2707931758141764, 0.4112991144480258, -0.12940686838137616, 0.8606729673938107),
+                        position: (-5.4762243376842665, 49.77476162548229, -99.13250538015947),
+                        rotation: (0.1574078598139363, 0.32992041541552725, -0.055894236660520825, 0.9291130821751353),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
@@ -93,20 +93,21 @@
                     ),
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: Cuboid(
+                            size_bits: (1143930880, 1138819072, 1073741824),
+                        ),
+                    ),
+                    "material_override": [],
+                    "material_customisation": [
                         (
-                            id: 1,
-                            entity: ("floor"),
-                            shape: Box(
-                                half_extents: (350.0, 225.0, 1.0),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
+                            material_index: Some(0),
+                            target_material: "procedural_material",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (5.0, 5.0),
                         ),
                     ],
                 },
@@ -124,21 +125,20 @@
                     ),
                 },
                 {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: Cuboid(
-                            size_bits: (1143930880, 1138819072, 1073741824),
-                        ),
-                    ),
-                    "material_override": [],
-                    "material_customisation": [
+                    "type": "ColliderGroup",
+                    "colliders": [
                         (
-                            material_index: Some(0),
-                            target_material: "procedural_material",
-                            tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: None,
-                            wrap_mode: Repeat,
-                            uv_tiling: (5.0, 5.0),
+                            id: 1,
+                            entity: ("floor"),
+                            shape: Box(
+                                half_extents: (350.0, 225.0, 1.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
                 },
@@ -172,20 +172,21 @@
                     ),
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: Cuboid(
+                            size_bits: (1128792064, 1104150528, 1065353216),
+                        ),
+                    ),
+                    "material_override": [],
+                    "material_customisation": [
                         (
-                            id: 1,
-                            entity: ("wall1"),
-                            shape: Box(
-                                half_extents: (100.0, 13.0, 0.5),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
+                            material_index: Some(0),
+                            target_material: "procedural_material",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
                         ),
                     ],
                 },
@@ -203,21 +204,20 @@
                     ),
                 },
                 {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: Cuboid(
-                            size_bits: (1128792064, 1104150528, 1065353216),
-                        ),
-                    ),
-                    "material_override": [],
-                    "material_customisation": [
+                    "type": "ColliderGroup",
+                    "colliders": [
                         (
-                            material_index: Some(0),
-                            target_material: "procedural_material",
-                            tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: None,
-                            wrap_mode: Repeat,
-                            uv_tiling: (1.0, 1.0),
+                            id: 1,
+                            entity: ("wall1"),
+                            shape: Box(
+                                half_extents: (100.0, 13.0, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
                 },
@@ -251,22 +251,48 @@
                     ),
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://models/maxwell_the_cat.glb"),
+                    ),
+                    "material_override": [],
+                    "material_customisation": [
                         (
-                            id: 1,
-                            entity: ("elgato"),
-                            shape: Box(
-                                half_extents: (7.6, 3.77, 5.66),
-                            ),
-                            density: 30.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (-2.02, 0.0, 8.0),
-                            rotation: (0.0, 0.0, 0.0),
+                            material_index: Some(0),
+                            target_material: "dingus",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
+                        ),
+                        (
+                            material_index: Some(1),
+                            target_material: "whiskers",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
                         ),
                     ],
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (-0.7071067811865478, 0.0, 0.0, 0.7071067811865478),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (18.908569058350338, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0000000000000018),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "CustomProperties",
@@ -295,48 +321,40 @@
                     "next_id": 4,
                 },
                 {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (-0.7071067811865478, 0.0, 0.0, 0.7071067811865478),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (18.908569058350338, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0000000000000018),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
-                },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://models/maxwell_the_cat.glb"),
-                    ),
-                    "material_override": [],
-                    "material_customisation": [
+                    "type": "ColliderGroup",
+                    "colliders": [
                         (
-                            material_index: Some(0),
-                            target_material: "dingus",
-                            tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: None,
-                            wrap_mode: Repeat,
-                            uv_tiling: (1.0, 1.0),
-                        ),
-                        (
-                            material_index: Some(1),
-                            target_material: "whiskers",
-                            tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: None,
-                            wrap_mode: Repeat,
-                            uv_tiling: (1.0, 1.0),
+                            id: 1,
+                            entity: ("elgato"),
+                            shape: Box(
+                                half_extents: (7.6, 3.77, 5.66),
+                            ),
+                            density: 30.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (-2.02, 0.0, 8.0),
+                            rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "KCC",
+                    "entity": ("elgato"),
+                    "controller": (
+                        up: (0.0, 1.0, 0.0),
+                        offset: Relative(0.01),
+                        slide: true,
+                        autostep: Some((
+                            max_height: Relative(0.25),
+                            min_width: Relative(0.5),
+                            include_dynamic_bodies: true,
+                        )),
+                        max_slope_climb_angle: 0.7853982,
+                        min_slope_slide_angle: 0.7853982,
+                        snap_to_ground: Some(Relative(0.2)),
+                        normal_nudge_factor: 0.0001,
+                    ),
                 },
                 {
                     "type": "Camera3D",
@@ -354,6 +372,91 @@
                     "speed": 1.0,
                     "sensitivity": 0.002,
                     "starting_camera": true,
+                },
+            ],
+        ),
+        (
+            label: ("light switch"),
+            components: [
+                {
+                    "type": "RigidBody",
+                    "entity": ("light switch"),
+                    "disable_physics": false,
+                    "mode": Fixed,
+                    "gravity_scale": 1.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: Cuboid(
+                            size_bits: (1106247680, 1073741824, 1106247680),
+                        ),
+                    ),
+                    "material_override": [],
+                    "material_customisation": [
+                        (
+                            material_index: Some(0),
+                            target_material: "procedural_material",
+                            tint: (0.6870763, 0.17489214, 0.17489214, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "lighting",
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (80.6469518926903, 3.1683678074597204, -79.52501419445414),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("light switch"),
+                            shape: Box(
+                                half_extents: (15.0, 1.0, 15.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
                 },
             ],
         ),

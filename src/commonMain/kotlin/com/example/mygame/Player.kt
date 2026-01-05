@@ -302,10 +302,10 @@ class Player: System() {
     }
 
     override fun collisionEvent(engine: DropbearEngine, collisionEvent: CollisionEvent) {
-        Logger.info("Collision event triggered: $collisionEvent")
+//        Logger.info("Collision event triggered: $collisionEvent")
     }
 
     override fun collisionForceEvent(engine: DropbearEngine, collisionForceEvent: ContactForceEvent) {
-        Logger.info("Collision force event triggered: $collisionForceEvent")
+//        Logger.info("Collision force event triggered: $collisionForceEvent")
     }
 }
