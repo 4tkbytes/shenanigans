@@ -187,8 +187,8 @@ tasks.register<Exec>("play") {
         val isCmdScript = lower.endsWith(".cmd") || lower.endsWith(".bat")
 
         commandLine(
-            if (isWindows && isCmdScript) listOf("cmd", "/c", editorPath, "play", projectRoot, "--await-jdb", "true")
-            else listOf(editorPath, "play", projectRoot, "--await-jdb", "true")
+            if (isWindows && isCmdScript) listOf("cmd", "/c", editorPath, "play", projectRoot, "--await-jdb")
+            else listOf(editorPath, "play", projectRoot, "--await-jdb")
         )
 
         workingDir = project.rootDir
