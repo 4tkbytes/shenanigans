@@ -5,6 +5,11 @@
             label: ("Default Light"),
             components: [
                 {
+                    "type": "CustomProperties",
+                    "custom_properties": [],
+                    "next_id": 0,
+                },
+                {
                     "type": "Light",
                     "label": "Default Light",
                     "transform": (
@@ -36,11 +41,6 @@
                     ),
                     "enabled": true,
                 },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [],
-                    "next_id": 0,
-                },
             ],
         ),
         (
@@ -50,8 +50,8 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (114.63597085960498, 79.67265093323446, -111.35970728483602),
-                        rotation: (0.11476237987589796, -0.36676590917631446, 0.0456478832309594, 0.9220784320153163),
+                        position: (144.38336197575242, 74.98097727400588, -135.5211674890851),
+                        rotation: (0.13884955087005713, -0.2698147920903941, 0.03935110476275732, 0.9520358558091976),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
@@ -82,6 +82,24 @@
                     ),
                 },
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("floor"),
+                            shape: Box(
+                                half_extents: (350.0, 225.0, 1.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
                     "type": "RigidBody",
                     "entity": ("floor"),
                     "disable_physics": false,
@@ -104,24 +122,6 @@
                         y: false,
                         z: false,
                     ),
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("floor"),
-                            shape: Box(
-                                half_extents: (350.0, 225.0, 1.0),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
                 },
                 {
                     "type": "SerializedMeshRenderer",
@@ -161,6 +161,24 @@
                     ),
                 },
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("wall1"),
+                            shape: Box(
+                                half_extents: (100.0, 13.0, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
                     "type": "RigidBody",
                     "entity": ("wall1"),
                     "disable_physics": false,
@@ -183,24 +201,6 @@
                         y: false,
                         z: false,
                     ),
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("wall1"),
-                            shape: Box(
-                                half_extents: (100.0, 13.0, 0.5),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
                 },
                 {
                     "type": "SerializedMeshRenderer",
@@ -226,6 +226,37 @@
         (
             label: ("elgato"),
             components: [
+                {
+                    "type": "CustomProperties",
+                    "custom_properties": [
+                        (
+                            id: 0,
+                            key: "distance",
+                            value: Double(86.0),
+                        ),
+                        (
+                            id: 1,
+                            key: "heightOffset",
+                            value: Double(39.5),
+                        ),
+                        (
+                            id: 2,
+                            key: "speed",
+                            value: Double(7.0),
+                        ),
+                        (
+                            id: 3,
+                            key: "locked",
+                            value: Bool(false),
+                        ),
+                        (
+                            id: 4,
+                            key: "jump_height",
+                            value: Double(10.0),
+                        ),
+                    ],
+                    "next_id": 6,
+                },
                 {
                     "type": "EntityTransform",
                     "local": (
@@ -263,6 +294,24 @@
                     "starting_camera": true,
                 },
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("elgato"),
+                            shape: Box(
+                                half_extents: (7.6, 3.77, 5.66),
+                            ),
+                            density: 30.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (-2.02, 0.0, 8.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
                     "type": "RigidBody",
                     "entity": ("elgato"),
                     "disable_physics": false,
@@ -285,50 +334,6 @@
                         y: false,
                         z: false,
                     ),
-                },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [
-                        (
-                            id: 0,
-                            key: "distance",
-                            value: Double(86.0),
-                        ),
-                        (
-                            id: 1,
-                            key: "heightOffset",
-                            value: Double(39.5),
-                        ),
-                        (
-                            id: 2,
-                            key: "speed",
-                            value: Double(7.0),
-                        ),
-                        (
-                            id: 3,
-                            key: "locked",
-                            value: Bool(false),
-                        ),
-                    ],
-                    "next_id": 4,
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("elgato"),
-                            shape: Box(
-                                half_extents: (7.6, 3.77, 5.66),
-                            ),
-                            density: 30.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (-2.02, 0.0, 8.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
                 },
                 {
                     "type": "SerializedMeshRenderer",
@@ -363,14 +368,14 @@
                         offset: Relative(0.01),
                         slide: true,
                         autostep: Some((
-                            max_height: Absolute(4.0),
-                            min_width: Absolute(6.0),
+                            max_height: Relative(1.0),
+                            min_width: Relative(1.0),
                             include_dynamic_bodies: false,
                         )),
                         max_slope_climb_angle: 0.7853982,
                         min_slope_slide_angle: 0.7853982,
                         snap_to_ground: Some(Absolute(0.2)),
-                        normal_nudge_factor: 0.0001,
+                        normal_nudge_factor: 0.1,
                     ),
                 },
             ],
@@ -398,6 +403,24 @@
                     ],
                 },
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("light switch"),
+                            shape: Box(
+                                half_extents: (15.0, 1.5, 15.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
                     "type": "RigidBody",
                     "entity": ("light switch"),
                     "disable_physics": false,
@@ -420,24 +443,6 @@
                         y: false,
                         z: false,
                     ),
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("light switch"),
-                            shape: Box(
-                                half_extents: (15.0, 1.5, 15.0),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
                 },
                 {
                     "type": "SerializedMeshRenderer",
