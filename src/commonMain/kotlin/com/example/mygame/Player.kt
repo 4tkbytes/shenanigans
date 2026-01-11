@@ -35,8 +35,6 @@ class Player: System() {
     private var movement: Vector3d = Vector3d.zero()
 
     private var verticalVelocity = 0.0
-    private var jumpRequested = false
-    private var wasGrounded = false
 
     override fun load(engine: DropbearEngine) {
         Logger.info("Initialised Player")
@@ -84,11 +82,6 @@ class Player: System() {
             movement -= right
         }
 
-        if (input.isKeyPressed(KeyCode.Space) && kcc.isOnFloor()) {
-        }
-
-        rigidbody.lockRotation = AxisLock(x = true, y = true, z = true)
-
         player1?.let { gamepad ->
             val deadzone = 0.15
             if (abs(gamepad.leftStickPosition.x) > deadzone) movement -= right * gamepad.leftStickPosition.x
@@ -96,21 +89,12 @@ class Player: System() {
         }
 
         val gravity = abs(Physics.gravity.y * rigidbody.gravityScale)
-        val jumpVelocity = kotlin.math.sqrt(2.0 * gravity * jumpHeight)
 
         if ((input.isKeyPressed(KeyCode.Space) || player1?.isButtonPressed(GamepadButton.South) == true) && isGrounded) {
-            verticalVelocity = jumpVelocity
-            jumpRequested = true
+            verticalVelocity = jumpHeight
         }
 
-        if (!isGrounded) {
-            verticalVelocity += Physics.gravity.y * rigidbody.gravityScale * deltaTime
-        } else {
-            if (!wasGrounded) {
-                verticalVelocity = 0.0
-            }
-            verticalVelocity = -0.5
-        }
+        verticalVelocity -= gravity * deltaTime
 
         val dir = if (movement.lengthSquared() > 1e-9) movement.normalize() else Vector3d.zero()
         val velocity = dir * speed
@@ -125,7 +109,6 @@ class Player: System() {
 
         isMoving = movement.length() > 0.0
         this.movement = movement
-        jumpRequested = false
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Double) {
