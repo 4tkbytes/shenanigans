@@ -108,6 +108,12 @@ kotlin {
         }
     }
 
+//    kotlin {
+//        compilerOptions {
+//            optIn.add("-Xallow-any-scripts-in-source-roots")
+//        }
+//    }
+
     sourceSets {
         commonMain {
             dependencies {

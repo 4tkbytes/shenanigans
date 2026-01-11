@@ -33,8 +33,14 @@ class Player: System() {
     private var player1: Gamepad? = null
     private var someIncrementingVariable: Int = 0
     private var movement: Vector3d = Vector3d.zero()
-
     private var verticalVelocity = 0.0
+
+    private var qKeyPressedLastFrame = false
+    private var eKeyPressedLastFrame = false
+
+    companion object {
+        var playerState: PlayerState = PlayerState.Solid
+    }
 
     override fun load(engine: DropbearEngine) {
         Logger.info("Initialised Player")
@@ -60,10 +66,15 @@ class Player: System() {
         val props = entity.getComponent(CustomProperties) ?: throw Exception("Props missing")
         val speed = (props.getProperty<Double>("speed") ?: 10.0)
         val jumpHeight = (props.getProperty<Double>("jumpHeight") ?: 2.0)
+        val gasFloatSpeed = (props.getProperty<Double>("gasFloatSpeed") ?: 2.0)
         val input = engine.inputState
         val kcc = entity.getComponent(KinematicCharacterController) ?: throw Exception("Expected KCC component")
 
         val isGrounded = kcc.isOnFloor()
+
+        if (isGrounded && verticalVelocity < 0.0) {
+            verticalVelocity = 0.0
+        }
 
         val forward = Vector3d(cos(camera.yaw), 0.0, sin(camera.yaw))
         val right = Vector3d(-sin(camera.yaw), 0.0, cos(camera.yaw))
@@ -91,10 +102,20 @@ class Player: System() {
         val gravity = abs(Physics.gravity.y * rigidbody.gravityScale)
 
         if ((input.isKeyPressed(KeyCode.Space) || player1?.isButtonPressed(GamepadButton.South) == true) && isGrounded) {
-            verticalVelocity = jumpHeight
+            verticalVelocity = if (playerState == PlayerState.Gas) {
+                -jumpHeight
+            } else {
+                jumpHeight
+            }
         }
 
-        verticalVelocity -= gravity * deltaTime
+        if (playerState == PlayerState.Gas) {
+            applyGasPhysics(gasFloatSpeed)
+        } else {
+            if (!isGrounded) {
+                verticalVelocity -= gravity * deltaTime
+            }
+        }
 
         val dir = if (movement.lengthSquared() > 1e-9) movement.normalize() else Vector3d.zero()
         val velocity = dir * speed
@@ -109,6 +130,38 @@ class Player: System() {
 
         isMoving = movement.length() > 0.0
         this.movement = movement
+
+        // switch down
+        val qPressed = input.isKeyPressed(KeyCode.KeyQ) || player1?.isButtonPressed(GamepadButton.LeftTrigger2) == true
+        if (qPressed && !qKeyPressedLastFrame) {
+            val oldPlayerState = playerState
+            playerState = when (playerState) {
+                PlayerState.Liquid -> PlayerState.Liquid
+                PlayerState.Solid -> PlayerState.Liquid
+                PlayerState.Gas -> PlayerState.Solid
+            }
+            Logger.info("playerState changed: $oldPlayerState -> $playerState")
+            switchForm()
+        }
+        qKeyPressedLastFrame = qPressed
+
+        // switch up
+        val ePressed = input.isKeyPressed(KeyCode.KeyE) || player1?.isButtonPressed(GamepadButton.RightTrigger2) == true
+        if (ePressed && !eKeyPressedLastFrame) {
+            val oldPlayerState = playerState
+            playerState = when (playerState) {
+                PlayerState.Liquid -> PlayerState.Solid
+                PlayerState.Solid -> PlayerState.Gas
+                PlayerState.Gas -> PlayerState.Gas
+            }
+            Logger.info("playerState changed: $oldPlayerState -> $playerState")
+            switchForm()
+        }
+        eKeyPressedLastFrame = ePressed
+    }
+
+    fun switchForm() {
+        // empty for now, supposed to be for mesh changing
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Double) {
@@ -159,8 +212,6 @@ class Player: System() {
             input.setCursorLocked(false)
             input.setCursorHidden(false)
         }
-
-        // movement
 
         // camera stuff
         val delta = input.getMouseDelta()
@@ -213,4 +264,9 @@ class Player: System() {
     }
 
     override fun destroy(engine: DropbearEngine) { sceneLoadingHandle = null }
+
+    fun applyGasPhysics(gasFloatSpeed: Double) {
+        verticalVelocity = gasFloatSpeed
+
+    }
 }
