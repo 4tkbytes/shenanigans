@@ -50,12 +50,12 @@
                     "type": "Camera3D",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-36.06122675583839, 38.44625119433055, -1.2746746697707576),
-                        rotation: (0.19697819902551333, 0.6355509267501248, -0.17235721210076038, 0.7263384886212325),
+                        position: (-46.37427830066457, 43.098251661580726, -32.17970419816325),
+                        rotation: (0.19918130379874177, 0.5241795667079246, -0.12762222314413219, 0.8180923897841093),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
-                    "aspect": 2.537165510406343,
+                    "aspect": 1.613733905579399,
                     "fov": 75.0,
                     "near": 0.1,
                     "far": 100.0,
@@ -306,8 +306,155 @@
             ],
         ),
         (
+            label: ("crate"),
+            components: [
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: Cuboid(
+                            size_bits: (1092616192, 1092616192, 1092616192),
+                        ),
+                    ),
+                    "material_override": [],
+                    "material_customisation": [
+                        (
+                            material_index: Some(0),
+                            target_material: "procedural_material",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
+                        ),
+                    ],
+                    "import_scale": Some(1.0),
+                },
+                {
+                    "type": "RigidBody",
+                    "entity": ("crate"),
+                    "disable_physics": false,
+                    "mode": Dynamic,
+                    "gravity_scale": 5.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.5,
+                    "angular_damping": 2.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: true,
+                        y: true,
+                        z: true,
+                    ),
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (33.22871524017849, 15.329878900778429, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("crate"),
+                            shape: Box(
+                                half_extents: (5.0, 5.0, 5.0),
+                            ),
+                            density: 20.0,
+                            friction: 2.0,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+            ],
+        ),
+        (
             label: ("elgato"),
             components: [
+                {
+                    "type": "KCC",
+                    "entity": ("elgato"),
+                    "controller": (
+                        up: (0.0, 1.0, 0.0),
+                        offset: Absolute(0.5),
+                        slide: true,
+                        autostep: Some((
+                            max_height: Relative(1.0),
+                            min_width: Relative(1.0),
+                            include_dynamic_bodies: false,
+                        )),
+                        max_slope_climb_angle: 0.7853982,
+                        min_slope_slide_angle: 0.7853982,
+                        snap_to_ground: Some(Absolute(0.2)),
+                        normal_nudge_factor: 0.1,
+                    ),
+                },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: File("euca://models/maxwell_the_cat.glb"),
+                    ),
+                    "material_override": [],
+                    "material_customisation": [
+                        (
+                            material_index: Some(0),
+                            target_material: "dingus",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
+                        ),
+                        (
+                            material_index: Some(1),
+                            target_material: "whiskers",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
+                        ),
+                    ],
+                    "import_scale": Some(0.4),
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
+                },
+                {
+                    "type": "Camera3D",
+                    "label": "elgato",
+                    "transform": (
+                        position: (0.0, 1.0, 2.0),
+                        rotation: (-0.0, -0.9732489894677303, 0.2297529205473612, -0.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Normal,
+                    "aspect": 2.537165403366089,
+                    "fov": 90.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.002,
+                    "starting_camera": true,
+                },
                 {
                     "type": "CustomProperties",
                     "custom_properties": [
@@ -343,55 +490,6 @@
                         ),
                     ],
                     "next_id": 7,
-                },
-                {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: File("euca://models/maxwell_the_cat.glb"),
-                    ),
-                    "material_override": [],
-                    "material_customisation": [
-                        (
-                            material_index: Some(0),
-                            target_material: "dingus",
-                            tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: None,
-                            wrap_mode: Repeat,
-                            uv_tiling: (1.0, 1.0),
-                        ),
-                        (
-                            material_index: Some(1),
-                            target_material: "whiskers",
-                            tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: None,
-                            wrap_mode: Repeat,
-                            uv_tiling: (1.0, 1.0),
-                        ),
-                    ],
-                    "import_scale": Some(0.4),
-                },
-                {
-                    "type": "Camera3D",
-                    "label": "elgato",
-                    "transform": (
-                        position: (0.0, 1.0, 2.0),
-                        rotation: (-0.0, -0.9732489894677303, 0.2297529205473612, -0.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "camera_type": Normal,
-                    "aspect": 2.537165403366089,
-                    "fov": 90.0,
-                    "near": 0.1,
-                    "far": 100.0,
-                    "speed": 1.0,
-                    "sensitivity": 0.002,
-                    "starting_camera": true,
-                },
-                {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
                 },
                 {
                     "type": "RigidBody",
@@ -439,7 +537,7 @@
                             shape: Box(
                                 half_extents: (4.78, 2.01, 1.75),
                             ),
-                            density: 30.0,
+                            density: 5.0,
                             friction: 0.5,
                             restitution: 0.0,
                             is_sensor: false,
@@ -447,24 +545,6 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
-                },
-                {
-                    "type": "KCC",
-                    "entity": ("elgato"),
-                    "controller": (
-                        up: (0.0, 1.0, 0.0),
-                        offset: Relative(0.01),
-                        slide: true,
-                        autostep: Some((
-                            max_height: Relative(1.0),
-                            min_width: Relative(1.0),
-                            include_dynamic_bodies: false,
-                        )),
-                        max_slope_climb_angle: 0.7853982,
-                        min_slope_slide_angle: 0.7853982,
-                        snap_to_ground: Some(Absolute(0.2)),
-                        normal_nudge_factor: 0.1,
-                    ),
                 },
             ],
         ),

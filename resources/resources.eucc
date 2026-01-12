@@ -57,6 +57,11 @@
             path: "C:\\Users\\thrib\\shenanigans\\resources\\textures",
             nodes: [
                 File(ResourceFile(
+                    name: "crate.jpg",
+                    path: "resources\\textures\\crate.jpg",
+                    resource_type: Texture,
+                )),
+                File(ResourceFile(
                     name: "loperlog_logo.png",
                     path: "resources\\textures\\loperlog_logo.png",
                     resource_type: Texture,
