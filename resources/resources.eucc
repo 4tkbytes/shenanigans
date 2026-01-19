@@ -1,74 +1,74 @@
 (
-    path: "C:\\Users\\thrib\\shenanigans\\resources",
+    path: "/home/tirbofish/shenanigans/resources",
     nodes: [
         File(ResourceFile(
             name: "asdadasdadsa.glb",
-            path: "resources\\asdadasdadsa.glb",
+            path: "resources/asdadasdadsa.glb",
             resource_type: Unknown,
         )),
         Folder((
             name: "models",
-            path: "C:\\Users\\thrib\\shenanigans\\resources\\models",
+            path: "/home/tirbofish/shenanigans/resources/models",
             nodes: [
                 File(ResourceFile(
                     name: "Avocado.glb",
-                    path: "resources\\models\\Avocado.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
-                    name: "fish.glb",
-                    path: "resources\\models\\fish.glb",
+                    path: "resources/models/Avocado.glb",
                     resource_type: Model,
                 )),
                 File(ResourceFile(
                     name: "Fox.glb",
-                    path: "resources\\models\\Fox.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
-                    name: "horse.glb",
-                    path: "resources\\models\\horse.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
-                    name: "low_poly_penguin.glb",
-                    path: "resources\\models\\low_poly_penguin.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
-                    name: "maxwell_the_cat.glb",
-                    path: "resources\\models\\maxwell_the_cat.glb",
+                    path: "resources/models/Fox.glb",
                     resource_type: Model,
                 )),
                 File(ResourceFile(
                     name: "ToyCar.glb",
-                    path: "resources\\models\\ToyCar.glb",
+                    path: "resources/models/ToyCar.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "fish.glb",
+                    path: "resources/models/fish.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "horse.glb",
+                    path: "resources/models/horse.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "low_poly_penguin.glb",
+                    path: "resources/models/low_poly_penguin.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "maxwell_the_cat.glb",
+                    path: "resources/models/maxwell_the_cat.glb",
                     resource_type: Model,
                 )),
             ],
         )),
         File(ResourceFile(
             name: "resources.eucc",
-            path: "resources\\resources.eucc",
+            path: "resources/resources.eucc",
             resource_type: Config,
         )),
         Folder((
             name: "textures",
-            path: "C:\\Users\\thrib\\shenanigans\\resources\\textures",
+            path: "/home/tirbofish/shenanigans/resources/textures",
             nodes: [
                 File(ResourceFile(
                     name: "crate.jpg",
-                    path: "resources\\textures\\crate.jpg",
+                    path: "resources/textures/crate.jpg",
                     resource_type: Texture,
                 )),
                 File(ResourceFile(
                     name: "loperlog_logo.png",
-                    path: "resources\\textures\\loperlog_logo.png",
+                    path: "resources/textures/loperlog_logo.png",
                     resource_type: Texture,
                 )),
                 File(ResourceFile(
                     name: "proto.png",
-                    path: "resources\\textures\\proto.png",
+                    path: "resources/textures/proto.png",
                     resource_type: Texture,
                 )),
             ],

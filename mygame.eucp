@@ -1,15 +1,18 @@
 (
     project_name: "MyGame",
-    project_path: "C:\\Users\\thrib\\shenanigans",
+    project_path: "/home/tirbofish/shenanigans",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2026-01-12 05:35:02",
+    date_last_accessed: "2026-01-19 16:15:35",
     project_version: "0.1.0",
     authors: (
         developer: "tirbofish",
     ),
     runtime_settings: (
         initial_scene: Some("Default"),
-        target_fps: 170,
+        target_fps: (
+            _inner: Some(120),
+            _old: None,
+        ),
     ),
     last_opened_scene: Some("Default"),
 )

@@ -21,6 +21,8 @@ import com.dropbear.scene.SceneLoadHandle
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
+import kotlin.time.Clock
+import kotlin.time.Instant
 
 @Runnable(["player"])
 class Player: System() {
@@ -35,11 +37,25 @@ class Player: System() {
     private var movement: Vector3d = Vector3d.zero()
     private var verticalVelocity = 0.0
 
+    private var gasStart: Instant? = null
+
     private var qKeyPressedLastFrame = false
     private var eKeyPressedLastFrame = false
 
+    private val springCamera = SpringyCameraController()
+
     companion object {
+        private var previousPlayerState: PlayerState = PlayerState.Solid
+
         var playerState: PlayerState = PlayerState.Solid
+            private set(value) {
+                previousPlayerState = playerState
+                field = value
+            }
+
+        var health: PlayerHealth = PlayerHealth.full()
+
+        var currentGasTime: Double = 0.0
     }
 
     override fun load(engine: DropbearEngine) {
@@ -64,9 +80,9 @@ class Player: System() {
         val camera = entity.getComponent(Camera) ?: return
         val rigidbody = entity.getComponent(RigidBody) ?: return
         val props = entity.getComponent(CustomProperties) ?: throw Exception("Props missing")
-        val speed = (props.getProperty<Double>("speed") ?: 10.0)
-        val jumpHeight = (props.getProperty<Double>("jumpHeight") ?: 2.0)
-        val gasFloatSpeed = (props.getProperty<Double>("gasFloatSpeed") ?: 2.0)
+        var speed = (props.getProperty<Double>("speed") ?: 10.0) * deltaTime
+        val jumpHeight = (props.getProperty<Double>("jumpHeight") ?: 2.0) * deltaTime
+        val gasFloatSpeed = (props.getProperty<Double>("gasFloatSpeed") ?: 2.0) * deltaTime
         val input = engine.inputState
         val kcc = entity.getComponent(KinematicCharacterController) ?: throw Exception("Expected KCC component")
 
@@ -91,6 +107,9 @@ class Player: System() {
         }
         if (input.isKeyPressed(KeyCode.KeyD)) {
             movement -= right
+        }
+        if (input.isKeyPressed(KeyCode.ShiftLeft) || input.isKeyPressed(KeyCode.ShiftRight) || (player1?.isButtonPressed(GamepadButton.West) == true)) {
+            speed *= 2
         }
 
         player1?.let { gamepad ->
@@ -126,9 +145,22 @@ class Player: System() {
             velocity.z
         )
 
-        entity.getComponent(KinematicCharacterController)?.move(deltaTime, translation)
+        kcc.move(deltaTime, translation)
 
-        isMoving = movement.length() > 0.0
+        if (movement.lengthSquared() > 0.001) {
+            val transform = entity.getComponent(EntityTransform) ?: return
+
+            val targetYaw = kotlin.math.atan2(movement.x, movement.z)
+
+            val targetRotation = Quaterniond.fromEulerAngles(0.0, targetYaw, 0.0)
+
+            val rotationSpeed = 10.0
+            val t = (rotationSpeed * deltaTime).coerceIn(0.0, 1.0)
+
+            transform.world.rotation = transform.world.rotation.slerp(targetRotation, t)
+        }
+
+        this.isMoving = movement.lengthSquared() > 0.001
         this.movement = movement
 
         // switch down
@@ -161,7 +193,17 @@ class Player: System() {
     }
 
     fun switchForm() {
-        // empty for now, supposed to be for mesh changing
+        // todo: make it so it switches models.
+
+        if (playerState == PlayerState.Gas) {
+            // start gas timer
+            gasStart = Clock.System.now()
+            currentGasTime = 0.0
+        } else {
+            // gas timer resets if not gas
+            gasStart = null
+            currentGasTime = 0.0
+        }
     }
 
     override fun update(engine: DropbearEngine, deltaTime: Double) {
@@ -216,7 +258,7 @@ class Player: System() {
         // camera stuff
         val delta = input.getMouseDelta()
         var xOffset = if (locked) delta.x * camera.sensitivity else 0.0
-        var yOffset = if (locked) delta.y * camera.sensitivity else 0.0
+        var yOffset = - (if (locked) delta.y * camera.sensitivity else 0.0)
 
         player1?.let { gamepad ->
             val deadzone = 0.15
@@ -226,7 +268,7 @@ class Player: System() {
         }
 
         camera.yaw -= xOffset
-        camera.pitch += yOffset
+        camera.pitch -= yOffset
         camera.pitch = camera.pitch.coerceIn(-1.5533, 1.5533)
 
         val front = Vector3d(
@@ -235,8 +277,11 @@ class Player: System() {
             sin(camera.yaw) * cos(camera.pitch)
         ).normalize()
 
-        camera.eye = transform.world.position - (front * thirdPersonDistance) + cameraOffset
-        camera.target = transform.world.position + cameraOffset
+        val idealCameraPos = transform.world.position - (front * thirdPersonDistance) + cameraOffset
+        val headPos = transform.world.position + cameraOffset
+
+        camera.eye = springCamera.getSpringyPosition(headPos, idealCameraPos, deltaTime)
+        camera.target = headPos
 
         if (isMoving && movement.lengthSquared() > 0.001) {
             val targetYaw = kotlin.math.atan2(movement.x, movement.z)
@@ -261,6 +306,7 @@ class Player: System() {
         if (input.isKeyPressed(KeyCode.Escape)) engine.quit()
         if (input.isKeyPressed(KeyCode.F1)) locked = !locked
         props.setProperty("locked", locked)
+
     }
 
     override fun destroy(engine: DropbearEngine) { sceneLoadingHandle = null }
@@ -268,5 +314,22 @@ class Player: System() {
     fun applyGasPhysics(gasFloatSpeed: Double) {
         verticalVelocity = gasFloatSpeed
 
+        val startTime = gasStart ?: return
+        val maxGasDuration = 5.0 // 5 seconds
+
+        val elapsed = (Clock.System.now() - startTime).inWholeMilliseconds / 1000.0
+        currentGasTime = elapsed
+
+        val energyPercentage = (1.0 - (currentGasTime / maxGasDuration)).coerceIn(0.0, 1.0)
+
+        val maxEnergy = 100.0
+        health.energy.current = maxEnergy * energyPercentage
+
+        if (currentGasTime >= maxGasDuration || health.energy.current <= 0.0) {
+            health.energy.current = 0.0
+            playerState = PlayerState.Solid
+            switchForm()
+            Logger.info("timer expired")
+        }
     }
 }

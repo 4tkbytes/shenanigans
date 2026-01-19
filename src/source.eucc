@@ -1,39 +1,49 @@
 (
-    path: "C:\\Users\\thrib\\shenanigans\\src",
+    path: "/home/tirbofish/shenanigans/src",
     nodes: [
         Folder((
             name: "commonMain",
-            path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain",
+            path: "/home/tirbofish/shenanigans/src/commonMain",
             nodes: [
                 Folder((
                     name: "kotlin",
-                    path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin",
+                    path: "/home/tirbofish/shenanigans/src/commonMain/kotlin",
                     nodes: [
                         Folder((
                             name: "com",
-                            path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin\\com",
+                            path: "/home/tirbofish/shenanigans/src/commonMain/kotlin/com",
                             nodes: [
                                 Folder((
                                     name: "example",
-                                    path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin\\com\\example",
+                                    path: "/home/tirbofish/shenanigans/src/commonMain/kotlin/com/example",
                                     nodes: [
                                         Folder((
                                             name: "mygame",
-                                            path: "C:\\Users\\thrib\\shenanigans\\src\\commonMain\\kotlin\\com\\example\\mygame",
+                                            path: "/home/tirbofish/shenanigans/src/commonMain/kotlin/com/example/mygame",
                                             nodes: [
                                                 File(ResourceFile(
                                                     name: "Lighting.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\Lighting.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Lighting.kt",
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
                                                     name: "Player.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\Player.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
                                                     name: "PlayerState.kt",
-                                                    path: "src\\commonMain\\kotlin\\com\\example\\mygame\\PlayerState.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerState.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "SpringyCameraController.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/SpringyCameraController.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "PlayerHealth.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerHealth.kt",
                                                     resource_type: Script,
                                                 )),
                                             ],
@@ -48,7 +58,7 @@
         )),
         File(ResourceFile(
             name: "source.eucc",
-            path: "src\\source.eucc",
+            path: "src/source.eucc",
             resource_type: Config,
         )),
     ],

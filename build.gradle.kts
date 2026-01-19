@@ -8,6 +8,7 @@ import kotlin.concurrent.thread
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinxSerialization)
+    id("com.gradleup.shadow") version "9.2.2"
 }
 
 group = "com.example.mygame"
@@ -108,6 +109,12 @@ kotlin {
         }
     }
 
+    java {
+        sourceSets.getByName("jvmMain") {
+            java.srcDirs("scripting/jvmMain/java")
+        }
+    }
+
 //    kotlin {
 //        compilerOptions {
 //            optIn.add("-Xallow-any-scripts-in-source-roots")
@@ -134,23 +141,6 @@ kotlin {
         }
         // -----------------------------------------------------------------------------------------------
     }
-}
-
-tasks.register<Jar>("fatJar") {
-    archiveClassifier.set("all")
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-    from(kotlin.jvm().compilations["main"].output)
-
-    configurations.named("jvmRuntimeClasspath").get().forEach { file ->
-        if (file.name.endsWith(".jar")) {
-            from(zipTree(file))
-        } else {
-            from(file)
-        }
-    }
-
-    manifest {}
 }
 
 tasks.register<Exec>("play") {
