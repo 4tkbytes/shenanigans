@@ -11,6 +11,7 @@ import com.dropbear.input.GamepadButton
 import com.dropbear.input.KeyCode
 import com.dropbear.logging.Logger
 import com.dropbear.math.Quaterniond
+import com.dropbear.math.Vector2d
 import com.dropbear.math.Vector3d
 import com.dropbear.physics.AxisLock
 import com.dropbear.physics.CollisionEvent
@@ -18,6 +19,11 @@ import com.dropbear.physics.KinematicCharacterController
 import com.dropbear.physics.Physics
 import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
+import com.dropbear.ui.Ui
+import com.dropbear.ui.primitive.Rectangle
+import com.dropbear.utils.Colour
+import com.dropbear.utils.ID
+import com.dropbear.utils.asId
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
@@ -190,6 +196,8 @@ class Player: System() {
             switchForm()
         }
         eKeyPressedLastFrame = ePressed
+
+        renderHUD(engine.ui)
     }
 
     fun switchForm() {
@@ -203,6 +211,62 @@ class Player: System() {
             // gas timer resets if not gas
             gasStart = null
             currentGasTime = 0.0
+        }
+    }
+
+    fun renderHUD(ui: Ui) {
+        when (playerState) {
+            PlayerState.Liquid -> {
+                if (ui.add(Rectangle(
+                    id = ID.fromString("liquid"),
+                    initial = Vector2d(10.0, 10.0),
+                    width = 50.0,
+                    height = 20.0,
+                    fillColour = Colour(255u, 0u, 0u, 255u)
+                )).clicked()) {
+                    ui.add(Rectangle(
+                        id = ID.fromString("liquid"),
+                        initial = Vector2d(10.0, 10.0),
+                        width = 50.0,
+                        height = 20.0,
+                        fillColour = Colour.WHITE
+                    ))
+                }
+            }
+            PlayerState.Solid -> {
+                if (ui.add(Rectangle(
+                    id = ID.fromString("solid"),
+                    initial = Vector2d(10.0, 10.0),
+                    width = 50.0,
+                    height = 20.0,
+                    fillColour = Colour(128u, 128u, 128u, 255u)
+                )).clicked()) {
+                    ui.add(Rectangle(
+                        id = ID.fromString("solid"),
+                        initial = Vector2d(10.0, 10.0),
+                        width = 50.0,
+                        height = 20.0,
+                        fillColour = Colour.WHITE
+                    ))
+                }
+            }
+            PlayerState.Gas -> {
+                if (ui.add(Rectangle(
+                        id = ID.fromString("gas"),
+                        initial = Vector2d(10.0, 10.0),
+                        width = 50.0,
+                        height = 20.0,
+                        fillColour = Colour(0u, 0u, 255u, 255u)
+                    )).clicked()) {
+                    ui.add(Rectangle(
+                        id = ID.fromString("gas"),
+                        initial = Vector2d(10.0, 10.0),
+                        width = 50.0,
+                        height = 20.0,
+                        fillColour = Colour.WHITE
+                    ))
+                }
+            }
         }
     }
 
