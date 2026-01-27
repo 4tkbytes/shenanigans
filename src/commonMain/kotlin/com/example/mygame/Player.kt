@@ -9,21 +9,26 @@ import com.dropbear.ecs.System
 import com.dropbear.input.Gamepad
 import com.dropbear.input.GamepadButton
 import com.dropbear.input.KeyCode
+import com.dropbear.logging.LogLevel
 import com.dropbear.logging.Logger
 import com.dropbear.math.Quaterniond
-import com.dropbear.math.Vector2d
 import com.dropbear.math.Vector3d
-import com.dropbear.physics.AxisLock
-import com.dropbear.physics.CollisionEvent
 import com.dropbear.physics.KinematicCharacterController
 import com.dropbear.physics.Physics
 import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
-import com.dropbear.ui.Ui
-import com.dropbear.ui.primitive.Rectangle
+import com.dropbear.ui.UIBuilder
+import com.dropbear.ui.add
+import com.dropbear.ui.buildUI
+import com.dropbear.ui.styling.Alignment
+import com.dropbear.ui.styling.Padding
+import com.dropbear.ui.styling.TextStyle
+import com.dropbear.ui.styling.fonts.Family
+import com.dropbear.ui.widgets.Button
+import com.dropbear.ui.widgets.Text
+import com.dropbear.ui.widgets.button
+import com.dropbear.ui.widgets.label
 import com.dropbear.utils.Colour
-import com.dropbear.utils.ID
-import com.dropbear.utils.asId
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
@@ -49,6 +54,7 @@ class Player: System() {
     private var eKeyPressedLastFrame = false
 
     private val springCamera = SpringyCameraController()
+    private var toggleDebug = false
 
     companion object {
         private var previousPlayerState: PlayerState = PlayerState.Solid
@@ -98,6 +104,7 @@ class Player: System() {
             verticalVelocity = 0.0
         }
 
+
         val forward = Vector3d(cos(camera.yaw), 0.0, sin(camera.yaw))
         val right = Vector3d(-sin(camera.yaw), 0.0, cos(camera.yaw))
         var movement = Vector3d.zero()
@@ -114,6 +121,7 @@ class Player: System() {
         if (input.isKeyPressed(KeyCode.KeyD)) {
             movement -= right
         }
+        if (input.isKeyPressed(KeyCode.Backquote)) toggleDebug = !toggleDebug
         if (input.isKeyPressed(KeyCode.ShiftLeft) || input.isKeyPressed(KeyCode.ShiftRight) || (player1?.isButtonPressed(GamepadButton.West) == true)) {
             speed *= 2
         }
@@ -192,12 +200,31 @@ class Player: System() {
                 PlayerState.Solid -> PlayerState.Gas
                 PlayerState.Gas -> PlayerState.Gas
             }
+            Logger.setLogLevel(LogLevel.TRACE)
             Logger.info("playerState changed: $oldPlayerState -> $playerState")
             switchForm()
         }
         eKeyPressedLastFrame = ePressed
 
-        renderHUD(engine.ui)
+        if (toggleDebug) {
+            engine.renderUI(buildUI {
+                label("FPS: ${1.0/deltaTime}")
+
+                label("Current State: ${
+                    when (playerState) {
+                        PlayerState.Liquid -> "Liquid"
+                        PlayerState.Solid -> "Solid"
+                        PlayerState.Gas -> "Gas"
+                    }
+                }") {
+                    style.colour = when (playerState) {
+                        PlayerState.Liquid -> Colour.BLUE
+                        PlayerState.Solid -> Colour.GRAY
+                        PlayerState.Gas -> Colour.RED
+                    }
+                }
+            })
+        }
     }
 
     fun switchForm() {
@@ -214,61 +241,54 @@ class Player: System() {
         }
     }
 
-    fun renderHUD(ui: Ui) {
-        when (playerState) {
-            PlayerState.Liquid -> {
-                if (ui.add(Rectangle(
-                    id = ID.fromString("liquid"),
-                    initial = Vector2d(10.0, 10.0),
-                    width = 50.0,
-                    height = 20.0,
-                    fillColour = Colour(255u, 0u, 0u, 255u)
-                )).clicked()) {
-                    ui.add(Rectangle(
-                        id = ID.fromString("liquid"),
-                        initial = Vector2d(10.0, 10.0),
-                        width = 50.0,
-                        height = 20.0,
-                        fillColour = Colour.WHITE
-                    ))
-                }
-            }
-            PlayerState.Solid -> {
-                if (ui.add(Rectangle(
-                    id = ID.fromString("solid"),
-                    initial = Vector2d(10.0, 10.0),
-                    width = 50.0,
-                    height = 20.0,
-                    fillColour = Colour(128u, 128u, 128u, 255u)
-                )).clicked()) {
-                    ui.add(Rectangle(
-                        id = ID.fromString("solid"),
-                        initial = Vector2d(10.0, 10.0),
-                        width = 50.0,
-                        height = 20.0,
-                        fillColour = Colour.WHITE
-                    ))
-                }
-            }
-            PlayerState.Gas -> {
-                if (ui.add(Rectangle(
-                        id = ID.fromString("gas"),
-                        initial = Vector2d(10.0, 10.0),
-                        width = 50.0,
-                        height = 20.0,
-                        fillColour = Colour(0u, 0u, 255u, 255u)
-                    )).clicked()) {
-                    ui.add(Rectangle(
-                        id = ID.fromString("gas"),
-                        initial = Vector2d(10.0, 10.0),
-                        width = 50.0,
-                        height = 20.0,
-                        fillColour = Colour.WHITE
-                    ))
-                }
-            }
-        }
-    }
+//    fun renderHUD(ui: Ui) {
+//        if (!isClicked) {
+//            val resp = when (playerState) {
+//                PlayerState.Liquid -> {
+//                    ui.add(Rectangle(
+//                        id = ID.fromString("liquid"),
+//                        initial = Vector2d(10.0, 10.0),
+//                        width = 50.0,
+//                        height = 20.0,
+//                        fillColour = Colour(255u, 0u, 0u, 255u)
+//                    ))
+//                }
+//                PlayerState.Solid -> {
+//                    ui.add(Rectangle(
+//                        id = ID.fromString("solid"),
+//                        initial = Vector2d(10.0, 10.0),
+//                        width = 50.0,
+//                        height = 20.0,
+//                        fillColour = Colour(128u, 128u, 128u, 255u)
+//                    ))
+//                }
+//                PlayerState.Gas -> {
+//                    ui.add(Rectangle(
+//                        id = ID.fromString("gas"),
+//                        initial = Vector2d(10.0, 10.0),
+//                        width = 50.0,
+//                        height = 20.0,
+//                        fillColour = Colour(0u, 0u, 255u, 255u)
+//                    ))
+//                }
+//            }
+//            ui.add(Rectangle(
+//                id = ID.fromString("square"),
+//                initial = Vector2d(10.0, 10.0),
+//                width = 50.0,
+//                height = 20.0,
+//                fillColour = Colour.WHITE
+//            ))
+//        } else {
+//            ui.add(Rectangle(
+//                id = ID.fromString("square"),
+//                initial = Vector2d(10.0, 10.0),
+//                width = 50.0,
+//                height = 20.0,
+//                fillColour = Colour.WHITE
+//            ))
+//        }
+//    }
 
     override fun update(engine: DropbearEngine, deltaTime: Double) {
         someIncrementingVariable += 1

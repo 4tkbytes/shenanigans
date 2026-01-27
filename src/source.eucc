@@ -27,11 +27,6 @@
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
-                                                    name: "Player.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
                                                     name: "PlayerState.kt",
                                                     path: "src/commonMain/kotlin/com/example/mygame/PlayerState.kt",
                                                     resource_type: Script,
@@ -44,6 +39,11 @@
                                                 File(ResourceFile(
                                                     name: "PlayerHealth.kt",
                                                     path: "src/commonMain/kotlin/com/example/mygame/PlayerHealth.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "Player.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
                                                     resource_type: Script,
                                                 )),
                                             ],
