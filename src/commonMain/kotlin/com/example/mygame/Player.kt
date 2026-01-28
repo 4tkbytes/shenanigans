@@ -8,6 +8,7 @@ import com.dropbear.components.EntityTransform
 import com.dropbear.ecs.System
 import com.dropbear.input.Gamepad
 import com.dropbear.input.GamepadButton
+import com.dropbear.input.InputState
 import com.dropbear.input.KeyCode
 import com.dropbear.logging.LogLevel
 import com.dropbear.logging.Logger
@@ -18,6 +19,7 @@ import com.dropbear.physics.Physics
 import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
 import com.dropbear.ui.UIBuilder
+import com.dropbear.ui.UIInstruction
 import com.dropbear.ui.add
 import com.dropbear.ui.buildUI
 import com.dropbear.ui.styling.Alignment
@@ -98,12 +100,13 @@ class Player: System() {
         val input = engine.inputState
         val kcc = entity.getComponent(KinematicCharacterController) ?: throw Exception("Expected KCC component")
 
+        gamepadInputMgmt(input)
+
         val isGrounded = kcc.isOnFloor()
 
         if (isGrounded && verticalVelocity < 0.0) {
             verticalVelocity = 0.0
         }
-
 
         val forward = Vector3d(cos(camera.yaw), 0.0, sin(camera.yaw))
         val right = Vector3d(-sin(camera.yaw), 0.0, cos(camera.yaw))
@@ -123,6 +126,7 @@ class Player: System() {
         }
         if (input.isKeyPressed(KeyCode.Backquote)) toggleDebug = !toggleDebug
         if (input.isKeyPressed(KeyCode.ShiftLeft) || input.isKeyPressed(KeyCode.ShiftRight) || (player1?.isButtonPressed(GamepadButton.West) == true)) {
+            health.energy.current -= 2.0
             speed *= 2
         }
 
@@ -197,113 +201,72 @@ class Player: System() {
             val oldPlayerState = playerState
             playerState = when (playerState) {
                 PlayerState.Liquid -> PlayerState.Solid
-                PlayerState.Solid -> PlayerState.Gas
+                PlayerState.Solid -> {
+                    if (health.energy.current > 0.0) PlayerState.Gas else {
+                        Logger.info("No energy available. Heal with `H` or `GamepadButton.North`")
+                        PlayerState.Solid
+                    }
+                }
                 PlayerState.Gas -> PlayerState.Gas
             }
-            Logger.setLogLevel(LogLevel.TRACE)
-            Logger.info("playerState changed: $oldPlayerState -> $playerState")
-            switchForm()
+            if (oldPlayerState != playerState) {
+                Logger.info("playerState changed: $oldPlayerState -> $playerState")
+                switchForm()
+            }
         }
         eKeyPressedLastFrame = ePressed
 
-        if (toggleDebug) {
-            engine.renderUI(buildUI {
-                label("FPS: ${1.0/deltaTime}")
-
-                label("Current State: ${
-                    when (playerState) {
-                        PlayerState.Liquid -> "Liquid"
-                        PlayerState.Solid -> "Solid"
-                        PlayerState.Gas -> "Gas"
-                    }
-                }") {
-                    style.colour = when (playerState) {
-                        PlayerState.Liquid -> Colour.BLUE
-                        PlayerState.Solid -> Colour.GRAY
-                        PlayerState.Gas -> Colour.RED
-                    }
-                }
-            })
+        val heal = input.isKeyPressed(KeyCode.KeyH) || player1?.isButtonPressed(GamepadButton.North) == true
+        if (heal) {
+            if (health.energy.current != health.energy.total && health.health.current > 5) {
+                health.siphon(0.25)
+            }
         }
-    }
 
-    fun switchForm() {
-        // todo: make it so it switches models.
+        engine.renderUI(ui(deltaTime))
 
-        if (playerState == PlayerState.Gas) {
-            // start gas timer
-            gasStart = Clock.System.now()
-            currentGasTime = 0.0
-        } else {
-            // gas timer resets if not gas
-            gasStart = null
-            currentGasTime = 0.0
-        }
-    }
-
-//    fun renderHUD(ui: Ui) {
-//        if (!isClicked) {
-//            val resp = when (playerState) {
-//                PlayerState.Liquid -> {
-//                    ui.add(Rectangle(
-//                        id = ID.fromString("liquid"),
-//                        initial = Vector2d(10.0, 10.0),
-//                        width = 50.0,
-//                        height = 20.0,
-//                        fillColour = Colour(255u, 0u, 0u, 255u)
-//                    ))
-//                }
-//                PlayerState.Solid -> {
-//                    ui.add(Rectangle(
-//                        id = ID.fromString("solid"),
-//                        initial = Vector2d(10.0, 10.0),
-//                        width = 50.0,
-//                        height = 20.0,
-//                        fillColour = Colour(128u, 128u, 128u, 255u)
-//                    ))
-//                }
-//                PlayerState.Gas -> {
-//                    ui.add(Rectangle(
-//                        id = ID.fromString("gas"),
-//                        initial = Vector2d(10.0, 10.0),
-//                        width = 50.0,
-//                        height = 20.0,
-//                        fillColour = Colour(0u, 0u, 255u, 255u)
-//                    ))
-//                }
-//            }
-//            ui.add(Rectangle(
-//                id = ID.fromString("square"),
-//                initial = Vector2d(10.0, 10.0),
-//                width = 50.0,
-//                height = 20.0,
-//                fillColour = Colour.WHITE
-//            ))
-//        } else {
-//            ui.add(Rectangle(
-//                id = ID.fromString("square"),
-//                initial = Vector2d(10.0, 10.0),
-//                width = 50.0,
-//                height = 20.0,
-//                fillColour = Colour.WHITE
-//            ))
-//        }
-//    }
-
-    override fun update(engine: DropbearEngine, deltaTime: Double) {
-        someIncrementingVariable += 1
-
-        val entity = this.currentEntity ?: throw Exception("Player entity not found")
-        val input = engine.inputState
-        val scene = engine.sceneManager
-        val props = entity.getComponent(CustomProperties) ?: throw Exception("Props missing")
         val transform = entity.getComponent(EntityTransform) ?: return
-        val camera = entity.getComponent(Camera) ?: return
 
         val thirdPersonDistance = props.getProperty<Double>("distance") ?: 5.0
         val heightOffset = props.getProperty<Double>("heightOffset") ?: 1.0
         val cameraOffset = Vector3d(0.0, heightOffset, 0.0)
 
+        if (locked) {
+            input.setCursorLocked(true)
+            input.setCursorHidden(true)
+        } else {
+            input.setCursorLocked(false)
+            input.setCursorHidden(false)
+        }
+
+        cameraStuff(
+            transform,
+            camera,
+            input,
+            deltaTime,
+            thirdPersonDistance,
+            cameraOffset,
+            kcc
+        )
+
+        lastModelPosition = transform.world.position
+
+        if (input.isKeyPressed(KeyCode.F2) || player1?.isButtonPressed(GamepadButton.Start) == true) {
+            Logger.info("Scene switch requested")
+            sceneLoadingHandle = engine.sceneManager.loadSceneAsync("Default")
+        }
+
+        sceneLoadingHandle?.let { load ->
+            if (load.isComplete()) load.switchTo()
+            else if (load.hasFailed()) sceneLoadingHandle = null
+        }
+
+        if (input.isKeyPressed(KeyCode.Escape)) engine.quit()
+        if (input.isKeyPressed(KeyCode.F1)) locked = !locked
+        props.setProperty("locked", locked)
+    }
+
+    fun gamepadInputMgmt(input: InputState) {
         val gamepads = input.getConnectedGamepads()
 
         val oldIds = oldGamepads.map { it.id }.toSet()
@@ -331,15 +294,76 @@ class Player: System() {
             gamepads.find { it.id == player1?.id }?.let { player1 = it }
         }
 
-        if (locked) {
-            input.setCursorLocked(true)
-            input.setCursorHidden(true)
-        } else {
-            input.setCursorLocked(false)
-            input.setCursorHidden(false)
-        }
+    }
 
-        // camera stuff
+    fun switchForm() {
+        // todo: make it so it switches models.
+
+        if (playerState == PlayerState.Gas) {
+            // start gas timer
+            gasStart = Clock.System.now()
+            currentGasTime = 0.0
+        } else {
+            // gas timer resets if not gas
+            gasStart = null
+            currentGasTime = 0.0
+        }
+    }
+
+    fun ui(deltaTime: Double): List<UIInstruction>? {
+        if (toggleDebug) {
+            return buildUI {
+                label("FPS: ${1.0 / deltaTime}")
+
+                label(
+                    "Current State: ${
+                        when (playerState) {
+                            PlayerState.Liquid -> "Liquid"
+                            PlayerState.Solid -> "Solid"
+                            PlayerState.Gas -> "Gas"
+                        }
+                    }"
+                ) {
+                    style.colour = when (playerState) {
+                        PlayerState.Liquid -> Colour.BLUE
+                        PlayerState.Solid -> Colour.GRAY
+                        PlayerState.Gas -> Colour.RED
+                    }
+                }
+
+                label("Health: ${health.health.percentage()}") {
+                    if (health.health.percentage() > 50) {
+                        style.colour = Colour.GREEN
+                    } else if (health.health.percentage() < 50) {
+                        style.colour = Colour.YELLOW
+                    } else if (health.health.percentage() > 50) {
+                        style.colour = Colour.RED
+                    }
+                }
+
+                label("Energy: ${health.energy.percentage()}") {
+                    if (health.energy.percentage() > 50) {
+                        style.colour = Colour.GREEN
+                    } else if (health.energy.percentage() < 50) {
+                        style.colour = Colour.YELLOW
+                    } else if (health.energy.percentage() > 50) {
+                        style.colour = Colour.RED
+                    }
+                }
+            }
+        } else {
+            return null
+        }
+    }
+
+    override fun destroy(engine: DropbearEngine) { sceneLoadingHandle = null }
+
+    fun cameraStuff(
+        transform: EntityTransform, camera: Camera,
+        input: InputState, deltaTime: Double,
+        thirdPersonDistance: Double, cameraOffset: Vector3d,
+        kcc: KinematicCharacterController
+    ) {
         val delta = input.getMouseDelta()
         var xOffset = if (locked) delta.x * camera.sensitivity else 0.0
         var yOffset = - (if (locked) delta.y * camera.sensitivity else 0.0)
@@ -368,52 +392,28 @@ class Player: System() {
         camera.target = headPos
 
         if (isMoving && movement.lengthSquared() > 0.001) {
-            val targetYaw = kotlin.math.atan2(movement.x, movement.z)
-            val targetRotation = Quaterniond.fromEulerAngles(rotationDefault.x, targetYaw, rotationDefault.z)
-            val rotationSpeed = 10.0
-            val t = (rotationSpeed * deltaTime).coerceIn(0.0, 1.0)
-            transform.world.rotation = transform.world.rotation.slerp(targetRotation, t)
+            val targetRotation = Quaterniond.fromEulerAngles(0.0, -camera.yaw, 0.0)
+            kcc.setRotation(targetRotation)
         }
-
-        lastModelPosition = transform.world.position
-
-        if (input.isKeyPressed(KeyCode.F2) || player1?.isButtonPressed(GamepadButton.Start) == true) {
-            Logger.info("Scene switch requested")
-            sceneLoadingHandle = scene.loadSceneAsync("Default")
-        }
-
-        sceneLoadingHandle?.let { load ->
-            if (load.isComplete()) load.switchTo()
-            else if (load.hasFailed()) sceneLoadingHandle = null
-        }
-
-        if (input.isKeyPressed(KeyCode.Escape)) engine.quit()
-        if (input.isKeyPressed(KeyCode.F1)) locked = !locked
-        props.setProperty("locked", locked)
-
     }
-
-    override fun destroy(engine: DropbearEngine) { sceneLoadingHandle = null }
 
     fun applyGasPhysics(gasFloatSpeed: Double) {
         verticalVelocity = gasFloatSpeed
 
         val startTime = gasStart ?: return
-        val maxGasDuration = 5.0 // 5 seconds
+        val drainRate = 35.0
 
         val elapsed = (Clock.System.now() - startTime).inWholeMilliseconds / 1000.0
         currentGasTime = elapsed
 
-        val energyPercentage = (1.0 - (currentGasTime / maxGasDuration)).coerceIn(0.0, 1.0)
+        val energyDrained = drainRate * elapsed
+        health.energy.current = (health.energy.total - energyDrained).coerceIn(0.0, health.energy.total)
 
-        val maxEnergy = 100.0
-        health.energy.current = maxEnergy * energyPercentage
-
-        if (currentGasTime >= maxGasDuration || health.energy.current <= 0.0) {
+        if (health.energy.current <= 0.0) {
             health.energy.current = 0.0
             playerState = PlayerState.Solid
             switchForm()
-            Logger.info("timer expired")
+            Logger.info("energy depleted")
         }
     }
 }

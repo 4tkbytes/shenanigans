@@ -1,7 +1,5 @@
 package com.example.mygame
 
-import com.dropbear.utils.Progress
-
 /**
  * Describes the health of the player.
  *
@@ -15,8 +13,8 @@ import com.dropbear.utils.Progress
  * effort, the energy bar can be refilled up by transferring health at a ratio of `1:5`.
  */
 data class PlayerHealth(
-    var health: Progress,
-    var energy: Progress,
+    var health: Percentage,
+    var energy: Percentage,
 ) {
     companion object {
         /**
@@ -24,15 +22,13 @@ data class PlayerHealth(
          */
         fun full(): PlayerHealth {
             return PlayerHealth(
-                health = Progress(
+                health = Percentage(
                     current = 100.0,
                     total = 100.0,
-                    message = null,
                 ),
-                energy = Progress(
+                energy = Percentage(
                     current = 100.0,
                     total = 100.0,
-                    message = null,
                 ),
             )
         }

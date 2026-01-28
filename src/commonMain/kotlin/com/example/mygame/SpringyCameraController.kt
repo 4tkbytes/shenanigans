@@ -7,8 +7,8 @@ import com.dropbear.physics.Physics
 // doiiiinnnnnggggg
 class SpringyCameraController {
     private var currentDistance: Double = 5.0
-    private val margin = 0.3 // Increased slightly for lens clearance
-    private val sphereRadius = 0.2 // The "thickness" of your camera
+    private val margin = 0.3
+    private val sphereRadius = 0.2
 
     fun getSpringyPosition(
         playerPos: Vector3d,
@@ -36,7 +36,6 @@ class SpringyCameraController {
         if (targetDist < currentDistance) {
             currentDistance = targetDist
         } else {
-            // Smoothly glide OUT
             val returnSpeed = 5.0
             currentDistance += (targetDist - currentDistance) * (returnSpeed * deltaTime).coerceIn(0.0, 1.0)
         }
