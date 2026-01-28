@@ -46,6 +46,11 @@
                                                     path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
                                                     resource_type: Script,
                                                 )),
+                                                File(ResourceFile(
+                                                    name: "Percentage.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Percentage.kt",
+                                                    resource_type: Script,
+                                                )),
                                             ],
                                         )),
                                     ],

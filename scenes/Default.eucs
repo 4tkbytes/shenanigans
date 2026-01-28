@@ -5,11 +5,6 @@
             label: ("Default Light"),
             components: [
                 {
-                    "type": "CustomProperties",
-                    "custom_properties": [],
-                    "next_id": 0,
-                },
-                {
                     "type": "Light",
                     "label": "Default Light",
                     "transform": (
@@ -41,6 +36,11 @@
                     ),
                     "enabled": true,
                 },
+                {
+                    "type": "CustomProperties",
+                    "custom_properties": [],
+                    "next_id": 0,
+                },
             ],
         ),
         (
@@ -69,41 +69,6 @@
             label: ("floor"),
             components: [
                 {
-                    "type": "SerializedMeshRenderer",
-                    "handle": (
-                        ref_type: ProcObj(Cuboid(
-                            size_bits: (1143930880, 1138819072, 1073741824),
-                        )),
-                    ),
-                    "material_override": [],
-                    "material_customisation": [
-                        (
-                            material_index: Some(0),
-                            target_material: "procedural_material",
-                            tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: Some((
-                                ref_type: File("euca://textures/proto.png"),
-                            )),
-                            wrap_mode: Repeat,
-                            uv_tiling: (14.0, 9.0),
-                        ),
-                    ],
-                    "import_scale": Some(1.0),
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "ColliderGroup",
                     "colliders": [
                         (
@@ -120,6 +85,19 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.7071067811865476, 0.0, 0.0, 0.7071067811865476),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -145,16 +123,11 @@
                         z: false,
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("wall1"),
-            components: [
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
                         ref_type: ProcObj(Cuboid(
-                            size_bits: (1128792064, 1104150528, 1065353216),
+                            size_bits: (1143930880, 1138819072, 1073741824),
                         )),
                     ),
                     "material_override": [],
@@ -163,26 +136,20 @@
                             material_index: Some(0),
                             target_material: "procedural_material",
                             tint: (1.0, 1.0, 1.0, 1.0),
-                            diffuse_texture: None,
+                            diffuse_texture: Some((
+                                ref_type: File("euca://textures/proto.png"),
+                            )),
                             wrap_mode: Repeat,
-                            uv_tiling: (1.0, 1.0),
+                            uv_tiling: (14.0, 9.0),
                         ),
                     ],
                     "import_scale": Some(1.0),
                 },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (64.09448609736765, 13.0, 84.47996748395707),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
+            ],
+        ),
+        (
+            label: ("wall1"),
+            components: [
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -200,6 +167,19 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (64.09448609736765, 13.0, 84.47996748395707),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -225,16 +205,11 @@
                         z: false,
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("roof"),
-            components: [
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
                         ref_type: ProcObj(Cuboid(
-                            size_bits: (1126170624, 1073741824, 1123024896),
+                            size_bits: (1128792064, 1104150528, 1065353216),
                         )),
                     ),
                     "material_override": [],
@@ -250,19 +225,11 @@
                     ],
                     "import_scale": Some(1.0),
                 },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (80.3502121197414, 43.83461577754342, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
+            ],
+        ),
+        (
+            label: ("roof"),
+            components: [
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -280,6 +247,19 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (80.3502121197414, 43.83461577754342, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -305,16 +285,11 @@
                         z: false,
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("light switch"),
-            components: [
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
                         ref_type: ProcObj(Cuboid(
-                            size_bits: (1106247680, 1077936128, 1106247680),
+                            size_bits: (1126170624, 1073741824, 1123024896),
                         )),
                     ),
                     "material_override": [],
@@ -322,7 +297,7 @@
                         (
                             material_index: Some(0),
                             target_material: "procedural_material",
-                            tint: (0.6870763, 0.17489214, 0.17489214, 1.0),
+                            tint: (1.0, 1.0, 1.0, 1.0),
                             diffuse_texture: None,
                             wrap_mode: Repeat,
                             uv_tiling: (1.0, 1.0),
@@ -330,19 +305,11 @@
                     ],
                     "import_scale": Some(1.0),
                 },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (51.710726517365956, 3.1683678074597204, -11.501707558224739),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
+            ],
+        ),
+        (
+            label: ("light switch"),
+            components: [
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -360,6 +327,19 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (51.710726517365956, 3.1683678074597204, -11.501707558224739),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "Script",
@@ -391,16 +371,11 @@
                         z: false,
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("crate"),
-            components: [
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
                         ref_type: ProcObj(Cuboid(
-                            size_bits: (1092616192, 1092616192, 1092616192),
+                            size_bits: (1106247680, 1077936128, 1106247680),
                         )),
                     ),
                     "material_override": [],
@@ -408,7 +383,7 @@
                         (
                             material_index: Some(0),
                             target_material: "procedural_material",
-                            tint: (1.0, 1.0, 1.0, 1.0),
+                            tint: (0.6870763, 0.17489214, 0.17489214, 1.0),
                             diffuse_texture: None,
                             wrap_mode: Repeat,
                             uv_tiling: (1.0, 1.0),
@@ -416,19 +391,11 @@
                     ],
                     "import_scale": Some(1.0),
                 },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (33.22871524017849, 15.329878900778429, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
+            ],
+        ),
+        (
+            label: ("crate"),
+            components: [
                 {
                     "type": "ColliderGroup",
                     "colliders": [
@@ -446,6 +413,19 @@
                             rotation: (0.0, 0.0, 0.0),
                         ),
                     ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (33.22871524017849, 15.329878900778429, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "Script",
@@ -477,11 +457,127 @@
                         z: true,
                     ),
                 },
+                {
+                    "type": "SerializedMeshRenderer",
+                    "handle": (
+                        ref_type: ProcObj(Cuboid(
+                            size_bits: (1092616192, 1092616192, 1092616192),
+                        )),
+                    ),
+                    "material_override": [],
+                    "material_customisation": [
+                        (
+                            material_index: Some(0),
+                            target_material: "procedural_material",
+                            tint: (1.0, 1.0, 1.0, 1.0),
+                            diffuse_texture: None,
+                            wrap_mode: Repeat,
+                            uv_tiling: (1.0, 1.0),
+                        ),
+                    ],
+                    "import_scale": Some(1.0),
+                },
             ],
         ),
         (
             label: ("elgato"),
             components: [
+                {
+                    "type": "KCC",
+                    "entity": ("elgato"),
+                    "controller": (
+                        up: (0.0, 1.0, 0.0),
+                        offset: Absolute(0.5),
+                        slide: true,
+                        autostep: Some((
+                            max_height: Relative(1.0),
+                            min_width: Relative(1.0),
+                            include_dynamic_bodies: false,
+                        )),
+                        max_slope_climb_angle: 0.7853982,
+                        min_slope_slide_angle: 0.7853982,
+                        snap_to_ground: Some(Absolute(0.2)),
+                        normal_nudge_factor: 0.1,
+                    ),
+                },
+                {
+                    "type": "Camera3D",
+                    "label": "elgato",
+                    "transform": (
+                        position: (0.0, 1.0, 2.0),
+                        rotation: (-0.0, -0.9732489894677303, 0.2297529205473612, -0.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Normal,
+                    "aspect": 2.537165403366089,
+                    "fov": 90.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 1.0,
+                    "sensitivity": 0.0035,
+                    "starting_camera": true,
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 1,
+                            entity: ("elgato"),
+                            shape: Box(
+                                half_extents: (4.15, 1.91, 2.13),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (-0.95, 2.1, -0.01),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (18.908569058350338, 54.7, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
+                },
+                {
+                    "type": "RigidBody",
+                    "entity": ("elgato"),
+                    "disable_physics": false,
+                    "mode": KinematicPosition,
+                    "gravity_scale": 1.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": true,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: true,
+                        y: false,
+                        z: true,
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "handle": (
@@ -509,16 +605,10 @@
                     "import_scale": Some(0.4),
                 },
                 {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (18.908569058350338, 54.7, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
+                    "type": "UIComponent",
+                    "disabled": false,
+                    "ui_file": (
+                        ref_type: r#None,
                     ),
                 },
                 {
@@ -556,96 +646,6 @@
                         ),
                     ],
                     "next_id": 7,
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 1,
-                            entity: ("elgato"),
-                            shape: Box(
-                                half_extents: (4.15, 1.91, 2.13),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (-0.95, 2.1, -0.01),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "UIComponent",
-                    "disabled": false,
-                    "ui_file": (
-                        ref_type: r#None,
-                    ),
-                },
-                {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
-                },
-                {
-                    "type": "RigidBody",
-                    "entity": ("elgato"),
-                    "disable_physics": false,
-                    "mode": KinematicPosition,
-                    "gravity_scale": 1.0,
-                    "sleeping": false,
-                    "can_sleep": true,
-                    "ccd_enabled": true,
-                    "linvel": (0.0, 0.0, 0.0),
-                    "angvel": (0.0, 0.0, 0.0),
-                    "linear_damping": 0.0,
-                    "angular_damping": 0.0,
-                    "lock_translation": (
-                        x: false,
-                        y: false,
-                        z: false,
-                    ),
-                    "lock_rotation": (
-                        x: true,
-                        y: false,
-                        z: true,
-                    ),
-                },
-                {
-                    "type": "Camera3D",
-                    "label": "elgato",
-                    "transform": (
-                        position: (0.0, 1.0, 2.0),
-                        rotation: (-0.0, -0.9732489894677303, 0.2297529205473612, -0.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "camera_type": Normal,
-                    "aspect": 2.537165403366089,
-                    "fov": 90.0,
-                    "near": 0.1,
-                    "far": 100.0,
-                    "speed": 1.0,
-                    "sensitivity": 0.0035,
-                    "starting_camera": true,
-                },
-                {
-                    "type": "KCC",
-                    "entity": ("elgato"),
-                    "controller": (
-                        up: (0.0, 1.0, 0.0),
-                        offset: Absolute(0.5),
-                        slide: true,
-                        autostep: Some((
-                            max_height: Relative(1.0),
-                            min_width: Relative(1.0),
-                            include_dynamic_bodies: false,
-                        )),
-                        max_slope_climb_angle: 0.7853982,
-                        min_slope_slide_angle: 0.7853982,
-                        snap_to_ground: Some(Absolute(0.2)),
-                        normal_nudge_factor: 0.1,
-                    ),
                 },
             ],
         ),
