@@ -20,6 +20,7 @@ import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
 import com.dropbear.ui.UIBuilder
 import com.dropbear.ui.UIInstruction
+import com.dropbear.ui.WidgetId
 import com.dropbear.ui.add
 import com.dropbear.ui.buildUI
 import com.dropbear.ui.styling.Alignment
@@ -28,7 +29,10 @@ import com.dropbear.ui.styling.TextStyle
 import com.dropbear.ui.styling.fonts.Family
 import com.dropbear.ui.widgets.Button
 import com.dropbear.ui.widgets.Text
+import com.dropbear.ui.widgets.align
 import com.dropbear.ui.widgets.button
+import com.dropbear.ui.widgets.center
+import com.dropbear.ui.widgets.checkbox
 import com.dropbear.ui.widgets.label
 import com.dropbear.utils.Colour
 import kotlin.math.abs
@@ -57,6 +61,8 @@ class Player: System() {
 
     private val springCamera = SpringyCameraController()
     private var toggleDebug = false
+
+    private var dummyVal = false
 
     companion object {
         private var previousPlayerState: PlayerState = PlayerState.Solid
@@ -313,7 +319,9 @@ class Player: System() {
     fun ui(deltaTime: Double): List<UIInstruction>? {
         if (toggleDebug) {
             return buildUI {
-                label("FPS: ${1.0 / deltaTime}")
+                align(Alignment.BOTTOM_RIGHT, WidgetId("centered object")) {
+                    label("FPS: ${1.0 / deltaTime}")
+                }
 
                 label(
                     "Current State: ${
@@ -348,6 +356,16 @@ class Player: System() {
                         style.colour = Colour.YELLOW
                     } else if (health.energy.percentage() > 50) {
                         style.colour = Colour.RED
+                    }
+                }
+
+                checkbox(true, WidgetId("dummy val")) {
+//                    if (checked) {
+//                        dummyVal = !dummyVal
+//                        Logger.info("Check!")
+//                    }
+                    if (checked) {
+                        Logger.info("Check")
                     }
                 }
             }
