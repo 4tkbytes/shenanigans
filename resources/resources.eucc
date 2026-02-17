@@ -73,5 +73,10 @@
                 )),
             ],
         )),
+        File(ResourceFile(
+            name: "kloofendal_48d_partly_cloudy_puresky_4k.hdr",
+            path: "resources/kloofendal_48d_partly_cloudy_puresky_4k.hdr",
+            resource_type: Unknown,
+        )),
     ],
 )

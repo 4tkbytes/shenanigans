@@ -27,18 +27,8 @@
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
-                                                    name: "PlayerState.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerState.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
-                                                    name: "SpringyCameraController.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/SpringyCameraController.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
-                                                    name: "PlayerHealth.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerHealth.kt",
+                                                    name: "Percentage.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Percentage.kt",
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
@@ -47,8 +37,18 @@
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
-                                                    name: "Percentage.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/Percentage.kt",
+                                                    name: "PlayerHealth.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerHealth.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "PlayerState.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerState.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "SpringyCameraController.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/SpringyCameraController.kt",
                                                     resource_type: Script,
                                                 )),
                                             ],

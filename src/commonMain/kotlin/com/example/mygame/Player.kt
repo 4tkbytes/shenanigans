@@ -382,9 +382,11 @@ class Player: System() {
         thirdPersonDistance: Double, cameraOffset: Vector3d,
         kcc: KinematicCharacterController
     ) {
+        val invert = false
+
         val delta = input.getMouseDelta()
         var xOffset = if (locked) delta.x * camera.sensitivity else 0.0
-        var yOffset = - (if (locked) delta.y * camera.sensitivity else 0.0)
+        var yOffset = (if (invert) -1 else 1) * (if (locked) delta.y * camera.sensitivity else 0.0)
 
         player1?.let { gamepad ->
             val deadzone = 0.15
