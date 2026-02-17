@@ -32,11 +32,6 @@
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
-                                                    name: "Player.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
-                                                    resource_type: Script,
-                                                )),
-                                                File(ResourceFile(
                                                     name: "PlayerHealth.kt",
                                                     path: "src/commonMain/kotlin/com/example/mygame/PlayerHealth.kt",
                                                     resource_type: Script,
@@ -49,6 +44,11 @@
                                                 File(ResourceFile(
                                                     name: "SpringyCameraController.kt",
                                                     path: "src/commonMain/kotlin/com/example/mygame/SpringyCameraController.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "Player.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
                                                     resource_type: Script,
                                                 )),
                                             ],
