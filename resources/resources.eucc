@@ -32,11 +32,6 @@
             path: "/home/tirbofish/shenanigans/resources/models",
             nodes: [
                 File(ResourceFile(
-                    name: "companion_cube_-_portal_2_version.glb",
-                    path: "resources/models/companion_cube_-_portal_2_version.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
                     name: "cat.blend1",
                     path: "resources/models/cat.blend1",
                     resource_type: Model,
@@ -46,12 +41,37 @@
                     path: "resources/models/cat.blend",
                     resource_type: Model,
                 )),
+                File(ResourceFile(
+                    name: "ChronographWatch.glb",
+                    path: "resources/models/ChronographWatch.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "CesiumMan.glb",
+                    path: "resources/models/CesiumMan.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "Fox.glb",
+                    path: "resources/models/Fox.glb",
+                    resource_type: Model,
+                )),
+                File(ResourceFile(
+                    name: "portal.glb",
+                    path: "resources/models/portal.glb",
+                    resource_type: Model,
+                )),
             ],
         )),
         File(ResourceFile(
             name: "resources.eucc",
             path: "resources/resources.eucc",
             resource_type: Config,
+        )),
+        File(ResourceFile(
+            name: "IridescentDishWithOlives.glb",
+            path: "resources/IridescentDishWithOlives.glb",
+            resource_type: Unknown,
         )),
     ],
 )
