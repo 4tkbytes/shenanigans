@@ -2,6 +2,7 @@ package com.example.mygame
 
 import com.dropbear.DropbearEngine
 import com.dropbear.Runnable
+import com.dropbear.animation.AnimationComponent
 import com.dropbear.components.Camera
 import com.dropbear.components.CustomProperties
 import com.dropbear.components.EntityTransform
@@ -18,23 +19,24 @@ import com.dropbear.physics.KinematicCharacterController
 import com.dropbear.physics.Physics
 import com.dropbear.physics.RigidBody
 import com.dropbear.scene.SceneLoadHandle
-import com.dropbear.ui.UIBuilder
-import com.dropbear.ui.UIInstruction
-import com.dropbear.ui.WidgetId
-import com.dropbear.ui.add
-import com.dropbear.ui.buildUI
-import com.dropbear.ui.styling.Alignment
-import com.dropbear.ui.styling.Padding
-import com.dropbear.ui.styling.TextStyle
-import com.dropbear.ui.styling.fonts.Family
-import com.dropbear.ui.widgets.Button
-import com.dropbear.ui.widgets.Text
-import com.dropbear.ui.widgets.align
-import com.dropbear.ui.widgets.button
-import com.dropbear.ui.widgets.center
-import com.dropbear.ui.widgets.checkbox
-import com.dropbear.ui.widgets.label
-import com.dropbear.utils.Colour
+import kotlin.math.PI
+//import com.dropbear.ui.UIBuilder
+//import com.dropbear.ui.UIInstruction
+//import com.dropbear.ui.WidgetId
+//import com.dropbear.ui.add
+//import com.dropbear.ui.buildUI
+//import com.dropbear.ui.styling.Alignment
+//import com.dropbear.ui.styling.Padding
+//import com.dropbear.ui.styling.TextStyle
+//import com.dropbear.ui.styling.fonts.Family
+//import com.dropbear.ui.widgets.Button
+//import com.dropbear.ui.widgets.Text
+//import com.dropbear.ui.widgets.align
+//import com.dropbear.ui.widgets.button
+//import com.dropbear.ui.widgets.center
+//import com.dropbear.ui.widgets.checkbox
+//import com.dropbear.ui.widgets.label
+//import com.dropbear.utils.Colour
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
@@ -45,7 +47,6 @@ import kotlin.time.Instant
 class Player: System() {
     private var lastModelPosition = Vector3d.zero()
     private var isMoving = false
-    private val rotationDefault = Vector3d.zero()
     private var locked = true
     private var sceneLoadingHandle: SceneLoadHandle? = null
     private var oldGamepads: List<Gamepad> = emptyList()
@@ -62,8 +63,6 @@ class Player: System() {
     private val springCamera = SpringyCameraController()
     private var toggleDebug = false
 
-    private var dummyVal = false
-
     companion object {
         private var previousPlayerState: PlayerState = PlayerState.Solid
 
@@ -77,6 +76,13 @@ class Player: System() {
 
         var currentGasTime: Double = 0.0
     }
+
+    // required properties:
+    // - speed
+    // - jumpHeight
+    // - gasFloatSpeed
+    // - distance
+    // - heightOffset
 
     override fun load(engine: DropbearEngine) {
         Logger.info("Initialised Player")
@@ -97,12 +103,17 @@ class Player: System() {
 
     override fun physicsUpdate(engine: DropbearEngine, deltaTime: Double) {
         val entity = this.currentEntity ?: throw Exception("Player entity not found")
-        val camera = entity.getComponent(Camera) ?: return
-        val rigidbody = entity.getComponent(RigidBody) ?: return
+        val camera = entity.getComponent(Camera) ?: throw Exception("Camera missing")
+        val rigidbody = entity.getComponent(RigidBody) ?: throw Exception("Rigidbody missing")
         val props = entity.getComponent(CustomProperties) ?: throw Exception("Props missing")
+        val animation = entity.getComponent(AnimationComponent) ?: throw Exception("AnimationComponent missing")
+
         var speed = (props.getProperty<Double>("speed") ?: 10.0) * deltaTime
         val jumpHeight = (props.getProperty<Double>("jumpHeight") ?: 2.0) * deltaTime
         val gasFloatSpeed = (props.getProperty<Double>("gasFloatSpeed") ?: 2.0) * deltaTime
+        val thirdPersonDistance = props.getProperty<Double>("distance") ?: 5.0
+        val heightOffset = props.getProperty<Double>("heightOffset") ?: 1.0
+
         val input = engine.inputState
         val kcc = entity.getComponent(KinematicCharacterController) ?: throw Exception("Expected KCC component")
 
@@ -184,6 +195,21 @@ class Player: System() {
             transform.world.rotation = transform.world.rotation.slerp(targetRotation, t)
         }
 
+        if (isMoving) {
+            animation.setAnimation("Walk")
+            animation.play()
+        }
+
+        if (!isGrounded) {
+            animation.setAnimation("Gallop_Jump")
+            animation.play()
+        }
+
+        if (isGrounded && isMoving) {
+            animation.setAnimation("Idle")
+            animation.play()
+        }
+
         this.isMoving = movement.lengthSquared() > 0.001
         this.movement = movement
 
@@ -229,12 +255,9 @@ class Player: System() {
             }
         }
 
-        engine.renderUI(ui(deltaTime))
+//        engine.renderUI(ui(deltaTime))
 
         val transform = entity.getComponent(EntityTransform) ?: return
-
-        val thirdPersonDistance = props.getProperty<Double>("distance") ?: 5.0
-        val heightOffset = props.getProperty<Double>("heightOffset") ?: 1.0
         val cameraOffset = Vector3d(0.0, heightOffset, 0.0)
 
         if (locked) {
@@ -269,7 +292,6 @@ class Player: System() {
 
         if (input.isKeyPressed(KeyCode.Escape)) engine.quit()
         if (input.isKeyPressed(KeyCode.F1)) locked = !locked
-        props.setProperty("locked", locked)
     }
 
     fun gamepadInputMgmt(input: InputState) {
@@ -316,63 +338,63 @@ class Player: System() {
         }
     }
 
-    fun ui(deltaTime: Double): List<UIInstruction>? {
-        if (toggleDebug) {
-            return buildUI {
-                align(Alignment.BOTTOM_RIGHT, WidgetId("centered object")) {
-                    label("FPS: ${1.0 / deltaTime}")
-                }
-
-                label(
-                    "Current State: ${
-                        when (playerState) {
-                            PlayerState.Liquid -> "Liquid"
-                            PlayerState.Solid -> "Solid"
-                            PlayerState.Gas -> "Gas"
-                        }
-                    }"
-                ) {
-                    style.colour = when (playerState) {
-                        PlayerState.Liquid -> Colour.BLUE
-                        PlayerState.Solid -> Colour.GRAY
-                        PlayerState.Gas -> Colour.RED
-                    }
-                }
-
-                label("Health: ${health.health.percentage()}") {
-                    if (health.health.percentage() > 50) {
-                        style.colour = Colour.GREEN
-                    } else if (health.health.percentage() < 50) {
-                        style.colour = Colour.YELLOW
-                    } else if (health.health.percentage() > 50) {
-                        style.colour = Colour.RED
-                    }
-                }
-
-                label("Energy: ${health.energy.percentage()}") {
-                    if (health.energy.percentage() > 50) {
-                        style.colour = Colour.GREEN
-                    } else if (health.energy.percentage() < 50) {
-                        style.colour = Colour.YELLOW
-                    } else if (health.energy.percentage() > 50) {
-                        style.colour = Colour.RED
-                    }
-                }
-
-                checkbox(true, WidgetId("dummy val")) {
-//                    if (checked) {
-//                        dummyVal = !dummyVal
-//                        Logger.info("Check!")
+//    fun ui(deltaTime: Double): List<UIInstruction>? {
+//        if (toggleDebug) {
+//            return buildUI {
+//                align(Alignment.BOTTOM_RIGHT, WidgetId("centered object")) {
+//                    label("FPS: ${1.0 / deltaTime}")
+//                }
+//
+//                label(
+//                    "Current State: ${
+//                        when (playerState) {
+//                            PlayerState.Liquid -> "Liquid"
+//                            PlayerState.Solid -> "Solid"
+//                            PlayerState.Gas -> "Gas"
+//                        }
+//                    }"
+//                ) {
+//                    style.colour = when (playerState) {
+//                        PlayerState.Liquid -> Colour.BLUE
+//                        PlayerState.Solid -> Colour.GRAY
+//                        PlayerState.Gas -> Colour.RED
 //                    }
-                    if (checked) {
-                        Logger.info("Check")
-                    }
-                }
-            }
-        } else {
-            return null
-        }
-    }
+//                }
+//
+//                label("Health: ${health.health.percentage()}") {
+//                    if (health.health.percentage() > 50) {
+//                        style.colour = Colour.GREEN
+//                    } else if (health.health.percentage() < 50) {
+//                        style.colour = Colour.YELLOW
+//                    } else if (health.health.percentage() > 50) {
+//                        style.colour = Colour.RED
+//                    }
+//                }
+//
+//                label("Energy: ${health.energy.percentage()}") {
+//                    if (health.energy.percentage() > 50) {
+//                        style.colour = Colour.GREEN
+//                    } else if (health.energy.percentage() < 50) {
+//                        style.colour = Colour.YELLOW
+//                    } else if (health.energy.percentage() > 50) {
+//                        style.colour = Colour.RED
+//                    }
+//                }
+//
+//                checkbox(true, WidgetId("dummy val")) {
+////                    if (checked) {
+////                        dummyVal = !dummyVal
+////                        Logger.info("Check!")
+////                    }
+//                    if (checked) {
+//                        Logger.info("Check")
+//                    }
+//                }
+//            }
+//        } else {
+//            return null
+//        }
+//    }
 
     override fun destroy(engine: DropbearEngine) { sceneLoadingHandle = null }
 
@@ -412,7 +434,7 @@ class Player: System() {
         camera.target = headPos
 
         if (isMoving && movement.lengthSquared() > 0.001) {
-            val targetRotation = Quaterniond.fromEulerAngles(0.0, -camera.yaw, 0.0)
+            val targetRotation = Quaterniond.fromEulerAngles(0.0, -camera.yaw + PI/2, 0.0)
             kcc.setRotation(targetRotation)
         }
     }

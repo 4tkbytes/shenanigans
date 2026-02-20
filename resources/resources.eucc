@@ -4,28 +4,7 @@
         Folder((
             name: "textures",
             path: "/home/tirbofish/shenanigans/resources/textures",
-            nodes: [
-                File(ResourceFile(
-                    name: "crate.jpg",
-                    path: "resources/textures/crate.jpg",
-                    resource_type: Texture,
-                )),
-                File(ResourceFile(
-                    name: "loperlog_logo.png",
-                    path: "resources/textures/loperlog_logo.png",
-                    resource_type: Texture,
-                )),
-                File(ResourceFile(
-                    name: "proto.png",
-                    path: "resources/textures/proto.png",
-                    resource_type: Texture,
-                )),
-            ],
-        )),
-        File(ResourceFile(
-            name: "kloofendal_48d_partly_cloudy_puresky_4k.hdr",
-            path: "resources/kloofendal_48d_partly_cloudy_puresky_4k.hdr",
-            resource_type: Unknown,
+            nodes: [],
         )),
         Folder((
             name: "models",
@@ -42,23 +21,8 @@
                     resource_type: Model,
                 )),
                 File(ResourceFile(
-                    name: "ChronographWatch.glb",
-                    path: "resources/models/ChronographWatch.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
-                    name: "CesiumMan.glb",
-                    path: "resources/models/CesiumMan.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
                     name: "Fox.glb",
                     path: "resources/models/Fox.glb",
-                    resource_type: Model,
-                )),
-                File(ResourceFile(
-                    name: "portal.glb",
-                    path: "resources/models/portal.glb",
                     resource_type: Model,
                 )),
             ],
@@ -67,11 +31,6 @@
             name: "resources.eucc",
             path: "resources/resources.eucc",
             resource_type: Config,
-        )),
-        File(ResourceFile(
-            name: "IridescentDishWithOlives.glb",
-            path: "resources/IridescentDishWithOlives.glb",
-            resource_type: Unknown,
         )),
     ],
 )
