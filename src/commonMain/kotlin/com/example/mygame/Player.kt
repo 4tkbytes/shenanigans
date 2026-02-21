@@ -11,7 +11,6 @@ import com.dropbear.input.Gamepad
 import com.dropbear.input.GamepadButton
 import com.dropbear.input.InputState
 import com.dropbear.input.KeyCode
-import com.dropbear.logging.LogLevel
 import com.dropbear.logging.Logger
 import com.dropbear.math.Quaterniond
 import com.dropbear.math.Vector3d
@@ -43,7 +42,7 @@ import kotlin.math.sin
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-@Runnable(["player"])
+@Runnable("player")
 class Player: System() {
     private var lastModelPosition = Vector3d.zero()
     private var isMoving = false
@@ -62,6 +61,7 @@ class Player: System() {
 
     private val springCamera = SpringyCameraController()
     private var toggleDebug = false
+    private var currentAnimation: String? = null
 
     companion object {
         private var previousPlayerState: PlayerState = PlayerState.Solid
@@ -195,23 +195,20 @@ class Player: System() {
             transform.world.rotation = transform.world.rotation.slerp(targetRotation, t)
         }
 
-        if (isMoving) {
-            animation.setAnimation("Walk")
-            animation.play()
-        }
-
-        if (!isGrounded) {
-            animation.setAnimation("Gallop_Jump")
-            animation.play()
-        }
-
-        if (isGrounded && isMoving) {
-            animation.setAnimation("Idle")
-            animation.play()
-        }
-
         this.isMoving = movement.lengthSquared() > 0.001
         this.movement = movement
+
+        val desiredAnimation = when {
+            !isGrounded -> PlayerAnimationState.Jumping
+            isMoving && isGrounded -> PlayerAnimationState.Walking
+            else -> PlayerAnimationState.Idle
+        }
+
+        if (currentAnimation != desiredAnimation.animationName) {
+            animation.setAnimation(desiredAnimation.animationName)
+            animation.play()
+            currentAnimation = desiredAnimation.animationName
+        }
 
         // switch down
         val qPressed = input.isKeyPressed(KeyCode.KeyQ) || player1?.isButtonPressed(GamepadButton.LeftTrigger2) == true

@@ -32,5 +32,10 @@
             path: "resources/resources.eucc",
             resource_type: Config,
         )),
+        File(ResourceFile(
+            name: "ChronographWatch.glb",
+            path: "resources/ChronographWatch.glb",
+            resource_type: Unknown,
+        )),
     ],
 )

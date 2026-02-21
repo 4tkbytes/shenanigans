@@ -10,7 +10,7 @@ import com.dropbear.physics.ContactForceEvent
 import com.dropbear.utils.Colour
 import kotlin.random.Random
 
-@Runnable(["lighting"])
+@Runnable("lighting")
 class Lighting: System() {
     override fun load(engine: DropbearEngine) {
        currentEntity ?: throw Exception("There should be a current entity that exists. huh?")

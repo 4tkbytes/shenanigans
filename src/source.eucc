@@ -51,6 +51,11 @@
                                                     path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
                                                     resource_type: Script,
                                                 )),
+                                                File(ResourceFile(
+                                                    name: "PlayerAnimationState.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerAnimationState.kt",
+                                                    resource_type: Script,
+                                                )),
                                             ],
                                         )),
                                     ],
