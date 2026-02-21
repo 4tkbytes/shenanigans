@@ -119,7 +119,7 @@ class Player: System() {
 
         gamepadInputMgmt(input)
 
-        val isGrounded = kcc.isOnFloor()
+        val isGrounded = kcc.isGrounded()
 
         if (isGrounded && verticalVelocity < 0.0) {
             verticalVelocity = 0.0
@@ -205,6 +205,7 @@ class Player: System() {
         }
 
         if (currentAnimation != desiredAnimation.animationName) {
+            animation.reset()
             animation.setAnimation(desiredAnimation.animationName)
             animation.play()
             currentAnimation = desiredAnimation.animationName
