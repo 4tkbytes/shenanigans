@@ -163,6 +163,22 @@ class Player: System() {
             }
         }
 
+        val desiredAnimation = when {
+            !isGrounded -> PlayerAnimationState.Jumping
+            isMoving -> PlayerAnimationState.Walking
+            else -> PlayerAnimationState.Idle
+        }
+
+        val animSpeed = if (desiredAnimation == PlayerAnimationState.Jumping) 1.5 else 1.2
+
+        if (currentAnimation != desiredAnimation.animationName) {
+            animation.reset()
+            animation.setAnimation(desiredAnimation.animationName)
+            animation.speed = animSpeed
+            animation.play()
+            currentAnimation = desiredAnimation.animationName
+        }
+
         if (playerState == PlayerState.Gas) {
             applyGasPhysics(gasFloatSpeed)
         } else {
@@ -197,19 +213,6 @@ class Player: System() {
 
         this.isMoving = movement.lengthSquared() > 0.001
         this.movement = movement
-
-        val desiredAnimation = when {
-            !isGrounded -> PlayerAnimationState.Jumping
-            isMoving && isGrounded -> PlayerAnimationState.Walking
-            else -> PlayerAnimationState.Idle
-        }
-
-        if (currentAnimation != desiredAnimation.animationName) {
-            animation.reset()
-            animation.setAnimation(desiredAnimation.animationName)
-            animation.play()
-            currentAnimation = desiredAnimation.animationName
-        }
 
         // switch down
         val qPressed = input.isKeyPressed(KeyCode.KeyQ) || player1?.isButtonPressed(GamepadButton.LeftTrigger2) == true

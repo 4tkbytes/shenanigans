@@ -5,6 +5,11 @@
             label: ("Default Light"),
             components: [
                 {
+                    "type": "CustomProperties",
+                    "custom_properties": [],
+                    "next_id": 0,
+                },
+                {
                     "type": "SerializedLight",
                     "label": "Default Light",
                     "light_component": (
@@ -20,7 +25,7 @@
                             quadratic: 0.032,
                         ),
                         enabled: true,
-                        visible: true,
+                        visible: false,
                         cutoff_angle: 12.5,
                         outer_cutoff_angle: 17.5,
                         cast_shadows: true,
@@ -29,11 +34,6 @@
                             end: 100.0,
                         ),
                     ),
-                },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [],
-                    "next_id": 0,
                 },
             ],
         ),
@@ -44,12 +44,12 @@
                     "type": "SerializableCamera",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-79.44588155844616, 60.427955000001894, 123.67581778911935),
-                        rotation: (-0.06108027637646534, -0.9286340995045019, 0.17714289272119557, -0.3202004132314712),
+                        position: (-44.554390318120056, 28.374645562867222, -10.44518350209742),
+                        rotation: (0.0894575032462728, 0.6506826585740391, -0.07760527014916183, 0.750057901091002),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
-                    "aspect": 2.364406779661017,
+                    "aspect": 2.2376543209876543,
                     "fov": 75.0,
                     "near": 0.1,
                     "far": 100.0,
@@ -62,6 +62,65 @@
         (
             label: ("basic floor"),
             components: [
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, -0.9961208552639711, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "RigidBody",
+                    "entity": ("basic floor"),
+                    "disable_physics": false,
+                    "mode": Fixed,
+                    "gravity_scale": 1.0,
+                    "sleeping": false,
+                    "can_sleep": true,
+                    "ccd_enabled": false,
+                    "linvel": (0.0, 0.0, 0.0),
+                    "angvel": (0.0, 0.0, 0.0),
+                    "linear_damping": 0.0,
+                    "angular_damping": 0.0,
+                    "lock_translation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                    "lock_rotation": (
+                        x: false,
+                        y: false,
+                        z: false,
+                    ),
+                },
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("basic floor"),
+                            shape: Box(
+                                half_extents: (
+                                    x: 100.03,
+                                    y: 1.75,
+                                    z: 150.0,
+                                ),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_818ada6147c6cae9",
@@ -388,33 +447,66 @@
                         ),
                     },
                 },
+            ],
+        ),
+        (
+            label: ("player"),
+            components: [
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
+                    "type": "CustomProperties",
+                    "custom_properties": [
                         (
                             id: 0,
-                            entity: ("basic floor"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 100.03,
-                                    y: 1.75,
-                                    z: 150.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
+                            key: "distance",
+                            value: Double(35.0),
                         ),
+                        (
+                            id: 1,
+                            key: "heightOffset",
+                            value: Double(8.5),
+                        ),
+                        (
+                            id: 2,
+                            key: "speed",
+                            value: Double(100.0),
+                        ),
+                        (
+                            id: 3,
+                            key: "jumpHeight",
+                            value: Double(250.0),
+                        ),
+                        (
+                            id: 4,
+                            key: "gasFloatSpeed",
+                            value: Double(30.0),
+                        ),
+                    ],
+                    "next_id": 5,
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "player",
                     ],
                 },
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 7.402135239526075, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "RigidBody",
-                    "entity": ("basic floor"),
+                    "entity": ("player"),
                     "disable_physics": false,
-                    "mode": Fixed,
+                    "mode": KinematicPosition,
                     "gravity_scale": 1.0,
                     "sleeping": false,
                     "can_sleep": true,
@@ -429,34 +521,131 @@
                         z: false,
                     ),
                     "lock_rotation": (
-                        x: false,
+                        x: true,
                         y: false,
-                        z: false,
+                        z: true,
                     ),
                 },
                 {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, -0.9961208552639711, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-            ],
-        ),
-        (
-            label: ("player"),
-            components: [
-                {
-                    "type": "Script",
-                    "tags": [
-                        "player",
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("player"),
+                            shape: Box(
+                                half_extents: (
+                                    x: 2.02,
+                                    y: 3.95,
+                                    z: 7.36,
+                                ),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 3.45, 0.3),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
                     ],
+                },
+                {
+                    "type": "KCC",
+                    "entity": ("player"),
+                    "controller": (
+                        up: (0.0, 1.0, 0.0),
+                        offset: Relative(0.01),
+                        slide: true,
+                        autostep: Some((
+                            max_height: Relative(0.25),
+                            min_width: Relative(0.5),
+                            include_dynamic_bodies: false,
+                        )),
+                        max_slope_climb_angle: 0.7853982,
+                        min_slope_slide_angle: 0.7853982,
+                        snap_to_ground: Some(Relative(1.0)),
+                        normal_nudge_factor: 0.0015,
+                    ),
+                },
+                {
+                    "type": "AnimationComponent",
+                    "active_animation_index": Some(4),
+                    "time": 0.87123513,
+                    "speed": 3.0,
+                    "looping": true,
+                    "is_playing": false,
+                    "animation_settings": {
+                        7: (
+                            time: 0.96216327,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        19: (
+                            time: 2.998594,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        10: (
+                            time: 3.0200849,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        3: (
+                            time: 0.3537451,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        11: (
+                            time: 0.20366198,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        8: (
+                            time: 0.51044345,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        18: (
+                            time: 0.49345115,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        0: (
+                            time: 0.3535479,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        4: (
+                            time: 0.87123513,
+                            speed: 3.0,
+                            looping: true,
+                            is_playing: false,
+                        ),
+                    },
+                },
+                {
+                    "type": "SerializableCamera",
+                    "label": "",
+                    "transform": (
+                        position: (-38.54240927185681, 53.063975243118605, 6.750318825630554),
+                        rotation: (-0.169091215549825, -0.779274227303286, 0.237540378096237, -0.5547201170488105),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "camera_type": Normal,
+                    "aspect": 2.364406779661017,
+                    "fov": 75.0,
+                    "near": 0.1,
+                    "far": 100.0,
+                    "speed": 27.7,
+                    "sensitivity": 0.003,
+                    "starting_camera": true,
                 },
                 {
                     "type": "SerializedMeshRenderer",
@@ -466,12 +655,12 @@
                     ),
                     "import_scale": Some(3.0),
                     "texture_override": {
-                        "Grey": (
-                            label: "Grey",
+                        "Main": (
+                            label: "Main",
                             diffuse_texture: Some((
                                 ref_type: File("euca://models/Fox.glb"),
                             )),
-                            tint: (0.07880128, 0.07880128, 0.07880128, 1.0),
+                            tint: (0.3737579, 0.13638115, 0.04474387, 1.0),
                             emissive_factor: (0.0, 0.0, 0.0),
                             metallic_factor: 0.4,
                             roughness_factor: 0.4150871,
@@ -481,31 +670,7 @@
                             occlusion_strength: 1.0,
                             normal_scale: 1.0,
                             uv_tiling: (1.0, 1.0),
-                            texture_tag: Some("Grey"),
-                            wrap_mode: Repeat,
-                            emissive_texture: None,
-                            normal_texture: Some((
-                                ref_type: File("euca://models/Fox.glb"),
-                            )),
-                            occlusion_texture: None,
-                            metallic_roughness_texture: None,
-                        ),
-                        "Black": (
-                            label: "Black",
-                            diffuse_texture: Some((
-                                ref_type: File("euca://models/Fox.glb"),
-                            )),
-                            tint: (0.021766989, 0.021766989, 0.021766989, 1.0),
-                            emissive_factor: (0.0, 0.0, 0.0),
-                            metallic_factor: 0.4,
-                            roughness_factor: 0.4150871,
-                            alpha_mode: Opaque,
-                            alpha_cutoff: None,
-                            double_sided: false,
-                            occlusion_strength: 1.0,
-                            normal_scale: 1.0,
-                            uv_tiling: (1.0, 1.0),
-                            texture_tag: Some("Black"),
+                            texture_tag: Some("Main"),
                             wrap_mode: Repeat,
                             emissive_texture: None,
                             normal_texture: Some((
@@ -562,12 +727,12 @@
                             occlusion_texture: None,
                             metallic_roughness_texture: None,
                         ),
-                        "Main": (
-                            label: "Main",
+                        "Grey": (
+                            label: "Grey",
                             diffuse_texture: Some((
                                 ref_type: File("euca://models/Fox.glb"),
                             )),
-                            tint: (0.3737579, 0.13638115, 0.04474387, 1.0),
+                            tint: (0.07880128, 0.07880128, 0.07880128, 1.0),
                             emissive_factor: (0.0, 0.0, 0.0),
                             metallic_factor: 0.4,
                             roughness_factor: 0.4150871,
@@ -577,7 +742,31 @@
                             occlusion_strength: 1.0,
                             normal_scale: 1.0,
                             uv_tiling: (1.0, 1.0),
-                            texture_tag: Some("Main"),
+                            texture_tag: Some("Grey"),
+                            wrap_mode: Repeat,
+                            emissive_texture: None,
+                            normal_texture: Some((
+                                ref_type: File("euca://models/Fox.glb"),
+                            )),
+                            occlusion_texture: None,
+                            metallic_roughness_texture: None,
+                        ),
+                        "Black": (
+                            label: "Black",
+                            diffuse_texture: Some((
+                                ref_type: File("euca://models/Fox.glb"),
+                            )),
+                            tint: (0.021766989, 0.021766989, 0.021766989, 1.0),
+                            emissive_factor: (0.0, 0.0, 0.0),
+                            metallic_factor: 0.4,
+                            roughness_factor: 0.4150871,
+                            alpha_mode: Opaque,
+                            alpha_cutoff: None,
+                            double_sided: false,
+                            occlusion_strength: 1.0,
+                            normal_scale: 1.0,
+                            uv_tiling: (1.0, 1.0),
+                            texture_tag: Some("Black"),
                             wrap_mode: Repeat,
                             emissive_texture: None,
                             normal_texture: Some((
@@ -587,195 +776,6 @@
                             metallic_roughness_texture: None,
                         ),
                     },
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("player"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 1.91,
-                                    y: 3.95,
-                                    z: 7.36,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.37, 3.45, 0.3),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "KCC",
-                    "entity": ("player"),
-                    "controller": (
-                        up: (0.0, 1.0, 0.0),
-                        offset: Relative(0.01),
-                        slide: true,
-                        autostep: Some((
-                            max_height: Relative(0.25),
-                            min_width: Relative(0.5),
-                            include_dynamic_bodies: false,
-                        )),
-                        max_slope_climb_angle: 0.7853982,
-                        min_slope_slide_angle: 0.7853982,
-                        snap_to_ground: Some(Relative(1.0)),
-                        normal_nudge_factor: 0.0015,
-                    ),
-                },
-                {
-                    "type": "CustomProperties",
-                    "custom_properties": [
-                        (
-                            id: 0,
-                            key: "distance",
-                            value: Double(35.0),
-                        ),
-                        (
-                            id: 1,
-                            key: "heightOffset",
-                            value: Double(8.5),
-                        ),
-                        (
-                            id: 2,
-                            key: "speed",
-                            value: Double(100.0),
-                        ),
-                        (
-                            id: 3,
-                            key: "jumpHeight",
-                            value: Double(255.0),
-                        ),
-                        (
-                            id: 4,
-                            key: "gasFloatSpeed",
-                            value: Double(30.0),
-                        ),
-                    ],
-                    "next_id": 5,
-                },
-                {
-                    "type": "SerializableCamera",
-                    "label": "",
-                    "transform": (
-                        position: (-38.54240927185681, 53.063975243118605, 6.750318825630554),
-                        rotation: (-0.169091215549825, -0.779274227303286, 0.237540378096237, -0.5547201170488105),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "camera_type": Normal,
-                    "aspect": 2.364406779661017,
-                    "fov": 75.0,
-                    "near": 0.1,
-                    "far": 100.0,
-                    "speed": 27.7,
-                    "sensitivity": 0.003,
-                    "starting_camera": true,
-                },
-                {
-                    "type": "RigidBody",
-                    "entity": ("player"),
-                    "disable_physics": false,
-                    "mode": KinematicPosition,
-                    "gravity_scale": 1.0,
-                    "sleeping": false,
-                    "can_sleep": true,
-                    "ccd_enabled": false,
-                    "linvel": (0.0, 0.0, 0.0),
-                    "angvel": (0.0, 0.0, 0.0),
-                    "linear_damping": 0.0,
-                    "angular_damping": 0.0,
-                    "lock_translation": (
-                        x: false,
-                        y: false,
-                        z: false,
-                    ),
-                    "lock_rotation": (
-                        x: true,
-                        y: false,
-                        z: true,
-                    ),
-                },
-                {
-                    "type": "AnimationComponent",
-                    "active_animation_index": None,
-                    "time": 0.5918445,
-                    "speed": 1.0,
-                    "looping": true,
-                    "is_playing": true,
-                    "animation_settings": {
-                        3: (
-                            time: 0.19706638,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        7: (
-                            time: 1.2102182,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        4: (
-                            time: 0.5918445,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        10: (
-                            time: 3.0200849,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        11: (
-                            time: 0.20366198,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        18: (
-                            time: 0.49345115,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        0: (
-                            time: 0.70700485,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        19: (
-                            time: 2.998594,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        8: (
-                            time: 0.51044345,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                    },
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 7.402135239526075, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
             ],
         ),
@@ -973,6 +973,6 @@
     ),
     settings: (
         preloaded: false,
-        show_hitboxes: true,
+        show_hitboxes: false,
     ),
 )
