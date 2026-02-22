@@ -99,6 +99,9 @@ class Player: System() {
         }
 
         Logger.info("Current global gravity is ${Physics.gravity}")
+
+        val animation = entity?.getComponent(AnimationComponent) ?: throw Exception("AnimationComponent missing")
+        animation.setAnimation("Idle")
     }
 
     override fun physicsUpdate(engine: DropbearEngine, deltaTime: Double) {
@@ -169,12 +172,12 @@ class Player: System() {
             else -> PlayerAnimationState.Idle
         }
 
-        val animSpeed = if (desiredAnimation == PlayerAnimationState.Jumping) 1.5 else 1.2
+//        val animSpeed = if (desiredAnimation == PlayerAnimationState.Jumping) 1.5 else 1.2
 
         if (currentAnimation != desiredAnimation.animationName) {
             animation.reset()
             animation.setAnimation(desiredAnimation.animationName)
-            animation.speed = animSpeed
+//            animation.speed = animSpeed
             animation.play()
             currentAnimation = desiredAnimation.animationName
         }

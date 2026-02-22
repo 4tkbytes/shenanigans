@@ -25,6 +25,11 @@
                     path: "resources/models/Fox.glb",
                     resource_type: Model,
                 )),
+                File(ResourceFile(
+                    name: "InterpolationTest.glb",
+                    path: "resources/models/InterpolationTest.glb",
+                    resource_type: Model,
+                )),
             ],
         )),
         File(ResourceFile(
@@ -35,6 +40,11 @@
         File(ResourceFile(
             name: "ChronographWatch.glb",
             path: "resources/ChronographWatch.glb",
+            resource_type: Unknown,
+        )),
+        File(ResourceFile(
+            name: "IridescentDishWithOlives.glb",
+            path: "resources/IridescentDishWithOlives.glb",
             resource_type: Unknown,
         )),
     ],
