@@ -32,7 +32,7 @@ class PlayerMovement {
             verticalVelocity = if (state == PlayerState.Gas) -jumpHeight else jumpHeight
         }
 
-        // --- Gravity (overridden externally when in Gas state) ---
+        // gravity
         if (state != PlayerState.Gas && !isGrounded) {
             verticalVelocity -= gravity * deltaTime
         }

@@ -2,11 +2,11 @@ package com.example.mygame.player
 
 import com.dropbear.components.Camera
 import com.dropbear.components.EntityTransform
+import com.dropbear.components.camera.SpringyCameraController
 import com.dropbear.input.InputState
 import com.dropbear.math.Quaterniond
 import com.dropbear.math.Vector3d
 import com.dropbear.physics.KinematicCharacterController
-import com.example.mygame.SpringyCameraController
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
