@@ -1,0 +1,13 @@
+(
+    uuid: "6d2f982c-34d4-4a0f-9ef7-4c02b10fcb11",
+    name: "AnimatedMorphCube",
+    asset_type: Mesh,
+    location: File("resources/tests/AnimatedMorphCube.glb"),
+    compiled_path: None,
+    source_hash: (33, 78, 229, 97, 96, 165, 13, 191, 34, 84, 58, 29, 102, 219, 248, 96, 152, 110, 135, 240, 239, 172, 61, 137, 254, 172, 19, 89, 208, 230, 174, 171),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 68505772,
+    ),
+    dependencies: [],
+)

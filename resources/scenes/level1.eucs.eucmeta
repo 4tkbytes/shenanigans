@@ -1,0 +1,13 @@
+(
+    uuid: "bd64dbe2-5284-4ab2-85a1-e5a348d1c9f2",
+    name: "level1",
+    asset_type: Scene,
+    location: File("resources/scenes/level1.eucs"),
+    compiled_path: None,
+    source_hash: (90, 228, 43, 127, 121, 45, 210, 49, 166, 156, 204, 186, 116, 95, 26, 223, 246, 113, 158, 163, 96, 74, 166, 87, 125, 243, 238, 84, 199, 98, 250, 52),
+    import_time: (
+        secs_since_epoch: 1774395138,
+        nanos_since_epoch: 162241128,
+    ),
+    dependencies: [],
+)

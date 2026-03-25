@@ -1,0 +1,13 @@
+(
+    uuid: "84945181-a216-4cea-b212-bb209dee7431",
+    name: "basic_floor.cuboid",
+    asset_type: Mesh,
+    location: File("resources/models/basic_floor.cuboid.eucmdl"),
+    compiled_path: None,
+    source_hash: (11, 159, 95, 156, 60, 186, 209, 61, 169, 40, 166, 224, 26, 154, 152, 157, 160, 255, 213, 104, 205, 141, 223, 109, 93, 201, 85, 212, 117, 126, 120, 205),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 27173007,
+    ),
+    dependencies: [],
+)

@@ -1,0 +1,13 @@
+(
+    uuid: "98388634-196b-4dfc-af9e-95664444a05a",
+    name: "IridescentDishWithOlives",
+    asset_type: Mesh,
+    location: File("resources/IridescentDishWithOlives.glb"),
+    compiled_path: None,
+    source_hash: (21, 64, 180, 163, 107, 121, 10, 144, 127, 72, 36, 207, 232, 72, 186, 72, 27, 61, 163, 204, 128, 112, 23, 43, 123, 59, 161, 120, 247, 138, 126, 209),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 43768897,
+    ),
+    dependencies: [],
+)

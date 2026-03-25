@@ -1,0 +1,13 @@
+(
+    uuid: "690dbb17-3430-4c1f-bb74-eee6099a0ef2",
+    name: "MorphStressTest",
+    asset_type: Mesh,
+    location: File("resources/tests/MorphStressTest.glb"),
+    compiled_path: None,
+    source_hash: (0, 95, 29, 157, 217, 56, 197, 83, 165, 6, 214, 191, 61, 33, 131, 15, 195, 242, 236, 58, 25, 157, 147, 50, 233, 166, 37, 186, 247, 52, 43, 239),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 88024800,
+    ),
+    dependencies: [],
+)

@@ -1,0 +1,13 @@
+(
+    uuid: "0ab940e9-aca4-4f7b-a7db-7406bbc09f19",
+    name: "InterpolationTest",
+    asset_type: Mesh,
+    location: File("resources/tests/InterpolationTest.glb"),
+    compiled_path: None,
+    source_hash: (168, 110, 179, 49, 180, 160, 131, 113, 94, 117, 254, 25, 161, 247, 71, 234, 197, 105, 45, 91, 159, 241, 32, 241, 234, 164, 87, 194, 59, 167, 43, 202),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 69211935,
+    ),
+    dependencies: [],
+)

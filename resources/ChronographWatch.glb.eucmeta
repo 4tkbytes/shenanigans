@@ -1,0 +1,13 @@
+(
+    uuid: "b87a0fa0-7c1d-42f5-946f-fc004fd293af",
+    name: "ChronographWatch",
+    asset_type: Mesh,
+    location: File("resources/ChronographWatch.glb"),
+    compiled_path: None,
+    source_hash: (142, 135, 95, 205, 131, 239, 180, 51, 175, 237, 158, 241, 193, 139, 44, 43, 46, 7, 94, 43, 244, 131, 113, 202, 223, 210, 163, 207, 82, 159, 26, 239),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 67484569,
+    ),
+    dependencies: [],
+)

@@ -1,0 +1,13 @@
+(
+    uuid: "62ee3c6c-4a13-4bb5-a71a-2a1730064242",
+    name: "Fox",
+    asset_type: Mesh,
+    location: File("resources/models/Fox.glb"),
+    compiled_path: None,
+    source_hash: (153, 23, 119, 30, 20, 20, 196, 101, 87, 176, 17, 203, 170, 238, 109, 232, 42, 130, 118, 5, 0, 130, 39, 163, 100, 195, 134, 47, 11, 230, 45, 220),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 26915138,
+    ),
+    dependencies: [],
+)

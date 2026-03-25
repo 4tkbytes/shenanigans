@@ -2,7 +2,7 @@
     project_name: "MyGame",
     project_path: "/home/tirbofish/shenanigans",
     date_created: "2025-10-12 02:01:09",
-    date_last_accessed: "2026-03-22 05:49:25",
+    date_last_accessed: "2026-03-25 03:11:26",
     project_version: "0.1.0",
     authors: (
         developer: "tirbofish",
@@ -14,5 +14,5 @@
             _old: None,
         ),
     ),
-    last_opened_scene: Some("level1"),
+    last_opened_scene: Some("Default"),
 )

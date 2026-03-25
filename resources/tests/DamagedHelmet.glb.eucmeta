@@ -1,0 +1,13 @@
+(
+    uuid: "c0d80368-5539-4aa3-b458-2f30c1134f5b",
+    name: "DamagedHelmet",
+    asset_type: Mesh,
+    location: File("resources/tests/DamagedHelmet.glb"),
+    compiled_path: None,
+    source_hash: (161, 227, 176, 77, 233, 123, 17, 222, 86, 76, 230, 229, 59, 149, 240, 41, 84, 162, 151, 240, 0, 129, 131, 172, 99, 164, 245, 151, 79, 107, 50, 216),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 84285146,
+    ),
+    dependencies: [],
+)

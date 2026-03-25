@@ -1,0 +1,13 @@
+(
+    uuid: "a4db61d7-8a6f-4b7a-bcda-6f400104338d",
+    name: "cube-normal.025f2b53",
+    asset_type: Texture,
+    location: File("resources/cube-normal.025f2b53.png"),
+    compiled_path: None,
+    source_hash: (7, 108, 98, 163, 136, 17, 31, 180, 207, 27, 253, 183, 103, 33, 19, 73, 76, 219, 106, 240, 121, 42, 106, 18, 96, 235, 250, 115, 111, 83, 243, 67),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 99778561,
+    ),
+    dependencies: [],
+)

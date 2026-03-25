@@ -1,0 +1,13 @@
+(
+    uuid: "de1a8bc6-fe74-4a90-bcd6-dc2ae2f7fc4e",
+    name: "BrainStem",
+    asset_type: Mesh,
+    location: File("resources/tests/BrainStem.glb"),
+    compiled_path: None,
+    source_hash: (221, 218, 58, 83, 181, 201, 119, 31, 153, 36, 99, 3, 74, 67, 3, 64, 186, 43, 172, 87, 30, 88, 105, 199, 35, 247, 203, 164, 151, 110, 145, 116),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 98209181,
+    ),
+    dependencies: [],
+)

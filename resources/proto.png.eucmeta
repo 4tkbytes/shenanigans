@@ -1,0 +1,13 @@
+(
+    uuid: "0d072a2a-71ce-4746-a513-6ea06dfc7036",
+    name: "proto",
+    asset_type: Texture,
+    location: File("resources/proto.png"),
+    compiled_path: None,
+    source_hash: (95, 84, 198, 88, 20, 225, 243, 90, 183, 68, 192, 184, 75, 129, 12, 34, 232, 134, 1, 159, 15, 236, 195, 8, 239, 193, 81, 75, 123, 80, 202, 169),
+    import_time: (
+        secs_since_epoch: 1774394879,
+        nanos_since_epoch: 100554042,
+    ),
+    dependencies: [],
+)
