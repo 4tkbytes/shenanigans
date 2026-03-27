@@ -77,6 +77,11 @@
                                                         )),
                                                     ],
                                                 )),
+                                                File(ResourceFile(
+                                                    name: "CustomComponent.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/CustomComponent.kt",
+                                                    resource_type: Script,
+                                                )),
                                             ],
                                         )),
                                     ],

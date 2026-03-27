@@ -39,7 +39,7 @@ class Player : System() {
     // - speed: Double
     // - jumpHeight: Double
     // - gasFloatSpeed: Double
-    // - distance: Double  (third-person camera distance)
+    // - distance: Double (third-person camera distance)
     // - heightOffset: Double
 
     override fun load(engine: DropbearEngine) {
@@ -59,19 +59,20 @@ class Player : System() {
     }
 
     override fun physicsUpdate(engine: DropbearEngine, deltaTime: Double) {
-        val entity    = currentEntity                                     ?: throw Exception("Player entity not found")
-        val cam       = entity.getComponent(Camera)                       ?: throw Exception("Camera missing")
+        val entity    = currentEntity                                            ?: throw Exception("Player entity not found")
+        val playerCam = entity.getChildByLabel("player camera")                  ?: throw Exception("Player camera child missing")
+        val cam       = playerCam.getComponent(Camera)                    ?: throw Exception("Camera missing")
         val kcc       = entity.getComponent(KinematicCharacterController) ?: throw Exception("KCC component missing")
         val rigidbody = entity.getComponent(RigidBody)                    ?: throw Exception("Rigidbody missing")
         val props     = entity.getComponent(CustomProperties)             ?: throw Exception("CustomProperties missing")
         val animation = entity.getComponent(AnimationComponent)           ?: throw Exception("AnimationComponent missing")
         val transform = entity.getComponent(EntityTransform)              ?: throw Exception("EntityTransform missing")
 
-        val speed               = (props.getProperty<Double>("speed")         ?: 10.0) * deltaTime
-        val jumpHeight          = (props.getProperty<Double>("jumpHeight")    ?: 2.0)  * deltaTime
-        val gasFloatSpeed       = (props.getProperty<Double>("gasFloatSpeed") ?: 2.0)  * deltaTime
-        val thirdPersonDistance =  props.getProperty<Double>("distance")      ?: 5.0
-        val heightOffset        =  props.getProperty<Double>("heightOffset")  ?: 1.0
+        val speed               = (props.getProperty<Double>("speed")            ?: 10.0) * deltaTime
+        val jumpHeight          = (props.getProperty<Double>("jumpHeight")       ?: 2.0)  * deltaTime
+        val gasFloatSpeed       = (props.getProperty<Double>("gasFloatSpeed")    ?: 2.0)  * deltaTime
+        val thirdPersonDistance =  props.getProperty<Double>("distance")         ?: 5.0
+        val heightOffset        =  props.getProperty<Double>("heightOffset")     ?: 1.0
 
         val inputState = engine.inputState
         val gravity    = abs(Physics.gravity.y * rigidbody.gravityScale)
