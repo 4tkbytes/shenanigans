@@ -1,13 +1,13 @@
 (
-    uuid: "740a4529-ecc0-42c8-b5ff-c0d7c0b92719",
+    uuid: "be940d33-0904-414b-a076-fe3865027774",
     name: "Default",
     asset_type: Scene,
     location: File("resources/scenes/Default.eucs"),
     compiled_path: None,
-    source_hash: (13, 209, 151, 121, 179, 145, 133, 16, 55, 242, 1, 157, 64, 3, 83, 123, 131, 180, 220, 157, 207, 33, 15, 47, 30, 64, 188, 3, 242, 200, 123, 18),
+    source_hash: (133, 214, 152, 161, 126, 155, 193, 135, 81, 142, 114, 80, 63, 62, 79, 115, 89, 208, 207, 177, 238, 199, 105, 56, 61, 30, 219, 88, 125, 104, 115, 98),
     import_time: (
-        secs_since_epoch: 1774395138,
-        nanos_since_epoch: 161408682,
+        secs_since_epoch: 1774699251,
+        nanos_since_epoch: 118605099,
     ),
     dependencies: [],
 )

@@ -8,11 +8,14 @@ import com.dropbear.components.CustomProperties
 import com.dropbear.components.EntityTransform
 import com.dropbear.ecs.System
 import com.dropbear.logging.Logger
+import com.dropbear.math.Vector2d
 import com.dropbear.math.Vector3d
 import com.dropbear.physics.KinematicCharacterController
 import com.dropbear.physics.Physics
 import com.dropbear.physics.RigidBody
+import com.dropbear.rendering.DebugDraw
 import com.dropbear.scene.SceneLoadHandle
+import com.dropbear.utils.Colour
 import com.example.mygame.player.PlayerCamera
 import com.example.mygame.player.PlayerHealthController
 import com.example.mygame.player.PlayerInput
