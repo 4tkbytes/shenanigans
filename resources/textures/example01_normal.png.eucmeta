@@ -1,0 +1,13 @@
+(
+    uuid: "50a6994c-69fb-4d0e-bafa-c1893656832b",
+    name: "example01_normal",
+    asset_type: Texture,
+    location: File("resources/textures/example01_normal.png"),
+    compiled_path: None,
+    source_hash: (62, 119, 203, 228, 176, 78, 242, 160, 206, 58, 178, 219, 129, 158, 91, 75, 110, 188, 64, 230, 108, 178, 200, 151, 51, 54, 53, 45, 123, 24, 63, 213),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 652735581,
+    ),
+    dependencies: [],
+)

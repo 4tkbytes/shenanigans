@@ -1,0 +1,13 @@
+(
+    uuid: "fcd9807a-1df4-48fa-bab0-33ca770fac2d",
+    name: "example01_orm",
+    asset_type: Texture,
+    location: File("resources/textures/example01_orm.png"),
+    compiled_path: None,
+    source_hash: (159, 14, 45, 182, 224, 102, 166, 155, 193, 77, 22, 130, 154, 117, 217, 217, 255, 190, 36, 20, 193, 55, 144, 225, 113, 249, 163, 111, 107, 72, 10, 208),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 663517467,
+    ),
+    dependencies: [],
+)

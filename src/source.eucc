@@ -27,6 +27,16 @@
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
+                                                    name: "Player.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
+                                                    name: "PlayerAnimationState.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerAnimationState.kt",
+                                                    resource_type: Script,
+                                                )),
+                                                File(ResourceFile(
                                                     name: "PlayerHealth.kt",
                                                     path: "src/commonMain/kotlin/com/example/mygame/PlayerHealth.kt",
                                                     resource_type: Script,
@@ -36,20 +46,10 @@
                                                     path: "src/commonMain/kotlin/com/example/mygame/PlayerState.kt",
                                                     resource_type: Script,
                                                 )),
-                                                File(ResourceFile(
-                                                    name: "PlayerAnimationState.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/PlayerAnimationState.kt",
-                                                    resource_type: Script,
-                                                )),
                                                 Folder((
                                                     name: "player",
                                                     path: "/home/tirbofish/shenanigans/src/commonMain/kotlin/com/example/mygame/player",
                                                     nodes: [
-                                                        File(ResourceFile(
-                                                            name: "PlayerHealthController.kt",
-                                                            path: "src/commonMain/kotlin/com/example/mygame/player/PlayerHealthController.kt",
-                                                            resource_type: Script,
-                                                        )),
                                                         File(ResourceFile(
                                                             name: "PlayerInput.kt",
                                                             path: "src/commonMain/kotlin/com/example/mygame/player/PlayerInput.kt",
@@ -66,16 +66,16 @@
                                                             resource_type: Script,
                                                         )),
                                                         File(ResourceFile(
+                                                            name: "PlayerHealthController.kt",
+                                                            path: "src/commonMain/kotlin/com/example/mygame/player/PlayerHealthController.kt",
+                                                            resource_type: Script,
+                                                        )),
+                                                        File(ResourceFile(
                                                             name: "PlayerCamera.kt",
                                                             path: "src/commonMain/kotlin/com/example/mygame/player/PlayerCamera.kt",
                                                             resource_type: Script,
                                                         )),
                                                     ],
-                                                )),
-                                                File(ResourceFile(
-                                                    name: "CameraMode.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/CameraMode.kt",
-                                                    resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
                                                     name: "CustomComponent.kt",
@@ -88,8 +88,8 @@
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(
-                                                    name: "Player.kt",
-                                                    path: "src/commonMain/kotlin/com/example/mygame/Player.kt",
+                                                    name: "CameraMode.kt",
+                                                    path: "src/commonMain/kotlin/com/example/mygame/CameraMode.kt",
                                                     resource_type: Script,
                                                 )),
                                                 File(ResourceFile(

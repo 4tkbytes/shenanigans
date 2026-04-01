@@ -1,0 +1,13 @@
+(
+    uuid: "e154365f-0ff6-4f15-a0ec-b4ad165e683f",
+    name: "example01_ao",
+    asset_type: Texture,
+    location: File("resources/textures/example01_ao.png"),
+    compiled_path: None,
+    source_hash: (150, 83, 77, 201, 166, 46, 101, 99, 248, 112, 203, 6, 20, 144, 249, 210, 54, 156, 223, 180, 225, 239, 44, 229, 120, 69, 252, 143, 156, 166, 6, 23),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 615895995,
+    ),
+    dependencies: [],
+)

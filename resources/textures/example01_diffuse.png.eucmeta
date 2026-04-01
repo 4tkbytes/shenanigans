@@ -1,0 +1,13 @@
+(
+    uuid: "4ec0e831-1f0c-40bb-b896-179e33581b97",
+    name: "example01_diffuse",
+    asset_type: Texture,
+    location: File("resources/textures/example01_diffuse.png"),
+    compiled_path: None,
+    source_hash: (13, 101, 192, 195, 234, 50, 233, 234, 127, 95, 103, 55, 8, 73, 211, 217, 132, 43, 146, 130, 61, 123, 138, 137, 7, 0, 202, 14, 113, 210, 135, 203),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 623819912,
+    ),
+    dependencies: [],
+)

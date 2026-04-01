@@ -1,0 +1,13 @@
+(
+    uuid: "a8fe36c3-4a09-4e98-b579-850da4f5747f",
+    name: "example01_roughness",
+    asset_type: Texture,
+    location: File("resources/textures/example01_roughness.png"),
+    compiled_path: None,
+    source_hash: (152, 31, 163, 94, 247, 193, 174, 247, 188, 193, 166, 6, 217, 34, 68, 62, 38, 191, 14, 5, 40, 115, 241, 13, 158, 107, 166, 47, 64, 24, 57, 64),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 669239908,
+    ),
+    dependencies: [],
+)

@@ -1,0 +1,13 @@
+(
+    uuid: "0d0bb3e4-fe5d-42b8-a8d4-d71bae048977",
+    name: "example01_height",
+    asset_type: Texture,
+    location: File("resources/textures/example01_height.png"),
+    compiled_path: None,
+    source_hash: (128, 139, 47, 11, 105, 246, 200, 228, 10, 208, 194, 225, 134, 216, 184, 74, 17, 117, 194, 170, 149, 160, 81, 0, 49, 74, 41, 28, 144, 62, 25, 152),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 635642708,
+    ),
+    dependencies: [],
+)

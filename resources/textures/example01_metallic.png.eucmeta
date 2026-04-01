@@ -1,0 +1,13 @@
+(
+    uuid: "7fc6bf82-478c-4b8f-8b74-816c39940ac1",
+    name: "example01_metallic",
+    asset_type: Texture,
+    location: File("resources/textures/example01_metallic.png"),
+    compiled_path: None,
+    source_hash: (130, 11, 107, 11, 26, 41, 209, 178, 45, 14, 19, 221, 239, 12, 133, 14, 181, 172, 81, 132, 130, 203, 197, 224, 111, 52, 47, 113, 226, 54, 119, 214),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 638026607,
+    ),
+    dependencies: [],
+)

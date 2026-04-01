@@ -1,0 +1,13 @@
+(
+    uuid: "e6c96dce-9c9f-41f5-ba11-a18d72dc4efd",
+    name: "example01_edge",
+    asset_type: Texture,
+    location: File("resources/textures/example01_edge.png"),
+    compiled_path: None,
+    source_hash: (92, 19, 228, 206, 72, 61, 142, 213, 2, 254, 255, 181, 249, 18, 109, 28, 149, 201, 247, 101, 228, 218, 95, 147, 88, 197, 199, 10, 211, 250, 209, 162),
+    import_time: (
+        secs_since_epoch: 1775036359,
+        nanos_since_epoch: 629188105,
+    ),
+    dependencies: [],
+)
