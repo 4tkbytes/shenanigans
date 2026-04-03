@@ -8,12 +8,12 @@
                     "type": "SerializableCamera",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-9.965863754020713, 39.78126780450987, -166.99759595337835),
-                        rotation: (0.02410654492492405, -0.9702963426092617, 0.1089788017828889, 0.21463341485621176),
+                        position: (34.24709873692512, 22.87393124189653, 64.26622282914194),
+                        rotation: (-0.0033364911439858333, -0.9592102171637954, -0.011330967683925873, 0.2824468733882118),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
-                    "aspect": 2.2547169811320753,
+                    "aspect": 2.359322033898305,
                     "fov": 75.0,
                     "near": 0.1,
                     "far": 100.0,
@@ -64,13 +64,13 @@
                     ),
                 },
                 {
+                    "type": "KotlinComponents",
+                    "fqcns": [],
+                },
+                {
                     "type": "CustomProperties",
                     "custom_properties": [],
                     "next_id": 0,
-                },
-                {
-                    "type": "KotlinComponents",
-                    "fqcns": [],
                 },
                 {
                     "type": "SerializedEntityStatus",
@@ -82,6 +82,42 @@
         (
             label: ("basic floor"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("basic floor"),
+                            shape: Box(
+                                half_extents: (50.0, 1.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 1.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_29fca479d3352c63",
@@ -393,49 +429,9 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("basic floor"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 1.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "SerializedEntityStatus",
                     "hidden": false,
                     "disabled": false,
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 1.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -467,6 +463,42 @@
             label: ("roof"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("roof"),
+                            shape: Box(
+                                half_extents: (50.0, 1.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 50.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_29fca479d3352c63",
                     "uuid": None,
@@ -777,49 +809,9 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("roof"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 1.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "SerializedEntityStatus",
                     "hidden": false,
                     "disabled": false,
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 50.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -850,6 +842,42 @@
         (
             label: ("right wall"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("right wall"),
+                            shape: Box(
+                                half_extents: (50.0, 25.0, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (1.6202382882070712, 25.691627638331937, 74.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_bfeaaba2540775f1",
@@ -1143,7 +1171,7 @@
                             label: "procedural_material",
                             diffuse_texture: Some(AssetUuid("4ec0e831-1f0c-40bb-b896-179e33581b97")),
                             emissive_texture: None,
-                            normal_texture: None,
+                            normal_texture: Some(AssetUuid("50a6994c-69fb-4d0e-bafa-c1893656832b")),
                             occlusion_texture: None,
                             metallic_roughness_texture: None,
                             tint: (1.0, 1.0, 1.0, 1.0),
@@ -1153,52 +1181,12 @@
                             alpha_mode: Opaque,
                             alpha_cutoff: Some(0.5),
                             occlusion_strength: 1.0,
-                            normal_scale: 1.0,
+                            normal_scale: 10.0,
                             uv_tiling: (1.0, 1.0),
                             texture_tag: Some("procedural_material"),
                             wrap_mode: Repeat,
                         ),
                     },
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("right wall"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 25.0,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (1.6202382882070712, 25.691627638331937, 74.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -1229,6 +1217,42 @@
         (
             label: ("front wall"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("front wall"),
+                            shape: Box(
+                                half_extents: (0.5, 25.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (49.0, 25.691627638331937, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_600b5eb0b58ff88b",
@@ -1540,46 +1564,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("front wall"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 0.5,
-                                    y: 25.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (49.0, 25.691627638331937, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("front wall"),
                     "disable_physics": false,
@@ -1608,6 +1592,42 @@
         (
             label: ("back wall"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("back wall"),
+                            shape: Box(
+                                half_extents: (0.5, 25.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-49.0, 25.691627638331937, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_600b5eb0b58ff88b",
@@ -1919,46 +1939,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("back wall"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 0.5,
-                                    y: 25.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-49.0, 25.691627638331937, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("back wall"),
                     "disable_physics": false,
@@ -1988,6 +1968,24 @@
             label: ("cardboard light"),
             components: [
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 48.550585159317826, 20.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedLight",
                     "label": "Default Light",
                     "light_component": (
@@ -2011,24 +2009,6 @@
                             start: 0.1,
                             end: 100.0,
                         ),
-                    ),
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 48.550585159317826, 20.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
                     ),
                 },
             ],
@@ -2037,6 +2017,24 @@
             label: ("cardboard light.001"),
             components: [
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 48.550585159317826, -20.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedLight",
                     "label": "Default Light",
                     "light_component": (
@@ -2062,34 +2060,12 @@
                         ),
                     ),
                 },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 48.550585159317826, -20.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
             ],
         ),
         (
             label: ("environment"),
             components: [
                 {
-                    "type": "KotlinComponents",
-                    "fqcns": [],
-                },
-                {
                     "type": "EntityTransform",
                     "local": (
                         position: (0.0, 0.0, 0.0),
@@ -2106,6 +2082,10 @@
                         rotation: (0.0, 0.0, 0.0, 1.0),
                         scale: (1.0, 1.0, 1.0),
                     ),
+                },
+                {
+                    "type": "KotlinComponents",
+                    "fqcns": [],
                 },
             ],
         ),
@@ -2136,6 +2116,92 @@
             label: ("player"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("player"),
+                            shape: Box(
+                                half_extents: (2.02, 3.95, 7.36),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 3.45, 0.3),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-7.952032406743019, 20.418346351487145, -5.586896844672955),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (0.9999999999883258, 1.0, 0.9999999999883258),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
+                    "type": "AnimationComponent",
+                    "active_animation_index": None,
+                    "time": 0.327541,
+                    "speed": 1.0,
+                    "looping": true,
+                    "is_playing": true,
+                    "animation_settings": {
+                        0: (
+                            time: 0.327541,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                        4: (
+                            time: 0.86773336,
+                            speed: 1.0,
+                            looping: true,
+                            is_playing: true,
+                        ),
+                    },
+                },
+                {
+                    "type": "KCC",
+                    "entity": ("player"),
+                    "controller": (
+                        up: (0.0, 1.0, 0.0),
+                        offset: Relative(0.01),
+                        slide: true,
+                        autostep: Some((
+                            max_height: Relative(0.25),
+                            min_width: Relative(0.5),
+                            include_dynamic_bodies: false,
+                        )),
+                        max_slope_climb_angle: 0.7853982,
+                        min_slope_slide_angle: 0.7853982,
+                        snap_to_ground: Some(Relative(1.0)),
+                        normal_nudge_factor: 0.0015,
+                    ),
+                },
+                {
+                    "type": "BillboardComponent",
+                    "offset": (0.0, 9.02, 0.0),
+                    "rotation": None,
+                    "world_size": (0.13, 0.08),
+                    "enabled": true,
+                    "ui_tree": (
+                        roots: [],
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
                     "label": "Fox",
                     "uuid": Some("62ee3c6c-4a13-4bb5-a71a-2a1730064242"),
@@ -2161,14 +2227,14 @@
                             texture_tag: Some("Main_Light"),
                             wrap_mode: Repeat,
                         ),
-                        "Main": (
-                            label: "Main",
+                        "Eyes": (
+                            label: "Eyes",
                             diffuse_texture: None,
                             emissive_texture: None,
                             normal_texture: None,
                             occlusion_texture: None,
                             metallic_roughness_texture: None,
-                            tint: (0.37375793, 0.13638106, 0.044743866, 1.0),
+                            tint: (0.021766989, 0.021766989, 0.021766989, 1.0),
                             emissive_factor: (0.0, 0.0, 0.0),
                             metallic_factor: 0.4,
                             roughness_factor: 0.4150871,
@@ -2177,26 +2243,7 @@
                             occlusion_strength: 1.0,
                             normal_scale: 1.0,
                             uv_tiling: (1.0, 1.0),
-                            texture_tag: Some("Main"),
-                            wrap_mode: Repeat,
-                        ),
-                        "Grey": (
-                            label: "Grey",
-                            diffuse_texture: None,
-                            emissive_texture: None,
-                            normal_texture: None,
-                            occlusion_texture: None,
-                            metallic_roughness_texture: None,
-                            tint: (0.07880128, 0.07880128, 0.07880128, 1.0),
-                            emissive_factor: (0.0, 0.0, 0.0),
-                            metallic_factor: 0.4,
-                            roughness_factor: 0.4150871,
-                            alpha_mode: Opaque,
-                            alpha_cutoff: None,
-                            occlusion_strength: 1.0,
-                            normal_scale: 1.0,
-                            uv_tiling: (1.0, 1.0),
-                            texture_tag: Some("Grey"),
+                            texture_tag: Some("Eyes"),
                             wrap_mode: Repeat,
                         ),
                         "Black": (
@@ -2218,14 +2265,14 @@
                             texture_tag: Some("Black"),
                             wrap_mode: Repeat,
                         ),
-                        "Eyes": (
-                            label: "Eyes",
+                        "Grey": (
+                            label: "Grey",
                             diffuse_texture: None,
                             emissive_texture: None,
                             normal_texture: None,
                             occlusion_texture: None,
                             metallic_roughness_texture: None,
-                            tint: (0.021766989, 0.021766989, 0.021766989, 1.0),
+                            tint: (0.07880128, 0.07880128, 0.07880128, 1.0),
                             emissive_factor: (0.0, 0.0, 0.0),
                             metallic_factor: 0.4,
                             roughness_factor: 0.4150871,
@@ -2234,28 +2281,39 @@
                             occlusion_strength: 1.0,
                             normal_scale: 1.0,
                             uv_tiling: (1.0, 1.0),
-                            texture_tag: Some("Eyes"),
+                            texture_tag: Some("Grey"),
+                            wrap_mode: Repeat,
+                        ),
+                        "Main": (
+                            label: "Main",
+                            diffuse_texture: None,
+                            emissive_texture: None,
+                            normal_texture: None,
+                            occlusion_texture: None,
+                            metallic_roughness_texture: None,
+                            tint: (0.37375793, 0.13638106, 0.044743866, 1.0),
+                            emissive_factor: (0.0, 0.0, 0.0),
+                            metallic_factor: 0.4,
+                            roughness_factor: 0.4150871,
+                            alpha_mode: Opaque,
+                            alpha_cutoff: None,
+                            occlusion_strength: 1.0,
+                            normal_scale: 1.0,
+                            uv_tiling: (1.0, 1.0),
+                            texture_tag: Some("Main"),
                             wrap_mode: Repeat,
                         ),
                     },
                 },
                 {
-                    "type": "KCC",
-                    "entity": ("player"),
-                    "controller": (
-                        up: (0.0, 1.0, 0.0),
-                        offset: Relative(0.01),
-                        slide: true,
-                        autostep: Some((
-                            max_height: Relative(0.25),
-                            min_width: Relative(0.5),
-                            include_dynamic_bodies: false,
-                        )),
-                        max_slope_climb_angle: 0.7853982,
-                        min_slope_slide_angle: 0.7853982,
-                        snap_to_ground: Some(Relative(1.0)),
-                        normal_nudge_factor: 0.0015,
-                    ),
+                    "type": "Script",
+                    "tags": [
+                        "player",
+                    ],
+                },
+                {
+                    "type": "KotlinComponents",
+                    "fqcns": [],
                 },
                 {
                     "type": "CustomProperties",
@@ -2289,66 +2347,6 @@
                     "next_id": 5,
                 },
                 {
-                    "type": "Script",
-                    "tags": [
-                        "player",
-                    ],
-                },
-                {
-                    "type": "KotlinComponents",
-                    "fqcns": [],
-                },
-                {
-                    "type": "BillboardComponent",
-                    "offset": (0.0, 9.02, 0.0),
-                    "rotation": None,
-                    "world_size": (0.13, 0.08),
-                    "enabled": true,
-                    "ui_tree": (
-                        roots: [],
-                    ),
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("player"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 2.02,
-                                    y: 3.95,
-                                    z: 7.36,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 3.45, 0.3),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-7.952032406743019, 20.418346351487145, -5.586896844672955),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (0.9999999999883258, 1.0, 0.9999999999883258),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("player"),
                     "disable_physics": false,
@@ -2372,36 +2370,28 @@
                         z: true,
                     ),
                 },
-                {
-                    "type": "AnimationComponent",
-                    "active_animation_index": None,
-                    "time": 0.327541,
-                    "speed": 1.0,
-                    "looping": true,
-                    "is_playing": true,
-                    "animation_settings": {
-                        0: (
-                            time: 0.327541,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                        4: (
-                            time: 0.86773336,
-                            speed: 1.0,
-                            looping: true,
-                            is_playing: true,
-                        ),
-                    },
-                },
             ],
         ),
         (
             label: ("player camera"),
             components: [
                 {
-                    "type": "KotlinComponents",
-                    "fqcns": [],
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (43.247245784877016, 39.182480096818765, 7.5862703051490055),
+                        rotation: (0.000613027941045958, 0.9584095074840349, 0.2853885104195226, -0.002058708692189933),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
                 },
                 {
                     "type": "SerializableCamera",
@@ -2421,22 +2411,8 @@
                     "starting_camera": true,
                 },
                 {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (43.247245784877016, 39.182480096818765, 7.5862703051490055),
-                        rotation: (0.000613027941045958, 0.9584095074840349, 0.2853885104195226, -0.002058708692189933),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
+                    "type": "KotlinComponents",
+                    "fqcns": [],
                 },
             ],
         ),
@@ -2466,6 +2442,42 @@
         (
             label: ("basic floor.001"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("basic floor.001"),
+                            shape: Box(
+                                half_extents: (50.0, 1.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 1.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_29fca479d3352c63",
@@ -2777,49 +2789,9 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("basic floor.001"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 1.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "SerializedEntityStatus",
                     "hidden": false,
                     "disabled": false,
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 1.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -2874,6 +2846,42 @@
             label: ("front wall.001"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("front wall.001"),
+                            shape: Box(
+                                half_extents: (0.5, 25.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (49.0, 25.691627638331937, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_600b5eb0b58ff88b",
                     "uuid": None,
@@ -3182,46 +3190,6 @@
                             wrap_mode: Repeat,
                         ),
                     },
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("front wall.001"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 0.5,
-                                    y: 25.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (49.0, 25.691627638331937, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -3253,6 +3221,42 @@
             label: ("back wall.001"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("back wall.001"),
+                            shape: Box(
+                                half_extents: (0.5, 25.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-49.0, 25.691627638331937, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_600b5eb0b58ff88b",
                     "uuid": None,
@@ -3563,46 +3567,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("back wall.001"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 0.5,
-                                    y: 25.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-49.0, 25.691627638331937, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("back wall.001"),
                     "disable_physics": false,
@@ -3631,6 +3595,42 @@
         (
             label: ("roof.001"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("roof.001"),
+                            shape: Box(
+                                half_extents: (50.0, 1.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 50.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_29fca479d3352c63",
@@ -3942,49 +3942,9 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("roof.001"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 1.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "SerializedEntityStatus",
                     "hidden": false,
                     "disabled": false,
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 50.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -4016,6 +3976,24 @@
             label: ("cardboard light.002"),
             components: [
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 48.550585159317826, -20.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedLight",
                     "label": "Default Light",
                     "light_component": (
@@ -4039,24 +4017,6 @@
                             start: 0.1,
                             end: 100.0,
                         ),
-                    ),
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 48.550585159317826, -20.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
                     ),
                 },
             ],
@@ -4087,6 +4047,42 @@
         (
             label: ("left wall.002"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("left wall.002"),
+                            shape: Box(
+                                half_extents: (50.0, 25.0, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 25.691627638331937, -74.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_bfeaaba2540775f1",
@@ -4398,46 +4394,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("left wall.002"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 25.0,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 25.691627638331937, -74.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("left wall.002"),
                     "disable_physics": false,
@@ -4466,6 +4422,42 @@
         (
             label: ("basic floor.002"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("basic floor.002"),
+                            shape: Box(
+                                half_extents: (50.0, 1.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 1.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_29fca479d3352c63",
@@ -4777,49 +4769,9 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("basic floor.002"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 1.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "SerializedEntityStatus",
                     "hidden": false,
                     "disabled": false,
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 1.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -4851,6 +4803,42 @@
             label: ("front wall.002"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("front wall.002"),
+                            shape: Box(
+                                half_extents: (0.5, 25.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (49.0, 25.691627638331937, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_600b5eb0b58ff88b",
                     "uuid": None,
@@ -5159,46 +5147,6 @@
                             wrap_mode: Repeat,
                         ),
                     },
-                },
-                {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("front wall.002"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 0.5,
-                                    y: 25.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (49.0, 25.691627638331937, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -5230,6 +5178,42 @@
             label: ("back wall.002"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("back wall.002"),
+                            shape: Box(
+                                half_extents: (0.5, 25.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-49.0, 25.691627638331937, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_600b5eb0b58ff88b",
                     "uuid": None,
@@ -5540,46 +5524,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("back wall.002"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 0.5,
-                                    y: 25.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-49.0, 25.691627638331937, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("back wall.002"),
                     "disable_physics": false,
@@ -5608,6 +5552,42 @@
         (
             label: ("roof.002"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("roof.002"),
+                            shape: Box(
+                                half_extents: (50.0, 1.0, 75.0),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 50.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_29fca479d3352c63",
@@ -5919,49 +5899,9 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("roof.002"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 50.0,
-                                    y: 1.0,
-                                    z: 75.0,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "SerializedEntityStatus",
                     "hidden": false,
                     "disabled": false,
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 50.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
                 },
                 {
                     "type": "RigidBody",
@@ -5993,6 +5933,24 @@
             label: ("cardboard light.003"),
             components: [
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 48.550585159317826, -20.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedLight",
                     "label": "Default Light",
                     "light_component": (
@@ -6018,6 +5976,29 @@
                         ),
                     ),
                 },
+            ],
+        ),
+        (
+            label: ("right wall.003"),
+            components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("right wall.003"),
+                            shape: Box(
+                                half_extents: (27.05, 25.0, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
                 {
                     "type": "EntityTransform",
                     "local": (
@@ -6026,7 +6007,7 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "world": (
-                        position: (0.0, 48.550585159317826, -20.0),
+                        position: (-21.50150475883206, 25.691627638331937, 74.0),
                         rotation: (0.0, 0.0, 0.0, 1.0),
                         scale: (1.0, 1.0, 1.0),
                     ),
@@ -6036,11 +6017,6 @@
                         scale: (1.0, 1.0, 1.0),
                     ),
                 },
-            ],
-        ),
-        (
-            label: ("right wall.003"),
-            components: [
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_46b6eafbd6b2d6cf",
@@ -6352,46 +6328,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("right wall.003"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 27.049999237060547,
-                                    y: 25.0,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-21.50150475883206, 25.691627638331937, 74.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("right wall.003"),
                     "disable_physics": false,
@@ -6420,6 +6356,42 @@
         (
             label: ("right wall.004"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("right wall.004"),
+                            shape: Box(
+                                half_extents: (9.75, 25.0, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (39.96794328290152, 25.691627638331937, 74.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_d79e2c7cc81685de",
@@ -6731,46 +6703,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("right wall.004"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 9.75,
-                                    y: 25.0,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (39.96794328290152, 25.691627638331937, 74.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("right wall.004"),
                     "disable_physics": false,
@@ -6799,6 +6731,42 @@
         (
             label: ("right wall.005"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("right wall.005"),
+                            shape: Box(
+                                half_extents: (12.65, 7.25, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (18.046826925971573, 8.691627638331937, 74.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_839f5a31edb22be3",
@@ -7110,46 +7078,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("right wall.005"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 12.649999618530273,
-                                    y: 7.25,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (18.046826925971573, 8.691627638331937, 74.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("right wall.005"),
                     "disable_physics": false,
@@ -7178,6 +7106,42 @@
         (
             label: ("right wall.006"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("right wall.006"),
+                            shape: Box(
+                                half_extents: (12.65, 7.4, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (18.046826925971573, 42.68059209423045, 73.97201387580523),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_2fcd541c6891cec5",
@@ -7489,46 +7453,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("right wall.006"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 12.649999618530273,
-                                    y: 7.400000095367432,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (18.046826925971573, 42.68059209423045, 73.97201387580523),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("right wall.006"),
                     "disable_physics": false,
@@ -7558,23 +7482,13 @@
             label: ("room1_sensor"),
             components: [
                 {
-                    "type": "Script",
-                    "tags": [
-                        "windowSystem",
-                    ],
-                },
-                {
                     "type": "ColliderGroup",
                     "colliders": [
                         (
                             id: 0,
                             entity: ("room1_sensor"),
                             shape: Box(
-                                half_extents: (
-                                    x: 13.8,
-                                    y: 9.95,
-                                    z: 0.5,
-                                ),
+                                half_extents: (13.8, 9.95, 0.5),
                             ),
                             density: 1.0,
                             friction: 0.5,
@@ -7602,6 +7516,12 @@
                         rotation: (0.0, 0.0, 0.0, 1.0),
                         scale: (1.0, 1.0, 1.0),
                     ),
+                },
+                {
+                    "type": "Script",
+                    "tags": [
+                        "windowSystem",
+                    ],
                 },
                 {
                     "type": "RigidBody",
@@ -7632,6 +7552,42 @@
         (
             label: ("left wall door"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("left wall door"),
+                            shape: Box(
+                                half_extents: (15.0, 9.95, 0.75),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-4.999999999999998, 32.95772050516313, -77.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_75100f94c702a97e",
@@ -7943,46 +7899,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("left wall door"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 15.0,
-                                    y: 9.949999809265137,
-                                    z: 0.75,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-4.999999999999998, 32.95772050516313, -77.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("left wall door"),
                     "disable_physics": false,
@@ -8034,6 +7950,42 @@
         (
             label: ("New Entity"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("New Entity"),
+                            shape: Box(
+                                half_extents: (19.5, 24.5, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (29.0, 26.0, -77.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_612990ce49c6d9cc",
@@ -8345,46 +8297,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("New Entity"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 19.5,
-                                    y: 24.5,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (29.0, 26.0, -77.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("New Entity"),
                     "disable_physics": false,
@@ -8413,6 +8325,42 @@
         (
             label: ("New Entity.001"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("New Entity.001"),
+                            shape: Box(
+                                half_extents: (14.4, 24.5, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-34.0, 26.0, -77.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_4845998b8dea1a12",
@@ -8724,46 +8672,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("New Entity.001"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 14.399999618530273,
-                                    y: 24.5,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-34.0, 26.0, -77.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("New Entity.001"),
                     "disable_physics": false,
@@ -8792,6 +8700,42 @@
         (
             label: ("New Entity.002"),
             components: [
+                {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("New Entity.002"),
+                            shape: Box(
+                                half_extents: (14.9, 14.05, 0.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-5.099233629791797, 35.60102985803848, -77.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
                 {
                     "type": "SerializedMeshRenderer",
                     "label": "procedural_20a2003d6b4b9a4f",
@@ -9103,46 +9047,6 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("New Entity.002"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 14.899999618530273,
-                                    y: 14.050000190734863,
-                                    z: 0.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-5.099233629791797, 35.60102985803848, -77.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
                     "entity": ("New Entity.002"),
                     "disable_physics": false,
@@ -9195,8 +9099,44 @@
             label: ("basic floor.003"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("basic floor.003"),
+                            shape: Box(
+                                half_extents: (13.9, 0.5, 38.65),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-34.570227005400355, 37.6999538675961, -38.318663511334904),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
-                    "label": "Cuboid dd00b0f21d6a0579",
+                    "label": "procedural_74bd2349d988af84",
                     "uuid": None,
                     "proc_obj": Some((
                         vertices: [
@@ -9505,53 +9445,13 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("basic floor.003"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 13.899999618530273,
-                                    y: 0.5,
-                                    z: 38.650001525878906,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
                     "type": "SerializedEntityStatus",
                     "hidden": false,
                     "disabled": false,
                 },
                 {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-34.570227005400355, 37.6999538675961, -38.318663511334904),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
-                    "entity": ("basic floor.001"),
+                    "entity": ("basic floor.003"),
                     "disable_physics": false,
                     "mode": Fixed,
                     "gravity_scale": 1.0,
@@ -9579,8 +9479,44 @@
             label: ("cube"),
             components: [
                 {
+                    "type": "ColliderGroup",
+                    "colliders": [
+                        (
+                            id: 0,
+                            entity: ("cube"),
+                            shape: Box(
+                                half_extents: (2.5, 2.5, 2.5),
+                            ),
+                            density: 1.0,
+                            friction: 0.5,
+                            restitution: 0.0,
+                            is_sensor: false,
+                            translation: (0.0, 0.0, 0.0),
+                            rotation: (0.0, 0.0, 0.0),
+                        ),
+                    ],
+                },
+                {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (-27.823555450731277, 43.09320589679395, -56.51138217559898),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedMeshRenderer",
-                    "label": "Cuboid bed45b08c869f0fb",
+                    "label": "procedural_27f91867d9121972",
                     "uuid": None,
                     "proc_obj": Some((
                         vertices: [
@@ -9889,48 +9825,8 @@
                     },
                 },
                 {
-                    "type": "ColliderGroup",
-                    "colliders": [
-                        (
-                            id: 0,
-                            entity: ("cube"),
-                            shape: Box(
-                                half_extents: (
-                                    x: 2.5,
-                                    y: 2.5,
-                                    z: 2.5,
-                                ),
-                            ),
-                            density: 1.0,
-                            friction: 0.5,
-                            restitution: 0.0,
-                            is_sensor: false,
-                            translation: (0.0, 0.0, 0.0),
-                            rotation: (0.0, 0.0, 0.0),
-                        ),
-                    ],
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (-27.823555450731277, 43.09320589679395, -56.51138217559898),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
-                {
                     "type": "RigidBody",
-                    "entity": ("No Label"),
+                    "entity": ("cube"),
                     "disable_physics": false,
                     "mode": Dynamic,
                     "gravity_scale": 1.0,
@@ -9957,50 +9853,66 @@
     ],
     hierarchy_map: (
         parent_map: {
-            ("front wall.001"): ("room2"),
-            ("right wall.001"): ("room2"),
-            ("cardboard light.001"): ("room1"),
-            ("room3"): ("environment"),
-            ("right wall.006"): ("right wall.001"),
-            ("room2"): ("environment"),
-            ("right wall.004"): ("right wall.001"),
             ("New Entity"): ("left wall backing"),
-            ("roof"): ("room1"),
-            ("basic floor.002"): ("room3"),
             ("back wall.001"): ("room2"),
-            ("back wall"): ("room1"),
-            ("front wall"): ("room1"),
-            ("room1"): ("environment"),
-            ("cardboard light"): ("room1"),
-            ("basic floor.001"): ("room2"),
-            ("player camera"): ("player"),
-            ("New Entity.002"): ("left wall backing"),
-            ("left wall parent"): ("room2"),
-            ("cardboard light.002"): ("room2"),
-            ("cube"): ("room2"),
-            ("cardboard light.003"): ("room3"),
-            ("basic floor"): ("room1"),
-            ("right wall"): ("room1"),
-            ("roof.002"): ("room3"),
-            ("New Entity.001"): ("left wall backing"),
-            ("left wall door"): ("left wall parent"),
-            ("left wall backing"): ("left wall parent"),
-            ("left wall.002"): ("room3"),
             ("front wall.002"): ("room3"),
-            ("right wall.005"): ("right wall.001"),
+            ("back wall"): ("room1"),
             ("room1_sensor"): ("right wall.001"),
-            ("roof.001"): ("room2"),
-            ("basic floor.003"): ("room2"),
+            ("room1"): ("environment"),
+            ("room2"): ("environment"),
+            ("left wall door"): ("left wall parent"),
+            ("basic floor"): ("room1"),
+            ("front wall.001"): ("room2"),
+            ("right wall.005"): ("right wall.001"),
+            ("player camera"): ("player"),
+            ("right wall.006"): ("right wall.001"),
+            ("left wall backing"): ("left wall parent"),
             ("right wall.003"): ("right wall.001"),
+            ("New Entity.001"): ("left wall backing"),
+            ("right wall.001"): ("room2"),
+            ("roof.001"): ("room2"),
+            ("left wall.002"): ("room3"),
+            ("cardboard light.003"): ("room3"),
+            ("basic floor.001"): ("room2"),
+            ("basic floor.003"): ("room2"),
+            ("left wall parent"): ("room2"),
+            ("room3"): ("environment"),
+            ("front wall"): ("room1"),
             ("back wall.002"): ("room3"),
+            ("cube"): ("room2"),
+            ("right wall.004"): ("right wall.001"),
+            ("basic floor.002"): ("room3"),
+            ("cardboard light.001"): ("room1"),
+            ("roof.002"): ("room3"),
+            ("roof"): ("room1"),
+            ("cardboard light"): ("room1"),
+            ("New Entity.002"): ("left wall backing"),
+            ("cardboard light.002"): ("room2"),
+            ("right wall"): ("room1"),
         },
         children_map: {
+            ("left wall parent"): [
+                ("left wall door"),
+                ("left wall backing"),
+            ],
+            ("room1"): [
+                ("basic floor"),
+                ("right wall"),
+                ("front wall"),
+                ("back wall"),
+                ("roof"),
+                ("cardboard light"),
+                ("cardboard light.001"),
+            ],
             ("right wall.001"): [
                 ("right wall.003"),
                 ("right wall.004"),
                 ("right wall.005"),
                 ("right wall.006"),
                 ("room1_sensor"),
+            ],
+            ("player"): [
+                ("player camera"),
             ],
             ("room2"): [
                 ("basic floor.001"),
@@ -10013,14 +9925,6 @@
                 ("basic floor.003"),
                 ("cube"),
             ],
-            ("player"): [
-                ("player camera"),
-            ],
-            ("left wall backing"): [
-                ("New Entity"),
-                ("New Entity.001"),
-                ("New Entity.002"),
-            ],
             ("room3"): [
                 ("left wall.002"),
                 ("basic floor.002"),
@@ -10029,23 +9933,15 @@
                 ("roof.002"),
                 ("cardboard light.003"),
             ],
+            ("left wall backing"): [
+                ("New Entity"),
+                ("New Entity.001"),
+                ("New Entity.002"),
+            ],
             ("environment"): [
                 ("room1"),
                 ("room2"),
                 ("room3"),
-            ],
-            ("room1"): [
-                ("basic floor"),
-                ("right wall"),
-                ("front wall"),
-                ("back wall"),
-                ("roof"),
-                ("cardboard light"),
-                ("cardboard light.001"),
-            ],
-            ("left wall parent"): [
-                ("left wall door"),
-                ("left wall backing"),
             ],
         },
     ),

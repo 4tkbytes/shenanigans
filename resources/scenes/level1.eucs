@@ -8,12 +8,12 @@
                     "type": "SerializableCamera",
                     "label": "Viewport Camera",
                     "transform": (
-                        position: (-97.492293951473, 76.35417770180248, 18.765618164922493),
-                        rotation: (-0.08680366606996011, -0.7536366956894048, 0.1016515552614408, -0.6435556042643871),
+                        position: (-87.55201218995575, 75.41445309721001, 32.966115681154506),
+                        rotation: (-0.06570467996130773, -0.8348669602258201, 0.10217294075456161, -0.536880567661045),
                         scale: (1.0, 1.0, 1.0),
                     ),
                     "camera_type": Debug,
-                    "aspect": 2.2547169811320753,
+                    "aspect": 2.359322033898305,
                     "fov": 75.0,
                     "near": 0.1,
                     "far": 100.0,
@@ -120,6 +120,24 @@
             label: ("light.001"),
             components: [
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 45.24535092299844, 19.271406032554697),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedLight",
                     "label": "Default Light",
                     "light_component": (
@@ -143,24 +161,6 @@
                             start: 0.1,
                             end: 100.0,
                         ),
-                    ),
-                },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 45.24535092299844, 19.271406032554697),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
                     ),
                 },
             ],
@@ -587,6 +587,24 @@
             label: ("light"),
             components: [
                 {
+                    "type": "EntityTransform",
+                    "local": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "world": (
+                        position: (0.0, 45.24535092299844, -14.077171589525026),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                    "animation": (
+                        position: (0.0, 0.0, 0.0),
+                        rotation: (0.0, 0.0, 0.0, 1.0),
+                        scale: (1.0, 1.0, 1.0),
+                    ),
+                },
+                {
                     "type": "SerializedLight",
                     "label": "Default Light",
                     "light_component": (
@@ -612,50 +630,26 @@
                         ),
                     ),
                 },
-                {
-                    "type": "EntityTransform",
-                    "local": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "world": (
-                        position: (0.0, 45.24535092299844, -14.077171589525026),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                    "animation": (
-                        position: (0.0, 0.0, 0.0),
-                        rotation: (0.0, 0.0, 0.0, 1.0),
-                        scale: (1.0, 1.0, 1.0),
-                    ),
-                },
             ],
         ),
     ],
     hierarchy_map: (
         parent_map: {
+            ("floor.002"): ("room 1"),
             ("cage_floor_1.002"): ("room 1"),
+            ("floor.004"): ("room 1"),
+            ("light"): ("room 1"),
+            ("cage_floor_1.001"): ("room 1"),
+            ("floor.003"): ("room 1"),
+            ("floor.009"): ("room 1.001"),
+            ("cage_floor_1.003"): ("room 1.001"),
             ("cage_floor_1.004"): ("room 1.001"),
             ("floor.006"): ("room 1"),
-            ("floor.008"): ("room 1.001"),
-            ("floor.009"): ("room 1.001"),
             ("floor.005"): ("room 1"),
-            ("cage_floor_1.001"): ("room 1"),
-            ("light"): ("room 1"),
-            ("cage_floor_1.003"): ("room 1.001"),
-            ("floor.002"): ("room 1"),
-            ("floor.004"): ("room 1"),
+            ("floor.008"): ("room 1.001"),
             ("floor"): ("room 1"),
-            ("floor.003"): ("room 1"),
         },
         children_map: {
-            ("room 1.001"): [
-                ("cage_floor_1.003"),
-                ("floor.008"),
-                ("floor.009"),
-                ("cage_floor_1.004"),
-            ],
             ("room 1"): [
                 ("cage_floor_1.001"),
                 ("floor.006"),
@@ -666,6 +660,12 @@
                 ("floor.004"),
                 ("floor.005"),
                 ("light"),
+            ],
+            ("room 1.001"): [
+                ("cage_floor_1.003"),
+                ("floor.008"),
+                ("floor.009"),
+                ("cage_floor_1.004"),
             ],
         },
     ),
